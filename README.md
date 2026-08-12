@@ -6,13 +6,11 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 
 ## 🕊️ Dedication & Tribute
 
-> **In Memory of My Father (19?? – 2001)**
+> **In Memory of My Father (1947 – 2001)**
 >
 > *This project is dedicated in loving memory to my father. From the mid-1960s until his passing in 2001, whenever he set out to learn a new programming language—from assembly and punch cards to modern high-level code—his very first benchmark project was always Conway's Game of Life.*
 > 
 > *Building this modern implementation is my tribute to his lifelong passion for computing, curiosity, and problem solving. May his legacy continue to compute.*
-
-> **Also:** this project is a **live example** of our other GitHub project, [AI Authorship](https://github.com/CaliMark/ai-authorship) — every commit is attributed to the AI agent (or human) that wrote it, with the report regenerated automatically. If you're interested, check out the repo.
 
 ---
 
@@ -54,6 +52,12 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 - **📊 Real-time HUD & Analytics**
   - Live Generation Counter, Population Count, Births/Deaths metrics, and target/actual FPS readout.
   - Real-time population sparkline graph tracking life cycles over generations.
+
+---
+
+## ℹ️ Also
+
+This project is a **live example** of our other GitHub project, [AI Authorship](https://github.com/CaliMark/ai-authorship) — every commit is attributed to the AI agent (or human) that wrote it, with the report regenerated automatically. If you're interested, check out the repo.
 
 ---
 
