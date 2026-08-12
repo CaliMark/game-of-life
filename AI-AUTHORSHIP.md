@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **3** (last 50)
-- Total lines added: **3509**
-- **AI-generated:** 389 lines (11.1%)
+- Commits analyzed: **5** (last 50)
+- Total lines added: **3563**
+- **AI-generated:** 391 lines (11.0%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3120 lines (88.9%)
-- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), opencode · big-pickle (257 lines)
+- **Untracked:** 3172 lines (89.0%)
+- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), opencode · big-pickle (259 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 9de0204 | 2026-08-11 | docs: note this repo is a live example of the ai-authorship project | 2 | 100% | 0% | opencode · big-pickle |
+| 059c0ca | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 906f076 | 2026-08-11 | chore: spice up the readme.md | 132 | 100% | 0% | gemini · gemini-3.6-flash-medium |
 | 761f493 | 2026-08-12 | docs: regenerate AI authorship report | 81 | 0% | 0% | untracked |
 | 94951a8 | 2026-08-11 | feat: initial commit - Conway's Game of Life | 3296 | 8% | 0% | opencode · big-pickle |
@@ -34,7 +36,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 906f076fa350bdd488259ca14c6653fe6c658bd4 (HEAD -> main, origin/main)
+commit 9de0204c9bbbadb3ceb77617dac943d18a1e6fa3 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-11T21:42:23-07:00
+
+    docs: note this repo is a live example of the ai-authorship project
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_988aa8c761b089::t_08c8605843cbc5 15-16
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "9de0204c9bbbadb3ceb77617dac943d18a1e6fa3",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 059c0ca7d5480a50785af43a96111c2516b0bcb9
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-12T04:33:32Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 906f076fa350bdd488259ca14c6653fe6c658bd4
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-11T21:32:49-07:00
 
