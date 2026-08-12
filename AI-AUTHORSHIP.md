@@ -7,11 +7,11 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **8** (last 50)
-- Total lines added: **3622**
-- **AI-generated:** 398 lines (11.0%)
+- Commits analyzed: **10** (last 50)
+- Total lines added: **3689**
+- **AI-generated:** 398 lines (10.8%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3224 lines (89.0%)
+- **Untracked:** 3291 lines (89.2%)
 - **Agents:** gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (259 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 460a12e | 2026-08-12 | Fix formatting in README.md section headers | 1 | 0% | 0% | untracked |
+| a486b28 | 2026-08-12 | docs: regenerate AI authorship report | 66 | 0% | 0% | untracked |
 | 0e31e40 | 2026-08-12 | Merge branch 'main' of https://github.com/CaliMark/game-of-life | 0 | 0% | 0% | none |
 | c8156e6 | 2026-08-12 | Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon | 7 | 100% | 0% | github-copilot · claude-haiku-4.5 |
 | a4372e9 | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
@@ -39,7 +41,33 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 0e31e40c85b9fd3fe73082cb6e530097b9d329ab (HEAD -> main, origin/main)
+commit 460a12e2823ab82248421bbf55401fa01904c41b (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-12T14:34:15-07:00
+
+    Fix formatting in README.md section headers
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit a486b28f7b07f4ed2ea7d0e25806e6545c9bfebf
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-12T21:28:11Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 0e31e40c85b9fd3fe73082cb6e530097b9d329ab
 Merge: c8156e6 a4372e9
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-12T14:27:32-07:00
