@@ -55,7 +55,7 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 
 ---
 
-## ℹ️ Also
+## ℹ️
 
 This project is a **live example** of our other GitHub project, [AI Authorship](https://github.com/CaliMark/ai-authorship) — every commit is attributed to the AI agent (or human) that wrote it, with the report regenerated automatically. If you're interested, check out the repo.
 
