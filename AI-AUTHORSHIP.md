@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **5** (last 50)
-- Total lines added: **3563**
-- **AI-generated:** 391 lines (11.0%)
+- Commits analyzed: **8** (last 50)
+- Total lines added: **3622**
+- **AI-generated:** 398 lines (11.0%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3172 lines (89.0%)
-- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), opencode · big-pickle (259 lines)
+- **Untracked:** 3224 lines (89.0%)
+- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (259 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,9 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 0e31e40 | 2026-08-12 | Merge branch 'main' of https://github.com/CaliMark/game-of-life | 0 | 0% | 0% | none |
+| c8156e6 | 2026-08-12 | Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon | 7 | 100% | 0% | github-copilot · claude-haiku-4.5 |
+| a4372e9 | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 9de0204 | 2026-08-11 | docs: note this repo is a live example of the ai-authorship project | 2 | 100% | 0% | opencode · big-pickle |
 | 059c0ca | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 906f076 | 2026-08-11 | chore: spice up the readme.md | 132 | 100% | 0% | gemini · gemini-3.6-flash-medium |
@@ -36,7 +39,64 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 9de0204c9bbbadb3ceb77617dac943d18a1e6fa3 (HEAD -> main, origin/main)
+commit 0e31e40c85b9fd3fe73082cb6e530097b9d329ab (HEAD -> main, origin/main)
+Merge: c8156e6 a4372e9
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-12T14:27:32-07:00
+
+    Merge branch 'main' of https://github.com/CaliMark/game-of-life
+
+    Git AI stats:
+      stats skipped for merge commit
+
+    Authorship note:
+      (none)
+
+commit c8156e62bfea805575827bba24e38f1633b25012
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-12T14:27:10-07:00
+
+    Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_3cbf141a28feb5::t_58f0d58294c06d 9,58-63
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "c8156e62bfea805575827bba24e38f1633b25012",
+        "prompts": {},
+        "sessions": {
+          "s_3cbf141a28feb5": {
+            "agent_id": {
+              "tool": "github-copilot",
+              "id": "e4f126fb-bf21-40de-948b-a745d0e22508",
+              "model": "claude-haiku-4.5"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit a4372e90fd282bd219d22614763a40fde8a5728a
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-12T04:43:29Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 9de0204c9bbbadb3ceb77617dac943d18a1e6fa3
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-11T21:42:23-07:00
 
