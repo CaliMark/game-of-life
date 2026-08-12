@@ -1,0 +1,66 @@
+name: AI Authorship Report
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ai-authorship-report
+  cancel-in-progress: true
+
+env:
+  # Keep this in sync with your local `git-ai --version` when you upgrade
+  # git-ai, so CI's note-reading version stays compatible with the notes
+  # git-ai writes on your machine. Verify against the release's SHA256SUMS.
+  GIT_AI_VERSION: "1.6.22"
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout (full history)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Install git-ai (pinned + checksum verified)
+        run: |
+          set -euo pipefail
+          curl -fsSL -o /tmp/git-ai-linux-x64 \
+            "https://github.com/git-ai-project/git-ai/releases/download/v${GIT_AI_VERSION}/git-ai-linux-x64"
+          expected="$(curl -fsSL "https://github.com/git-ai-project/git-ai/releases/download/v${GIT_AI_VERSION}/SHA256SUMS" | awk '$2 ~ /git-ai-linux-x64$/ {print $1}')"
+          [ -n "$expected" ] || { echo "SHA256SUMS did not list git-ai-linux-x64"; exit 1; }
+          actual="$(sha256sum /tmp/git-ai-linux-x64 | awk '{print $1}')"
+          [ "$expected" = "$actual" ] || { echo "git-ai checksum mismatch"; exit 1; }
+          mkdir -p "$HOME/.local/bin"
+          mv /tmp/git-ai-linux-x64 "$HOME/.local/bin/git-ai"
+          chmod +x "$HOME/.local/bin/git-ai"
+          "$HOME/.local/bin/git-ai" version
+
+      - name: Fetch AI authorship notes
+        run: |
+          git fetch origin refs/notes/ai:refs/notes/ai
+
+      - name: Generate AI-AUTHORSHIP.md
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          bash scripts/authorship-report.sh
+          echo "--- preview ---"
+          head -40 AI-AUTHORSHIP.md
+
+      - name: Commit report back if changed
+        run: |
+          if [ -z "$(git status --porcelain -- AI-AUTHORSHIP.md)" ]; then
+            echo "AI-AUTHORSHIP.md unchanged — nothing to do"
+          else
+            git add AI-AUTHORSHIP.md
+            git -c user.name="github-actions[bot]" \
+                -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
+                commit -m "docs: regenerate AI authorship report"
+            git push
+            echo "Pushed updated AI-AUTHORSHIP.md"
+          fi
