@@ -1,0 +1,19 @@
+README.md
+  s_3cbf141a28feb5::t_58f0d58294c06d 9,58-63
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "c8156e62bfea805575827bba24e38f1633b25012",
+  "prompts": {},
+  "sessions": {
+    "s_3cbf141a28feb5": {
+      "agent_id": {
+        "tool": "github-copilot",
+        "id": "e4f126fb-bf21-40de-948b-a745d0e22508",
+        "model": "claude-haiku-4.5"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
