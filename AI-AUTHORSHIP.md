@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **1** (last 50)
-- Total lines added: **3296**
-- **AI-generated:** 257 lines (7.8%)
+- Commits analyzed: **3** (last 50)
+- Total lines added: **3509**
+- **AI-generated:** 389 lines (11.1%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3039 lines (92.2%)
-- **Agents:** opencode · big-pickle (257 lines)
+- **Untracked:** 3120 lines (88.9%)
+- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), opencode · big-pickle (257 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 906f076 | 2026-08-11 | chore: spice up the readme.md | 132 | 100% | 0% | gemini · gemini-3.6-flash-medium |
+| 761f493 | 2026-08-12 | docs: regenerate AI authorship report | 81 | 0% | 0% | untracked |
 | 94951a8 | 2026-08-11 | feat: initial commit - Conway's Game of Life | 3296 | 8% | 0% | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
@@ -32,7 +34,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 94951a81aa4ca0069765e60acc26130829f07cab (HEAD -> main, origin/main)
+commit 906f076fa350bdd488259ca14c6653fe6c658bd4 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-11T21:32:49-07:00
+
+    chore: spice up the readme.md
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_2d9663bcdef3bb::t_23e07994feed1a 1,3,5,7,9-13,15,17,19-139
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "906f076fa350bdd488259ca14c6653fe6c658bd4",
+        "prompts": {},
+        "sessions": {
+          "s_2d9663bcdef3bb": {
+            "agent_id": {
+              "tool": "gemini",
+              "id": "80c02305-3819-4f7a-8020-077fd94661b6",
+              "model": "gemini-3.6-flash-medium"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 761f4934feee147d68b384d01acbc301fd203eb8
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-12T04:17:06Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 94951a81aa4ca0069765e60acc26130829f07cab
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-11T21:14:52-07:00
 
