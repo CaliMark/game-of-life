@@ -6,11 +6,26 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 
 ## 🕊️ Dedication & Tribute
 
-> **In Memory of My Father (1947 – 2001)**
+<p align="center">
+  <pre>
+    ░
+   ░░
+  ░ ░░
+    ░
+  </pre>
+</p>
+
+<p align="center"><em>A glider — the simplest spaceship. Small rules, endless motion.</em></p>
+
+---
+
+> ### In Memory of Christopher (1947 – 2001)
 >
-> *This project is dedicated in loving memory to my father. From the mid-1960s until his passing in 2001, whenever he set out to learn a new programming language—from assembly and punch cards to modern high-level code—his very first benchmark project was always Conway's Game of Life.*
-> 
-> *Building this modern implementation is my tribute to his lifelong passion for computing, curiosity, and problem solving. May his legacy continue to compute.*
+> *This project is dedicated in loving memory of my father, Christopher. From the mid-1960s until his passing in 2001, whenever he set out to learn a new programming language—from assembly and punch cards to modern high-level code—his very first benchmark project was always Conway's Game of Life.*
+>
+> *Building this modern implementation is my tribute to his lifelong passion for computing, curiosity, and problem solving.*
+
+<p align="center"><strong><em>May his legacy continue to compute.</em></strong></p>
 
 ---
 
