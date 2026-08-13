@@ -1,0 +1,14 @@
+README.md
+  h_93ac30673ac1e8 9-24,26-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "bba3f99e1b7cccecf9779f5274fab99fa1f00538",
+  "prompts": {},
+  "humans": {
+    "h_93ac30673ac1e8": {
+      "author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
