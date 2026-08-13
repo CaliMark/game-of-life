@@ -1,0 +1,23 @@
+src/components/CanvasViewport.jsx
+  s_988aa8c761b089::t_c2ddc781f66b5a 296,302-305
+  s_988aa8c761b089::t_5d11b58f6b5cbe 29
+  s_988aa8c761b089::t_33bea061a82e9b 381
+  s_988aa8c761b089::t_403e6bca0fa7a3 338-339,345-359,363-364
+  s_988aa8c761b089::t_135183ac91fa9e 328-330,332-333,335-336,341-344,360-362
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "3d0b9a8408ce9642317ea684b9a07c7f894b9e5b",
+  "prompts": {},
+  "sessions": {
+    "s_988aa8c761b089": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
