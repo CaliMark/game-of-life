@@ -11,7 +11,8 @@ export const CanvasViewport = ({
   showGrid,
   decayTrails,
   theme,
-  isTesting = false
+  isTesting = false,
+  onEditComplete
 }) => {
   const canvasRef = useRef(null);
 
@@ -211,6 +212,7 @@ export const CanvasViewport = ({
   const handleMouseDown = (e) => {
     isDraggingRef.current = true;
     lastMousePosRef.current = { x: e.clientX, y: e.clientY };
+    engine.beginUndoBatch();
 
     if (currentTool === 'pan' || e.button === 1 || e.button === 2) {
       // Middle or Right click defaults to pan
@@ -253,6 +255,8 @@ export const CanvasViewport = ({
 
   const handleMouseUp = () => {
     isDraggingRef.current = false;
+    engine.endUndoBatch();
+    onEditComplete?.();
   };
 
   // Scroll Wheel Zoom
@@ -282,6 +286,7 @@ export const CanvasViewport = ({
       isDraggingRef.current = true;
       const touch = e.touches[0];
       lastMousePosRef.current = { x: touch.clientX, y: touch.clientY };
+      engine.beginUndoBatch();
 
       if (currentTool === 'draw') {
         handleCellAction(touch.clientX, touch.clientY, false);
@@ -368,6 +373,8 @@ export const CanvasViewport = ({
   const handleTouchEnd = () => {
     isDraggingRef.current = false;
     touchDistanceRef.current = null;
+    engine.endUndoBatch();
+    onEditComplete?.();
   };
 
   return (
@@ -389,6 +396,7 @@ export const CanvasViewport = ({
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
+        onTouchCancel={handleTouchEnd}
         onContextMenu={e => e.preventDefault()}
       />
     </div>

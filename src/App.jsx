@@ -69,6 +69,7 @@ export default function App() {
 
   // Handle Step Forward
   const handleStep = useCallback(() => {
+    engine.pushUndoState();
     engine.step();
     if (soundEnabled && engine.births > 0) {
       soundEngine.playBirthTone(engine.population / (engine.size * 0.5));
@@ -78,6 +79,7 @@ export default function App() {
 
   // Handle Clear
   const handleClear = useCallback(() => {
+    engine.pushUndoState();
     engine.clear();
     setIsRunning(false);
     setTick(t => t + 1);
@@ -85,7 +87,22 @@ export default function App() {
 
   // Handle Randomize
   const handleRandomize = useCallback(() => {
+    engine.pushUndoState();
     engine.randomize(0.25);
+    setTick(t => t + 1);
+  }, [engine]);
+
+  // Handle Undo
+  const handleUndo = useCallback(() => {
+    const didUndo = engine.undo();
+    if (didUndo) setIsRunning(false);
+    setTick(t => t + 1);
+  }, [engine]);
+
+  // Handle Redo
+  const handleRedo = useCallback(() => {
+    const didRedo = engine.redo();
+    if (didRedo) setIsRunning(false);
     setTick(t => t + 1);
   }, [engine]);
 
@@ -105,12 +122,22 @@ export default function App() {
         handleStep();
       } else if (e.code === 'KeyM') {
         setSoundEnabled(prev => soundEngine.toggle());
+      } else if (e.code === 'KeyZ' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        if (e.shiftKey) {
+          handleRedo();
+        } else {
+          handleUndo();
+        }
+      } else if (e.code === 'KeyY' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        handleRedo();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleRandomize, handleClear, handleStep, isRunning]);
+  }, [handleRandomize, handleClear, handleStep, isRunning, handleUndo, handleRedo]);
 
   // Settings updates
   const handleChangeGridSize = (newSize) => {
@@ -213,6 +240,7 @@ export default function App() {
         showGrid={showGrid}
         decayTrails={decayTrails}
         theme={theme}
+        onEditComplete={() => setTick(t => t + 1)}
       />
 
       {/* Unified Single-Row Control Dock at Bottom */}
@@ -224,6 +252,10 @@ export default function App() {
         onRandomize={handleRandomize}
         fps={fps}
         onFpsChange={setFps}
+        canUndo={engine.canUndo}
+        onUndo={handleUndo}
+        canRedo={engine.canRedo}
+        onRedo={handleRedo}
         currentTool={currentTool}
         onSelectTool={setCurrentTool}
         selectedPattern={selectedPattern}

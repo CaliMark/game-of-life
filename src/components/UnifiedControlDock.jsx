@@ -10,6 +10,12 @@ export const UnifiedControlDock = ({
   fps,
   onFpsChange,
 
+  // Undo / Redo Props
+  canUndo,
+  onUndo,
+  canRedo,
+  onRedo,
+
   // Tool Props
   currentTool,
   onSelectTool,
@@ -76,6 +82,34 @@ export const UnifiedControlDock = ({
           </svg>
           <span>Stamp</span>
         </button>
+
+        <button
+          className="tool-btn"
+          onClick={onUndo}
+          disabled={!canUndo}
+          title="Undo (Ctrl+Z)"
+          style={{ opacity: canUndo ? 1 : 0.4 }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M3 7v6h6" />
+            <path d="M21 17a9 9 0 0 0-15-6.7L3 13" />
+          </svg>
+          <span>Undo</span>
+        </button>
+
+        <button
+          className="tool-btn"
+          onClick={onRedo}
+          disabled={!canRedo}
+          title="Redo (Ctrl+Shift+Z)"
+          style={{ opacity: canRedo ? 1 : 0.4 }}
+        >
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M21 7v6h-6" />
+            <path d="M3 17a9 9 0 0 1 15-6.7L21 13" />
+          </svg>
+          <span>Redo</span>
+        </button>
       </div>
 
       {/* Main Bottom Control Dock */}
@@ -140,6 +174,32 @@ export const UnifiedControlDock = ({
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <polygon points="5,4 15,12 5,20" fill="currentColor" />
                 <line x1="19" y1="5" x2="19" y2="19" strokeWidth="3" strokeLinecap="round" />
+              </svg>
+            </button>
+
+            <button
+              className="btn-icon"
+              onClick={onUndo}
+              disabled={!canUndo}
+              title="Undo (Ctrl+Z)"
+              style={{ opacity: canUndo ? 1 : 0.4 }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 7v6h6" />
+                <path d="M21 17a9 9 0 0 0-15-6.7L3 13" />
+              </svg>
+            </button>
+
+            <button
+              className="btn-icon"
+              onClick={onRedo}
+              disabled={!canRedo}
+              title="Redo (Ctrl+Shift+Z)"
+              style={{ opacity: canRedo ? 1 : 0.4 }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 7v6h-6" />
+                <path d="M3 17a9 9 0 0 1 15-6.7L21 13" />
               </svg>
             </button>
 

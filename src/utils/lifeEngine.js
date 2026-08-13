@@ -22,6 +22,12 @@ export class LifeEngine {
 
     // Rules: birth set and survival set
     this.setRules(options.rule || 'B3/S23');
+
+    // Undo / Redo history (snapshot-based)
+    this.undoStack = [];
+    this.redoStack = [];
+    this.undoLimit = 50;
+    this.batchSnapshot = null; // In-progress gesture snapshot
   }
 
   // Parse rule string like "B3/S23", "B36/S23", "B2/S"
@@ -73,6 +79,11 @@ export class LifeEngine {
       }
     }
     this.recalculateStats();
+
+    // Grid dimensions changed; old snapshots are invalid
+    this.undoStack = [];
+    this.redoStack = [];
+    this.batchSnapshot = null;
   }
 
   getIndex(x, y) {
@@ -267,5 +278,89 @@ export class LifeEngine {
       }
     }
     this.recalculateStats();
+  }
+
+  // ------------------------------------------------------------------
+  // Undo / Redo (snapshot-based history)
+  // ------------------------------------------------------------------
+
+  get canUndo() {
+    return this.undoStack.length > 0;
+  }
+
+  get canRedo() {
+    return this.redoStack.length > 0;
+  }
+
+  _snapshot() {
+    return {
+      grid: this.grid.slice(),
+      decayGrid: this.decayGrid.slice(),
+      generation: this.generation
+    };
+  }
+
+  _restore(snap) {
+    this.grid.set(snap.grid);
+    this.decayGrid.set(snap.decayGrid);
+    this.generation = snap.generation;
+    this.recalculateStats();
+  }
+
+  _isSame(snap) {
+    for (let i = 0; i < this.size; i++) {
+      if (snap.grid[i] !== this.grid[i] || snap.decayGrid[i] !== this.decayGrid[i]) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  // Start recording a gesture (stroke / stamp). One gesture = one undo entry.
+  beginUndoBatch() {
+    if (this.batchSnapshot) return; // Already in a batch (e.g. 2nd touch added)
+    this.batchSnapshot = this._snapshot();
+  }
+
+  // Finish recording a gesture. Discards no-op gestures (e.g. panning).
+  endUndoBatch() {
+    if (!this.batchSnapshot) return;
+    const snap = this.batchSnapshot;
+    this.batchSnapshot = null;
+
+    if (this._isSame(snap)) return; // Nothing changed
+
+    this.undoStack.push(snap);
+    if (this.undoStack.length > this.undoLimit) this.undoStack.shift();
+    this.redoStack = []; // New edit invalidates redo history
+    this.recalculateStats();
+  }
+
+  // Snapshot the current state (for single-shot ops like clear/randomize/step)
+  pushUndoState() {
+    if (this.batchSnapshot) this.endUndoBatch();
+    this.undoStack.push(this._snapshot());
+    if (this.undoStack.length > this.undoLimit) this.undoStack.shift();
+    this.redoStack = [];
+  }
+
+  undo() {
+    if (this.batchSnapshot) this.endUndoBatch();
+    const snap = this.undoStack.pop();
+    if (!snap) return false;
+
+    this.redoStack.push(this._snapshot());
+    this._restore(snap);
+    return true;
+  }
+
+  redo() {
+    const snap = this.redoStack.pop();
+    if (!snap) return false;
+
+    this.undoStack.push(this._snapshot());
+    if (this.undoStack.length > this.undoLimit) this.undoStack.shift();
+    this._restore(snap);
+    return true;
   }
 }
