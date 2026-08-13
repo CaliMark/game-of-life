@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **12** (last 50)
-- Total lines added: **3762**
-- **AI-generated:** 438 lines (11.6%)
+- Commits analyzed: **15** (last 50)
+- Total lines added: **4041**
+- **AI-generated:** 661 lines (16.4%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3324 lines (88.4%)
-- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (299 lines)
+- **Untracked:** 3380 lines (83.6%)
+- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (522 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,9 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| d32a64f | 2026-08-12 | fix: show brand title on mobile and contain active button glow in panels | 26 | 100% | 0% | opencode · big-pickle |
+| 00864a3 | 2026-08-12 | feat: add undo/redo history for drawing, stamps, clear, randomize, and step | 197 | 100% | 0% | opencode · big-pickle |
+| 372c70f | 2026-08-13 | docs: regenerate AI authorship report | 56 | 0% | 0% | untracked |
 | 3d0b9a8 | 2026-08-12 | fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan) | 40 | 100% | 0% | opencode · big-pickle |
 | 6139bdc | 2026-08-12 | docs: regenerate AI authorship report | 33 | 0% | 0% | untracked |
 | 460a12e | 2026-08-12 | Fix formatting in README.md section headers | 1 | 0% | 0% | untracked |
@@ -43,7 +46,106 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 3d0b9a8408ce9642317ea684b9a07c7f894b9e5b (HEAD -> main, origin/main)
+commit d32a64fb103caf5ecf1d6bb1a18eb52280d83a87 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-12T22:26:50-07:00
+
+    fix: show brand title on mobile and contain active button glow in panels
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      src/styles/components.css
+        s_988aa8c761b089::t_ee666e75c46b32 373,375-377,381
+        s_988aa8c761b089::t_367804c8b135ed 393
+        s_988aa8c761b089::t_8499f2240d6311 497
+        s_988aa8c761b089::t_068d55b223e084 414-424
+        s_988aa8c761b089::t_d2513db7227a9e 46
+        s_988aa8c761b089::t_c4d153aad7700f 437,448-450
+        s_988aa8c761b089::t_05105a2c54e32c 378,382
+        s_988aa8c761b089::t_3978b671742566 443
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "d32a64fb103caf5ecf1d6bb1a18eb52280d83a87",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 00864a36378c241be0cc3d2ca41493fdf9219c6e
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-12T22:26:44-07:00
+
+    feat: add undo/redo history for drawing, stamps, clear, randomize, and step
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      src/utils/lifeEngine.js
+        s_988aa8c761b089::t_479201897ecfaa 282-365
+        s_988aa8c761b089::t_40f6660241f46d 82-86
+        s_988aa8c761b089::t_d71e41d1031c78 25-30
+      src/components/CanvasViewport.jsx
+        s_988aa8c761b089::t_c5e5ec96e4f8b3 289
+        s_988aa8c761b089::t_4b41542dba9457 376-377
+        s_988aa8c761b089::t_63f2cfcc2094ed 258-259
+        s_988aa8c761b089::t_9c46c9f531a4f2 399
+        s_988aa8c761b089::t_eeeaf7e613bf18 14-15
+        s_988aa8c761b089::t_b72254d6fe028c 215
+      src/App.jsx
+        s_988aa8c761b089::t_d115a2650406c8 90,95-108,125-134,140
+        s_988aa8c761b089::t_af6cc1e02b3fd6 243,255-258
+        s_988aa8c761b089::t_9a459b053a5e56 72,82
+      src/components/UnifiedControlDock.jsx
+        s_988aa8c761b089::t_8de66b14055fe6 85-112
+        s_988aa8c761b089::t_cfa0296fb7d834 180-205
+        s_988aa8c761b089::t_c874d49b3b35e1 13-18
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "00864a36378c241be0cc3d2ca41493fdf9219c6e",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 372c70f87674e26c831e8fc952ac3d6a8cac47da
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-13T03:46:47Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 3d0b9a8408ce9642317ea684b9a07c7f894b9e5b
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-12T20:46:18-07:00
 
