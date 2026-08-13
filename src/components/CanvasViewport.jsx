@@ -26,6 +26,7 @@ export const CanvasViewport = ({
   const isDraggingRef = useRef(false);
   const lastMousePosRef = useRef({ x: 0, y: 0 });
   const touchDistanceRef = useRef(null);
+  const touchMidpointRef = useRef({ x: 0, y: 0 });
 
   // Pattern hover preview position in grid coords
   const [hoverGridPos, setHoverGridPos] = useState(null);
@@ -292,12 +293,16 @@ export const CanvasViewport = ({
         soundEngine.triggerHaptic();
       }
     } else if (e.touches.length === 2) {
-      // Pinch distance start
+      // Pinch distance & midpoint start
       const dist = Math.hypot(
         e.touches[0].clientX - e.touches[1].clientX,
         e.touches[0].clientY - e.touches[1].clientY
       );
       touchDistanceRef.current = dist;
+      touchMidpointRef.current = {
+        x: (e.touches[0].clientX + e.touches[1].clientX) / 2,
+        y: (e.touches[0].clientY + e.touches[1].clientY) / 2
+      };
     }
   };
 
@@ -320,21 +325,43 @@ export const CanvasViewport = ({
         handleCellAction(touch.clientX, touch.clientY, true);
       }
     } else if (e.touches.length === 2 && touchDistanceRef.current) {
-      // Pinch to zoom
+      // Two-finger pan + pinch-to-zoom (works regardless of selected tool)
+      const touch0 = e.touches[0];
+      const touch1 = e.touches[1];
       const dist = Math.hypot(
-        e.touches[0].clientX - e.touches[1].clientX,
-        e.touches[0].clientY - e.touches[1].clientY
+        touch0.clientX - touch1.clientX,
+        touch0.clientY - touch1.clientY
       );
-      const delta = dist - touchDistanceRef.current;
+      const midX = (touch0.clientX + touch1.clientX) / 2;
+      const midY = (touch0.clientY + touch1.clientY) / 2;
+
+      const prevDistance = touchDistanceRef.current;
+      const prevMid = touchMidpointRef.current;
+
+      const rect = canvasRef.current.getBoundingClientRect();
+      const canvasMidX = midX - rect.left;
+      const canvasMidY = midY - rect.top;
+
+      // Ratio-based zoom: proportional to actual finger movement, damped
+      const PINCH_ZOOM_SENSITIVITY = 0.7;
+      const rawRatio = dist / prevDistance;
+      const ratio = 1 + (rawRatio - 1) * PINCH_ZOOM_SENSITIVITY;
+      const newZoom = Math.max(2, Math.min(60, camera.zoom * ratio));
+
+      // Two-finger pan: follow midpoint movement
+      const dx = midX - prevMid.x;
+      const dy = midY - prevMid.y;
+      const pannedX = camera.offsetX + dx;
+      const pannedY = camera.offsetY + dy;
+
+      // Zoom anchored at the pinch midpoint so content stays under fingers
+      const newOffsetX = canvasMidX - (canvasMidX - pannedX) * (newZoom / camera.zoom);
+      const newOffsetY = canvasMidY - (canvasMidY - pannedY) * (newZoom / camera.zoom);
+
       touchDistanceRef.current = dist;
+      touchMidpointRef.current = { x: midX, y: midY };
 
-      const zoomFactor = delta > 0 ? 1.05 : 0.95;
-      const newZoom = Math.max(2, Math.min(60, camera.zoom * zoomFactor));
-
-      setCamera(prev => ({
-        ...prev,
-        zoom: newZoom
-      }));
+      setCamera({ zoom: newZoom, offsetX: newOffsetX, offsetY: newOffsetY });
     }
   };
 
@@ -351,6 +378,7 @@ export const CanvasViewport = ({
           width: '100%',
           height: '100%',
           display: 'block',
+          touchAction: 'none', // Native gestures (scroll/zoom) handled by our touch handlers
           cursor: currentTool === 'pan' ? 'grab' : currentTool === 'erase' ? 'crosshair' : 'pointer'
         }}
         onMouseDown={handleMouseDown}
