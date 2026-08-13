@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **10** (last 50)
-- Total lines added: **3689**
-- **AI-generated:** 398 lines (10.8%)
+- Commits analyzed: **12** (last 50)
+- Total lines added: **3762**
+- **AI-generated:** 438 lines (11.6%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3291 lines (89.2%)
-- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (259 lines)
+- **Untracked:** 3324 lines (88.4%)
+- **Agents:** gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (299 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 3d0b9a8 | 2026-08-12 | fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan) | 40 | 100% | 0% | opencode · big-pickle |
+| 6139bdc | 2026-08-12 | docs: regenerate AI authorship report | 33 | 0% | 0% | untracked |
 | 460a12e | 2026-08-12 | Fix formatting in README.md section headers | 1 | 0% | 0% | untracked |
 | a486b28 | 2026-08-12 | docs: regenerate AI authorship report | 66 | 0% | 0% | untracked |
 | 0e31e40 | 2026-08-12 | Merge branch 'main' of https://github.com/CaliMark/game-of-life | 0 | 0% | 0% | none |
@@ -41,7 +43,55 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 460a12e2823ab82248421bbf55401fa01904c41b (HEAD -> main, origin/main)
+commit 3d0b9a8408ce9642317ea684b9a07c7f894b9e5b (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-12T20:46:18-07:00
+
+    fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan)
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      src/components/CanvasViewport.jsx
+        s_988aa8c761b089::t_c2ddc781f66b5a 296,302-305
+        s_988aa8c761b089::t_5d11b58f6b5cbe 29
+        s_988aa8c761b089::t_33bea061a82e9b 381
+        s_988aa8c761b089::t_403e6bca0fa7a3 338-339,345-359,363-364
+        s_988aa8c761b089::t_135183ac91fa9e 328-330,332-333,335-336,341-344,360-362
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "3d0b9a8408ce9642317ea684b9a07c7f894b9e5b",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 6139bdce47ff970f7af3fe48fe5efee02f83ba0e
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-12T21:34:32Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 460a12e2823ab82248421bbf55401fa01904c41b
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-12T14:34:15-07:00
 
