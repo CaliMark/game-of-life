@@ -1,0 +1,36 @@
+src/utils/lifeEngine.js
+  s_988aa8c761b089::t_479201897ecfaa 282-365
+  s_988aa8c761b089::t_40f6660241f46d 82-86
+  s_988aa8c761b089::t_d71e41d1031c78 25-30
+src/components/CanvasViewport.jsx
+  s_988aa8c761b089::t_c5e5ec96e4f8b3 289
+  s_988aa8c761b089::t_4b41542dba9457 376-377
+  s_988aa8c761b089::t_63f2cfcc2094ed 258-259
+  s_988aa8c761b089::t_9c46c9f531a4f2 399
+  s_988aa8c761b089::t_eeeaf7e613bf18 14-15
+  s_988aa8c761b089::t_b72254d6fe028c 215
+src/App.jsx
+  s_988aa8c761b089::t_d115a2650406c8 90,95-108,125-134,140
+  s_988aa8c761b089::t_af6cc1e02b3fd6 243,255-258
+  s_988aa8c761b089::t_9a459b053a5e56 72,82
+src/components/UnifiedControlDock.jsx
+  s_988aa8c761b089::t_8de66b14055fe6 85-112
+  s_988aa8c761b089::t_cfa0296fb7d834 180-205
+  s_988aa8c761b089::t_c874d49b3b35e1 13-18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "47091c1e8c4547046e0cdc5b22f4284079268f66",
+  "prompts": {},
+  "sessions": {
+    "s_988aa8c761b089": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
