@@ -1,0 +1,30 @@
+.gitignore
+  s_52d0732141ad88::t_cc39c196ae06f2 17
+README.md
+  s_16177e3814d87c::t_a52a258b12c9ec 10-14,16-50,53
+  s_16177e3814d87c::t_11f88a490ab9a4 15
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "e918bdb76ea7cb11ffdcdc401b20af2fdb38e9eb",
+  "prompts": {},
+  "sessions": {
+    "s_16177e3814d87c": {
+      "agent_id": {
+        "tool": "cursor",
+        "id": "eca5cd01-a29b-4ac6-92e4-cf1136746b72",
+        "model": "composer-2.5"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    },
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
