@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **17** (last 50)
-- Total lines added: **4168**
-- **AI-generated:** 680 lines (16.3%)
+- Commits analyzed: **19** (last 50)
+- Total lines added: **4268**
+- **AI-generated:** 723 lines (16.9%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3488 lines (83.7%)
-- **Agents:** cursor (19 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (522 lines)
+- **Untracked:** 3545 lines (83.1%)
+- **Agents:** cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (523 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| e918bdb | 2026-08-13 | docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS) | 43 | 100% | 0% | cursor · composer-2.5, opencode · big-pickle |
+| c3c2f3b | 2026-08-13 | docs: regenerate AI authorship report | 57 | 0% | 0% | untracked |
 | 84fc816 | 2026-08-13 | docs: add glider art and expand dedication | 19 | 100% | 0% | cursor |
 | 417601a | 2026-08-13 | docs: regenerate AI authorship report | 108 | 0% | 0% | untracked |
 | d32a64f | 2026-08-12 | fix: show brand title on mobile and contain active button glow in panels | 26 | 100% | 0% | opencode · big-pickle |
@@ -48,7 +50,62 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 84fc816d4231451fe1a3243ae4180a3687ca51c5 (HEAD -> main, origin/main)
+commit e918bdb76ea7cb11ffdcdc401b20af2fdb38e9eb (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-13T15:23:26-07:00
+
+    docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS)
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      .gitignore
+        s_52d0732141ad88::t_cc39c196ae06f2 17
+      README.md
+        s_16177e3814d87c::t_a52a258b12c9ec 10-14,16-50,53
+        s_16177e3814d87c::t_11f88a490ab9a4 15
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "e918bdb76ea7cb11ffdcdc401b20af2fdb38e9eb",
+        "prompts": {},
+        "sessions": {
+          "s_16177e3814d87c": {
+            "agent_id": {
+              "tool": "cursor",
+              "id": "eca5cd01-a29b-4ac6-92e4-cf1136746b72",
+              "model": "composer-2.5"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          },
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit c3c2f3b47121040cbc2c529f2e42b0be4300173a
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-13T21:06:01Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 84fc816d4231451fe1a3243ae4180a3687ca51c5
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T14:04:11-07:00
 
