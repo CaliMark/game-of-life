@@ -14,6 +14,7 @@ dist-ssr
 
 # git-ai / tooling temp
 .ai-authorship-detail.tmp
+.preview-*.html
 
 # Editor directories and files
 .vscode/*

@@ -7,15 +7,50 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 ## 🕊️ Dedication & Tribute
 
 <p align="center">
-  <pre>
-    ░
-   ░░
-  ░ ░░
-    ░
-  </pre>
+<table>
+  <tr>
+    <td align="center">
+      <pre>
+ . #
+ .  #
+ ###
+      </pre>
+      <sub><em>Glider</em></sub>
+    </td>
+    <td align="center">
+      <pre>
+ ###
+      </pre>
+      <sub><em>Blinker</em></sub>
+    </td>
+    <td align="center">
+      <pre>
+ .###
+ ##.
+      </pre>
+      <sub><em>Toad</em></sub>
+    </td>
+    <td align="center">
+      <pre>
+ ##
+ ##
+      </pre>
+      <sub><em>Block</em></sub>
+    </td>
+    <td align="center">
+      <pre>
+ .#..#
+ #....
+ #..#.
+ ####.
+      </pre>
+      <sub><em>LWSS</em></sub>
+    </td>
+  </tr>
+</table>
 </p>
 
-<p align="center"><em>A glider — the simplest spaceship. Small rules, endless motion.</em></p>
+<p align="center"><em>Spaceships, oscillators, still lifes — small rules, endless motion.</em></p>
 
 ---
 
