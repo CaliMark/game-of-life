@@ -1,0 +1,19 @@
+README.md
+  s_9f33fe8c7706be::t_f30b28461152ce 10
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "fc81dca691e9aec2e05fe8957695ba5283f6d711",
+  "prompts": {},
+  "sessions": {
+    "s_9f33fe8c7706be": {
+      "agent_id": {
+        "tool": "cline",
+        "id": "conv_1786669289021_125jie6",
+        "model": "nemotron-3.5-lightning"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
