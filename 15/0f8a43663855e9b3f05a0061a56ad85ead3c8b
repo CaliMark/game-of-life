@@ -1,0 +1,31 @@
+.devin/hooks.v1.json
+  s_52d0732141ad88::t_b273453f0b15b2 1-3,5-7,9-14,16-18,20-24
+  s_52d0732141ad88::t_8549282e416819 4,15
+  s_52d0732141ad88::t_0c0ab46ecdf388 8,19
+README.md
+  s_5bf60418c4b56d::t_135dc3745dd301 190
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "150f8a43663855e9b3f05a0061a56ad85ead3c8b",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    },
+    "s_5bf60418c4b56d": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "various-alibi",
+        "model": "swe-1-6-slow"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
