@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **23** (last 50)
-- Total lines added: **4384**
-- **AI-generated:** 724 lines (16.5%)
+- Commits analyzed: **25** (last 50)
+- Total lines added: **4424**
+- **AI-generated:** 725 lines (16.4%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3660 lines (83.5%)
-- **Agents:** cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (523 lines)
+- **Untracked:** 3699 lines (83.6%)
+- **Agents:** cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (523 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 605ebd8 | 2026-08-13 | docs: add needpc line to README | 1 | 100% | 0% | cline · deepseek/deepseek-v4-flash |
+| a0a233c | 2026-08-14 | docs: regenerate AI authorship report | 39 | 0% | 0% | untracked |
 | 09df4eb | 2026-08-13 | Remove divider rule pattern gallery | 0 | 0% | 0% | none |
 | 45b21c8 | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | fc81dca | 2026-08-13 | Center pattern table in README | 1 | 100% | 0% | cline · nemotron-3.5-lightning |
@@ -54,7 +56,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 09df4ebe9045f003dd48502333885c9764a62b2b (HEAD -> main, origin/main)
+commit 605ebd838cf4e3a72c59e2eb41fd0d992fb58b98 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-13T20:01:57-07:00
+
+    docs: add needpc line to README
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_b3fc50989fc1c5::t_8c392c1b2c748d 190
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "605ebd838cf4e3a72c59e2eb41fd0d992fb58b98",
+        "prompts": {},
+        "sessions": {
+          "s_b3fc50989fc1c5": {
+            "agent_id": {
+              "tool": "cline",
+              "id": "1786676246340",
+              "model": "deepseek/deepseek-v4-flash"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit a0a233c34bd7f8fdd6cb4bb34b80febc77902129
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-14T02:06:21Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 09df4ebe9045f003dd48502333885c9764a62b2b
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T19:03:42-07:00
 
