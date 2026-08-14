@@ -1,0 +1,19 @@
+README.md
+  s_b3fc50989fc1c5::t_8c392c1b2c748d 190
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "48ad9b6c0f98bcee5835c56eb090dd21a9c273cb",
+  "prompts": {},
+  "sessions": {
+    "s_b3fc50989fc1c5": {
+      "agent_id": {
+        "tool": "cline",
+        "id": "1786676246340",
+        "model": "deepseek/deepseek-v4-flash"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
