@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **19** (last 50)
-- Total lines added: **4268**
-- **AI-generated:** 723 lines (16.9%)
+- Commits analyzed: **21** (last 50)
+- Total lines added: **4332**
+- **AI-generated:** 724 lines (16.7%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3545 lines (83.1%)
-- **Agents:** cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (523 lines)
+- **Untracked:** 3608 lines (83.3%)
+- **Agents:** cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (523 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| fc81dca | 2026-08-13 | Center pattern table in README | 1 | 100% | 0% | cline · nemotron-3.5-lightning |
+| f15318b | 2026-08-13 | docs: regenerate AI authorship report | 63 | 0% | 0% | untracked |
 | e918bdb | 2026-08-13 | docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS) | 43 | 100% | 0% | cursor · composer-2.5, opencode · big-pickle |
 | c3c2f3b | 2026-08-13 | docs: regenerate AI authorship report | 57 | 0% | 0% | untracked |
 | 84fc816 | 2026-08-13 | docs: add glider art and expand dedication | 19 | 100% | 0% | cursor |
@@ -50,7 +52,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit e918bdb76ea7cb11ffdcdc401b20af2fdb38e9eb (HEAD -> main, origin/main)
+commit fc81dca691e9aec2e05fe8957695ba5283f6d711 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-13T18:04:06-07:00
+
+    Center pattern table in README
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_9f33fe8c7706be::t_f30b28461152ce 10
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "fc81dca691e9aec2e05fe8957695ba5283f6d711",
+        "prompts": {},
+        "sessions": {
+          "s_9f33fe8c7706be": {
+            "agent_id": {
+              "tool": "cline",
+              "id": "conv_1786669289021_125jie6",
+              "model": "nemotron-3.5-lightning"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit f15318b4d2c448263aacb14bfda27ad59e05260e
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-13T22:23:57Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit e918bdb76ea7cb11ffdcdc401b20af2fdb38e9eb
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T15:23:26-07:00
 
