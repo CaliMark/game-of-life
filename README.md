@@ -7,7 +7,7 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 ## 🕊️ Dedication & Tribute
 
 <p align="center">
-<table>
+<table align="center">
   <tr>
     <td align="center">
       <pre>
