@@ -187,7 +187,7 @@ game-of-life/
 ```
 
 ---
-needpc
+needpc.net - please check out our website
 
 ## 📜 License
 

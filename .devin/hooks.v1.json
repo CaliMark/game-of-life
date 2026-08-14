@@ -1,0 +1,24 @@
+{
+  "PostToolUse": [
+    {
+      "matcher": "edit|write|multi_edit|apply_patch|notebook",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/calim/.git-ai/bridge/devin/HookBridge.ps1"
+        }
+      ]
+    }
+  ],
+  "PreToolUse": [
+    {
+      "matcher": "edit|write|multi_edit|apply_patch|notebook",
+      "hooks": [
+        {
+          "type": "command",
+          "command": "powershell -NoProfile -ExecutionPolicy Bypass -File C:/Users/calim/.git-ai/bridge/devin/HookBridge.ps1"
+        }
+      ]
+    }
+  ]
+}
