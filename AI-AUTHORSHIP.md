@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **25** (last 50)
-- Total lines added: **4424**
-- **AI-generated:** 725 lines (16.4%)
+- Commits analyzed: **27** (last 50)
+- Total lines added: **4501**
+- **AI-generated:** 750 lines (16.7%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3699 lines (83.6%)
-- **Agents:** cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (523 lines)
+- **Untracked:** 3751 lines (83.3%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (547 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 150f8a4 | 2026-08-13 | feat: attribute Devin Desktop edits via .devin hooks to git-ai | 25 | 100% | 0% | claude · swe-1-6-slow, opencode · big-pickle |
+| b0231be | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 605ebd8 | 2026-08-13 | docs: add needpc line to README | 1 | 100% | 0% | cline · deepseek/deepseek-v4-flash |
 | a0a233c | 2026-08-14 | docs: regenerate AI authorship report | 39 | 0% | 0% | untracked |
 | 09df4eb | 2026-08-13 | Remove divider rule pattern gallery | 0 | 0% | 0% | none |
@@ -56,7 +58,67 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 605ebd838cf4e3a72c59e2eb41fd0d992fb58b98 (HEAD -> main, origin/main)
+commit 150f8a43663855e9b3f05a0061a56ad85ead3c8b (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-13T22:12:05-07:00
+
+    feat: attribute Devin Desktop edits via .devin hooks to git-ai
+
+    - Add .devin/hooks.v1.json (Pre/PostToolUse on edit/write tools) calling
+      git-ai devin bridge so Devin Local edits are attributed to claude/swe-1-6-slow
+    - Update needpc line to include website note
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      .devin/hooks.v1.json
+        s_52d0732141ad88::t_b273453f0b15b2 1-3,5-7,9-14,16-18,20-24
+        s_52d0732141ad88::t_8549282e416819 4,15
+        s_52d0732141ad88::t_0c0ab46ecdf388 8,19
+      README.md
+        s_5bf60418c4b56d::t_135dc3745dd301 190
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "150f8a43663855e9b3f05a0061a56ad85ead3c8b",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          },
+          "s_5bf60418c4b56d": {
+            "agent_id": {
+              "tool": "claude",
+              "id": "various-alibi",
+              "model": "swe-1-6-slow"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit b0231beb5b5ff0d9e824be7336cd1ad071404e00
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-14T03:03:15Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 605ebd838cf4e3a72c59e2eb41fd0d992fb58b98
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T20:01:57-07:00
 
@@ -579,58 +641,6 @@ Date:   2026-08-11T21:32:49-07:00
               "tool": "gemini",
               "id": "80c02305-3819-4f7a-8020-077fd94661b6",
               "model": "gemini-3.6-flash-medium"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 761f4934feee147d68b384d01acbc301fd203eb8
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-12T04:17:06Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 94951a81aa4ca0069765e60acc26130829f07cab
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-11T21:14:52-07:00
-
-    feat: initial commit - Conway's Game of Life
-
-    Git AI stats:
-      you  ····································░░░░ ai
-           0%           untracked  92%            8%
-
-    Authorship note:
-      .gitattributes
-        s_988aa8c761b089::t_7f2a4059989744 1-6
-      .gitignore
-        s_988aa8c761b089::t_d92a3597993c06 15-17
-        s_988aa8c761b089::t_0cf8af6ff0e27a 12-14
-        s_988aa8c761b089::t_35e2063bd4c53d 18-20
-      scripts/authorship-report.sh
-        s_988aa8c761b089::t_7f2a4059989744 1-176
-      .github/workflows/authorship-report.yml
-        s_988aa8c761b089::t_7f2a4059989744 1-66
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "94951a81aa4ca0069765e60acc26130829f07cab",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
           }
