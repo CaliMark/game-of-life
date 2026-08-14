@@ -7,11 +7,11 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **21** (last 50)
-- Total lines added: **4332**
-- **AI-generated:** 724 lines (16.7%)
+- Commits analyzed: **23** (last 50)
+- Total lines added: **4384**
+- **AI-generated:** 724 lines (16.5%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3608 lines (83.3%)
+- **Untracked:** 3660 lines (83.5%)
 - **Agents:** cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (523 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 09df4eb | 2026-08-13 | Remove divider rule pattern gallery | 0 | 0% | 0% | none |
+| 45b21c8 | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | fc81dca | 2026-08-13 | Center pattern table in README | 1 | 100% | 0% | cline · nemotron-3.5-lightning |
 | f15318b | 2026-08-13 | docs: regenerate AI authorship report | 63 | 0% | 0% | untracked |
 | e918bdb | 2026-08-13 | docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS) | 43 | 100% | 0% | cursor · composer-2.5, opencode · big-pickle |
@@ -52,7 +54,39 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit fc81dca691e9aec2e05fe8957695ba5283f6d711 (HEAD -> main, origin/main)
+commit 09df4ebe9045f003dd48502333885c9764a62b2b (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-13T19:03:42-07:00
+
+    Remove divider rule pattern gallery
+
+    Git AI stats:
+      you  [90m                                        [0m ai
+           [90m             (no additions)             [0m
+
+    Authorship note:
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "09df4ebe9045f003dd48502333885c9764a62b2b",
+        "prompts": {}
+      }
+
+commit 45b21c8f52819a732bcc06de705b71d8bc430196
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-14T01:04:45Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit fc81dca691e9aec2e05fe8957695ba5283f6d711
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T18:04:06-07:00
 
