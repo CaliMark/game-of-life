@@ -52,8 +52,6 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 
 <p align="center"><em>Spaceships, oscillators, still lifes — small rules, endless motion.</em></p>
 
----
-
 > ### In Memory of Christopher (1947 – 2001)
 >
 > *This project is dedicated in loving memory of my father, Christopher. From the mid-1960s until his passing in 2001, whenever he set out to learn a new programming language—from assembly and punch cards to modern high-level code—his very first benchmark project was always Conway's Game of Life.*
