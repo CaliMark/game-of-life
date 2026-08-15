@@ -7,11 +7,11 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **31** (last 50)
-- Total lines added: **4623**
-- **AI-generated:** 751 lines (16.2%)
+- Commits analyzed: **34** (last 50)
+- Total lines added: **4670**
+- **AI-generated:** 751 lines (16.1%)
 - **Human:** 1 lines (0.0%)
-- **Untracked:** 3871 lines (83.7%)
+- **Untracked:** 3918 lines (83.9%)
 - **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (547 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -24,6 +24,9 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 3a4581d | 2026-08-14 | docs: tidy separator before license section | 0 | 0% | 0% | none |
+| 293f451 | 2026-08-14 | docs: remove needpc.net line | 0 | 0% | 0% | none |
+| 8cba1ef | 2026-08-15 | docs: regenerate AI authorship report | 47 | 0% | 0% | untracked |
 | b7e37f0 | 2026-08-14 | docs: manually shorten needpc.net line (human-attributed edit) | 1 | 0% | 100% | human |
 | 7195ad1 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% | devin · swe-1-6-slow |
@@ -62,7 +65,58 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit b7e37f0f6d4f209c1ea3bd2292d5167c887c19ed (HEAD -> main, origin/main)
+commit 3a4581d0690a3a7a483a95bd2f1bdc1dd4095ea4 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T18:08:48-07:00
+
+    docs: tidy separator before license section
+
+    Git AI stats:
+      you  [90m                                        [0m ai
+           [90m             (no additions)             [0m
+
+    Authorship note:
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "3a4581d0690a3a7a483a95bd2f1bdc1dd4095ea4",
+        "prompts": {}
+      }
+
+commit 293f45188ab256bed0378d313abae684436a51cc
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T18:08:23-07:00
+
+    docs: remove needpc.net line
+
+    Git AI stats:
+      you  [90m                                        [0m ai
+           [90m             (no additions)             [0m
+
+    Authorship note:
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "293f45188ab256bed0378d313abae684436a51cc",
+        "prompts": {}
+      }
+
+commit 8cba1ef48c2db7bd74345d3a6ab89b38a9c4fa73
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T01:08:03Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit b7e37f0f6d4f209c1ea3bd2292d5167c887c19ed
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T18:07:06-07:00
 
@@ -588,63 +642,6 @@ Date:   2026-08-12T14:34:15-07:00
 
     Authorship note:
       (none)
-
-commit a486b28f7b07f4ed2ea7d0e25806e6545c9bfebf
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-12T21:28:11Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 0e31e40c85b9fd3fe73082cb6e530097b9d329ab
-Merge: c8156e6 a4372e9
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T14:27:32-07:00
-
-    Merge branch 'main' of https://github.com/CaliMark/game-of-life
-
-    Git AI stats:
-      stats skipped for merge commit
-
-    Authorship note:
-      (none)
-
-commit c8156e62bfea805575827bba24e38f1633b25012
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T14:27:10-07:00
-
-    Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_3cbf141a28feb5::t_58f0d58294c06d 9,58-63
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "c8156e62bfea805575827bba24e38f1633b25012",
-        "prompts": {},
-        "sessions": {
-          "s_3cbf141a28feb5": {
-            "agent_id": {
-              "tool": "github-copilot",
-              "id": "e4f126fb-bf21-40de-948b-a745d0e22508",
-              "model": "claude-haiku-4.5"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
