@@ -1,0 +1,19 @@
+LOCAL-MODEL-NOTE.md
+  s_0f06189ee8318e::t_99665f2cff3173 1-3
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "17cc1a8bb5845105c3f228379128efe5379f3edf",
+  "prompts": {},
+  "sessions": {
+    "s_0f06189ee8318e": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_ffb8ed22fffejSddhicohPkVdK",
+        "model": "qwen2.5-7b-instruct"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
