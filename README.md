@@ -187,7 +187,7 @@ game-of-life/
 ```
 
 ---
-needpc.net - please check out our website
+needpc.net - please check out our website TeamWork
 
 ## 📜 License
 
