@@ -185,9 +185,7 @@ game-of-life/
 ├── package.json
 └── vite.config.js
 ```
-
 ---
-needpc.net
 
 ## 📜 License
 
