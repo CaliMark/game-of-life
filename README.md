@@ -185,7 +185,6 @@ game-of-life/
 ├── package.json
 └── vite.config.js
 ```
----
 
 ## 📜 License
 
