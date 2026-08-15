@@ -1,0 +1,19 @@
+README.md
+  s_1d3426a336de71::t_6db6a07db46476 190
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "ca7ee4bca2ad5f7d866505c5c8be69e996cc6b26",
+  "prompts": {},
+  "sessions": {
+    "s_1d3426a336de71": {
+      "agent_id": {
+        "tool": "devin",
+        "id": "various-alibi",
+        "model": "swe-1-6-slow"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
