@@ -7,11 +7,11 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **29** (last 50)
-- Total lines added: **4570**
-- **AI-generated:** 751 lines (16.4%)
-- **Human:** 0 lines (0.0%)
-- **Untracked:** 3819 lines (83.6%)
+- Commits analyzed: **31** (last 50)
+- Total lines added: **4623**
+- **AI-generated:** 751 lines (16.2%)
+- **Human:** 1 lines (0.0%)
+- **Untracked:** 3871 lines (83.7%)
 - **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (547 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| b7e37f0 | 2026-08-14 | docs: manually shorten needpc.net line (human-attributed edit) | 1 | 0% | 100% | human |
+| 7195ad1 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% | devin · swe-1-6-slow |
 | 9973fde | 2026-08-14 | docs: regenerate AI authorship report | 68 | 0% | 0% | untracked |
 | 150f8a4 | 2026-08-13 | feat: attribute Devin Desktop edits via .devin hooks to git-ai | 25 | 100% | 0% | claude · swe-1-6-slow, opencode · big-pickle |
@@ -60,7 +62,46 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit ca7ee4bca2ad5f7d866505c5c8be69e996cc6b26 (HEAD -> main, origin/main)
+commit b7e37f0f6d4f209c1ea3bd2292d5167c887c19ed (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T18:07:06-07:00
+
+    docs: manually shorten needpc.net line (human-attributed edit)
+
+    Git AI stats:
+      you  ████████████████████████████████████████ ai
+           100%                                   0%
+
+    Authorship note:
+      README.md
+        h_93ac30673ac1e8 190
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "b7e37f0f6d4f209c1ea3bd2292d5167c887c19ed",
+        "prompts": {},
+        "humans": {
+          "h_93ac30673ac1e8": {
+            "author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 7195ad12bfb4b3af140a2ac777466aa3c658850a
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T00:29:39Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit ca7ee4bca2ad5f7d866505c5c8be69e996cc6b26
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T17:28:52-07:00
 
@@ -599,50 +640,6 @@ Date:   2026-08-12T14:27:10-07:00
               "tool": "github-copilot",
               "id": "e4f126fb-bf21-40de-948b-a745d0e22508",
               "model": "claude-haiku-4.5"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit a4372e90fd282bd219d22614763a40fde8a5728a
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-12T04:43:29Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 9de0204c9bbbadb3ceb77617dac943d18a1e6fa3
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-11T21:42:23-07:00
-
-    docs: note this repo is a live example of the ai-authorship project
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_988aa8c761b089::t_08c8605843cbc5 15-16
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "9de0204c9bbbadb3ceb77617dac943d18a1e6fa3",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
           }
