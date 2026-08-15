@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **34** (last 50)
-- Total lines added: **4670**
-- **AI-generated:** 751 lines (16.1%)
+- Commits analyzed: **36** (last 50)
+- Total lines added: **4731**
+- **AI-generated:** 753 lines (15.9%)
 - **Human:** 1 lines (0.0%)
-- **Untracked:** 3918 lines (83.9%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (547 lines)
+- **Untracked:** 3977 lines (84.1%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (549 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| d8ae5d6 | 2026-08-14 | docs: add live website link (needpc.net/life) | 2 | 100% | 0% | opencode · big-pickle |
+| d61a459 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% | untracked |
 | 3a4581d | 2026-08-14 | docs: tidy separator before license section | 0 | 0% | 0% | none |
 | 293f451 | 2026-08-14 | docs: remove needpc.net line | 0 | 0% | 0% | none |
 | 8cba1ef | 2026-08-15 | docs: regenerate AI authorship report | 47 | 0% | 0% | untracked |
@@ -65,7 +67,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 3a4581d0690a3a7a483a95bd2f1bdc1dd4095ea4 (HEAD -> main, origin/main)
+commit d8ae5d66b7e4d4a4209d21f47713489fa581faf0 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T21:27:34-07:00
+
+    docs: add live website link (needpc.net/life)
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_f56f909000a502 3-4
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "d8ae5d66b7e4d4a4209d21f47713489fa581faf0",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit d61a4596149f30768ce7e8879cd9be228ca3f328
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T01:09:22Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 3a4581d0690a3a7a483a95bd2f1bdc1dd4095ea4
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T18:08:48-07:00
 
@@ -616,32 +662,6 @@ Date:   2026-08-12T20:46:18-07:00
           }
         }
       }
-
-commit 6139bdce47ff970f7af3fe48fe5efee02f83ba0e
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-12T21:34:32Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 460a12e2823ab82248421bbf55401fa01904c41b
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T14:34:15-07:00
-
-    Fix formatting in README.md section headers
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```
