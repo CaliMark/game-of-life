@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **27** (last 50)
-- Total lines added: **4501**
-- **AI-generated:** 750 lines (16.7%)
+- Commits analyzed: **29** (last 50)
+- Total lines added: **4570**
+- **AI-generated:** 751 lines (16.4%)
 - **Human:** 0 lines (0.0%)
-- **Untracked:** 3751 lines (83.3%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (547 lines)
+- **Untracked:** 3819 lines (83.6%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (547 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% | devin · swe-1-6-slow |
+| 9973fde | 2026-08-14 | docs: regenerate AI authorship report | 68 | 0% | 0% | untracked |
 | 150f8a4 | 2026-08-13 | feat: attribute Devin Desktop edits via .devin hooks to git-ai | 25 | 100% | 0% | claude · swe-1-6-slow, opencode · big-pickle |
 | b0231be | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 605ebd8 | 2026-08-13 | docs: add needpc line to README | 1 | 100% | 0% | cline · deepseek/deepseek-v4-flash |
@@ -58,7 +60,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 150f8a43663855e9b3f05a0061a56ad85ead3c8b (HEAD -> main, origin/main)
+commit ca7ee4bca2ad5f7d866505c5c8be69e996cc6b26 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-14T17:28:52-07:00
+
+    docs: add TeamWork mention via Devin Desktop live test
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_1d3426a336de71::t_6db6a07db46476 190
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "ca7ee4bca2ad5f7d866505c5c8be69e996cc6b26",
+        "prompts": {},
+        "sessions": {
+          "s_1d3426a336de71": {
+            "agent_id": {
+              "tool": "devin",
+              "id": "various-alibi",
+              "model": "swe-1-6-slow"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 9973fdeafae7effe3bf594934b2448192d4bbdb3
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-14T05:12:54Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 150f8a43663855e9b3f05a0061a56ad85ead3c8b
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-13T22:12:05-07:00
 
@@ -597,50 +643,6 @@ Date:   2026-08-11T21:42:23-07:00
               "tool": "opencode",
               "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
               "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 059c0ca7d5480a50785af43a96111c2516b0bcb9
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-12T04:33:32Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 906f076fa350bdd488259ca14c6653fe6c658bd4
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-11T21:32:49-07:00
-
-    chore: spice up the readme.md
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_2d9663bcdef3bb::t_23e07994feed1a 1,3,5,7,9-13,15,17,19-139
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "906f076fa350bdd488259ca14c6653fe6c658bd4",
-        "prompts": {},
-        "sessions": {
-          "s_2d9663bcdef3bb": {
-            "agent_id": {
-              "tool": "gemini",
-              "id": "80c02305-3819-4f7a-8020-077fd94661b6",
-              "model": "gemini-3.6-flash-medium"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
           }
