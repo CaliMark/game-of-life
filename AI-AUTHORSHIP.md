@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **36** (last 50)
-- Total lines added: **4731**
-- **AI-generated:** 753 lines (15.9%)
+- Commits analyzed: **38** (last 50)
+- Total lines added: **4786**
+- **AI-generated:** 756 lines (15.8%)
 - **Human:** 1 lines (0.0%)
-- **Untracked:** 3977 lines (84.1%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (549 lines)
+- **Untracked:** 4029 lines (84.2%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (549 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 7b79bd1 | 2026-08-15 | Created by LM Stuido with opencode | 3 | 100% | 0% | opencode · qwen2.5-7b-instruct |
+| b79a733 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | d8ae5d6 | 2026-08-14 | docs: add live website link (needpc.net/life) | 2 | 100% | 0% | opencode · big-pickle |
 | d61a459 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% | untracked |
 | 3a4581d | 2026-08-14 | docs: tidy separator before license section | 0 | 0% | 0% | none |
@@ -67,7 +69,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit d8ae5d66b7e4d4a4209d21f47713489fa581faf0 (HEAD -> main, origin/main)
+commit 7b79bd18c375843c5549e9b81d8fbea597abbb23 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-15T01:23:38-07:00
+
+    Created by LM Stuido with opencode
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      LOCAL-MODEL-NOTE.md
+        s_0f06189ee8318e::t_99665f2cff3173 1-3
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "7b79bd18c375843c5549e9b81d8fbea597abbb23",
+        "prompts": {},
+        "sessions": {
+          "s_0f06189ee8318e": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_ffb8ed22fffejSddhicohPkVdK",
+              "model": "qwen2.5-7b-instruct"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit b79a73310b83e0daa85dd12cd93e53040565fd55
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T04:28:04Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit d8ae5d66b7e4d4a4209d21f47713489fa581faf0
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-14T21:27:34-07:00
 
@@ -602,54 +648,6 @@ Date:   2026-08-12T22:26:44-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "00864a36378c241be0cc3d2ca41493fdf9219c6e",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 372c70f87674e26c831e8fc952ac3d6a8cac47da
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-13T03:46:47Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 3d0b9a8408ce9642317ea684b9a07c7f894b9e5b
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T20:46:18-07:00
-
-    fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan)
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      src/components/CanvasViewport.jsx
-        s_988aa8c761b089::t_c2ddc781f66b5a 296,302-305
-        s_988aa8c761b089::t_5d11b58f6b5cbe 29
-        s_988aa8c761b089::t_33bea061a82e9b 381
-        s_988aa8c761b089::t_403e6bca0fa7a3 338-339,345-359,363-364
-        s_988aa8c761b089::t_135183ac91fa9e 328-330,332-333,335-336,341-344,360-362
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "3d0b9a8408ce9642317ea684b9a07c7f894b9e5b",
         "prompts": {},
         "sessions": {
           "s_988aa8c761b089": {
