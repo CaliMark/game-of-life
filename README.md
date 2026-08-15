@@ -1,5 +1,7 @@
 # Conway's Game of Life 🧬
 
+> **▶ Try it live:** [needpc.net/life](https://needpc.net/life/)
+
 A high-performance, web-based simulation of John Conway's Game of Life built with **React 19**, **Vite**, and **HTML5 Canvas**. Engineered with `Uint8Array` double-buffered state management, multi-touch gesture support, Web Audio API ambient sonification, customizable cellular rulesets, and interactive pattern stamping.
 
 ---
