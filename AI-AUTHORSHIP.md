@@ -7,12 +7,12 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **38** (last 50)
-- Total lines added: **4786**
-- **AI-generated:** 756 lines (15.8%)
+- Commits analyzed: **40** (last 50)
+- Total lines added: **4840**
+- **AI-generated:** 758 lines (15.7%)
 - **Human:** 1 lines (0.0%)
-- **Untracked:** 4029 lines (84.2%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (549 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Untracked:** 4081 lines (84.3%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (551 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -24,6 +24,8 @@ push to `main`.
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| e7a7c91 | 2026-08-15 | docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo | 2 | 100% | 0% | opencode · big-pickle |
+| 2c9790a | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 7b79bd1 | 2026-08-15 | Created by LM Stuido with opencode | 3 | 100% | 0% | opencode · qwen2.5-7b-instruct |
 | b79a733 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | d8ae5d6 | 2026-08-14 | docs: add live website link (needpc.net/life) | 2 | 100% | 0% | opencode · big-pickle |
@@ -69,7 +71,51 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 7b79bd18c375843c5549e9b81d8fbea597abbb23 (HEAD -> main, origin/main)
+commit e7a7c91f992818f651ca645f320db3cb33d7adf3 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-15T19:42:50-07:00
+
+    docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      README.md
+        s_52d0732141ad88::t_1b890fc7be7842 112-113
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "e7a7c91f992818f651ca645f320db3cb33d7adf3",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 2c9790a569fbe9567cde0ade9a4fd1f1761cee03
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-15T08:25:10Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 7b79bd18c375843c5549e9b81d8fbea597abbb23
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-15T01:23:38-07:00
 
@@ -574,92 +620,6 @@ Date:   2026-08-13T05:27:34Z
 
     Authorship note:
       (none)
-
-commit d32a64fb103caf5ecf1d6bb1a18eb52280d83a87
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T22:26:50-07:00
-
-    fix: show brand title on mobile and contain active button glow in panels
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      src/styles/components.css
-        s_988aa8c761b089::t_ee666e75c46b32 373,375-377,381
-        s_988aa8c761b089::t_367804c8b135ed 393
-        s_988aa8c761b089::t_8499f2240d6311 497
-        s_988aa8c761b089::t_068d55b223e084 414-424
-        s_988aa8c761b089::t_d2513db7227a9e 46
-        s_988aa8c761b089::t_c4d153aad7700f 437,448-450
-        s_988aa8c761b089::t_05105a2c54e32c 378,382
-        s_988aa8c761b089::t_3978b671742566 443
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "d32a64fb103caf5ecf1d6bb1a18eb52280d83a87",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 00864a36378c241be0cc3d2ca41493fdf9219c6e
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-12T22:26:44-07:00
-
-    feat: add undo/redo history for drawing, stamps, clear, randomize, and step
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      src/utils/lifeEngine.js
-        s_988aa8c761b089::t_479201897ecfaa 282-365
-        s_988aa8c761b089::t_40f6660241f46d 82-86
-        s_988aa8c761b089::t_d71e41d1031c78 25-30
-      src/components/CanvasViewport.jsx
-        s_988aa8c761b089::t_c5e5ec96e4f8b3 289
-        s_988aa8c761b089::t_4b41542dba9457 376-377
-        s_988aa8c761b089::t_63f2cfcc2094ed 258-259
-        s_988aa8c761b089::t_9c46c9f531a4f2 399
-        s_988aa8c761b089::t_eeeaf7e613bf18 14-15
-        s_988aa8c761b089::t_b72254d6fe028c 215
-      src/App.jsx
-        s_988aa8c761b089::t_d115a2650406c8 90,95-108,125-134,140
-        s_988aa8c761b089::t_af6cc1e02b3fd6 243,255-258
-        s_988aa8c761b089::t_9a459b053a5e56 72,82
-      src/components/UnifiedControlDock.jsx
-        s_988aa8c761b089::t_8de66b14055fe6 85-112
-        s_988aa8c761b089::t_cfa0296fb7d834 180-205
-        s_988aa8c761b089::t_c874d49b3b35e1 13-18
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "00864a36378c241be0cc3d2ca41493fdf9219c6e",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
