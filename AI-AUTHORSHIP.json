@@ -1,0 +1,689 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-16T18:07:51.843368+00:00",
+  "summary": {
+    "commits_analyzed": 42,
+    "commit_limit": 50,
+    "total_lines": 4981,
+    "ai_lines": 847,
+    "ai_pct": 17.0,
+    "human_lines": 1,
+    "human_pct": 0.0,
+    "unknown_lines": 4133,
+    "unknown_pct": 83.0,
+    "agents": {
+      "claude · swe-1-6-slow": 1,
+      "cline · deepseek/deepseek-v4-flash": 1,
+      "cline · nemotron-3.5-lightning": 1,
+      "cursor": 19,
+      "cursor · composer-2.5": 42,
+      "devin · swe-1-6-slow": 1,
+      "gemini · gemini-3.6-flash-medium": 132,
+      "github-copilot · claude-haiku-4.5": 7,
+      "opencode · big-pickle": 640,
+      "opencode · qwen2.5-7b-instruct": 3
+    }
+  },
+  "commits": [
+    {
+      "sha": "3cd6dab",
+      "date": "2026-08-16",
+      "subject": "feat: emit machine-readable AI-AUTHORSHIP.json + composition pie chart",
+      "lines_added": 89,
+      "ai_additions": 89,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 89
+      }
+    },
+    {
+      "sha": "243887d",
+      "date": "2026-08-16",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "e7a7c91",
+      "date": "2026-08-15",
+      "subject": "docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo",
+      "lines_added": 2,
+      "ai_additions": 2,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 2
+      }
+    },
+    {
+      "sha": "2c9790a",
+      "date": "2026-08-15",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "7b79bd1",
+      "date": "2026-08-15",
+      "subject": "Created by LM Stuido with opencode",
+      "lines_added": 3,
+      "ai_additions": 3,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · qwen2.5-7b-instruct"
+      ],
+      "agent_ai_lines": {
+        "opencode · qwen2.5-7b-instruct": 3
+      }
+    },
+    {
+      "sha": "b79a733",
+      "date": "2026-08-15",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "d8ae5d6",
+      "date": "2026-08-14",
+      "subject": "docs: add live website link (needpc.net/life)",
+      "lines_added": 2,
+      "ai_additions": 2,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 2
+      }
+    },
+    {
+      "sha": "d61a459",
+      "date": "2026-08-15",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 59,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 59,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "3a4581d",
+      "date": "2026-08-14",
+      "subject": "docs: tidy separator before license section",
+      "lines_added": 0,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "293f451",
+      "date": "2026-08-14",
+      "subject": "docs: remove needpc.net line",
+      "lines_added": 0,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "8cba1ef",
+      "date": "2026-08-15",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 47,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 47,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "b7e37f0",
+      "date": "2026-08-14",
+      "subject": "docs: manually shorten needpc.net line (human-attributed edit)",
+      "lines_added": 1,
+      "ai_additions": 0,
+      "human_additions": 1,
+      "unknown_additions": 0,
+      "ai_pct": 0,
+      "human_pct": 100,
+      "agents": [
+        "human"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "7195ad1",
+      "date": "2026-08-15",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "ca7ee4b",
+      "date": "2026-08-14",
+      "subject": "docs: add TeamWork mention via Devin Desktop live test",
+      "lines_added": 1,
+      "ai_additions": 1,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "devin · swe-1-6-slow"
+      ],
+      "agent_ai_lines": {
+        "devin · swe-1-6-slow": 1
+      }
+    },
+    {
+      "sha": "9973fde",
+      "date": "2026-08-14",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 68,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 68,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "150f8a4",
+      "date": "2026-08-13",
+      "subject": "feat: attribute Devin Desktop edits via .devin hooks to git-ai",
+      "lines_added": 25,
+      "ai_additions": 25,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "claude · swe-1-6-slow",
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "claude · swe-1-6-slow": 1,
+        "opencode · big-pickle": 24
+      }
+    },
+    {
+      "sha": "b0231be",
+      "date": "2026-08-14",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "605ebd8",
+      "date": "2026-08-13",
+      "subject": "docs: add needpc line to README",
+      "lines_added": 1,
+      "ai_additions": 1,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "cline · deepseek/deepseek-v4-flash"
+      ],
+      "agent_ai_lines": {
+        "cline · deepseek/deepseek-v4-flash": 1
+      }
+    },
+    {
+      "sha": "a0a233c",
+      "date": "2026-08-14",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 39,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 39,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "09df4eb",
+      "date": "2026-08-13",
+      "subject": "Remove divider rule pattern gallery",
+      "lines_added": 0,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "45b21c8",
+      "date": "2026-08-14",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "fc81dca",
+      "date": "2026-08-13",
+      "subject": "Center pattern table in README",
+      "lines_added": 1,
+      "ai_additions": 1,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "cline · nemotron-3.5-lightning"
+      ],
+      "agent_ai_lines": {
+        "cline · nemotron-3.5-lightning": 1
+      }
+    },
+    {
+      "sha": "f15318b",
+      "date": "2026-08-13",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 63,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 63,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "e918bdb",
+      "date": "2026-08-13",
+      "subject": "docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS)",
+      "lines_added": 43,
+      "ai_additions": 43,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "cursor · composer-2.5",
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "cursor · composer-2.5": 42,
+        "opencode · big-pickle": 1
+      }
+    },
+    {
+      "sha": "c3c2f3b",
+      "date": "2026-08-13",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 57,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 57,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "84fc816",
+      "date": "2026-08-13",
+      "subject": "docs: add glider art and expand dedication",
+      "lines_added": 19,
+      "ai_additions": 19,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "cursor"
+      ],
+      "agent_ai_lines": {
+        "cursor": 19
+      }
+    },
+    {
+      "sha": "417601a",
+      "date": "2026-08-13",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 108,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 108,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "d32a64f",
+      "date": "2026-08-12",
+      "subject": "fix: show brand title on mobile and contain active button glow in panels",
+      "lines_added": 26,
+      "ai_additions": 26,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 26
+      }
+    },
+    {
+      "sha": "00864a3",
+      "date": "2026-08-12",
+      "subject": "feat: add undo/redo history for drawing, stamps, clear, randomize, and step",
+      "lines_added": 197,
+      "ai_additions": 197,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 197
+      }
+    },
+    {
+      "sha": "372c70f",
+      "date": "2026-08-13",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 56,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 56,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "3d0b9a8",
+      "date": "2026-08-12",
+      "subject": "fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan)",
+      "lines_added": 40,
+      "ai_additions": 40,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 40
+      }
+    },
+    {
+      "sha": "6139bdc",
+      "date": "2026-08-12",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 33,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 33,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "460a12e",
+      "date": "2026-08-12",
+      "subject": "Fix formatting in README.md section headers",
+      "lines_added": 1,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 1,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "a486b28",
+      "date": "2026-08-12",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 66,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 66,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "0e31e40",
+      "date": "2026-08-12",
+      "subject": "Merge branch 'main' of https://github.com/CaliMark/game-of-life",
+      "lines_added": 0,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "c8156e6",
+      "date": "2026-08-12",
+      "subject": "Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon",
+      "lines_added": 7,
+      "ai_additions": 7,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "github-copilot · claude-haiku-4.5"
+      ],
+      "agent_ai_lines": {
+        "github-copilot · claude-haiku-4.5": 7
+      }
+    },
+    {
+      "sha": "a4372e9",
+      "date": "2026-08-12",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "9de0204",
+      "date": "2026-08-11",
+      "subject": "docs: note this repo is a live example of the ai-authorship project",
+      "lines_added": 2,
+      "ai_additions": 2,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 2
+      }
+    },
+    {
+      "sha": "059c0ca",
+      "date": "2026-08-12",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 52,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 52,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "906f076",
+      "date": "2026-08-11",
+      "subject": "chore: spice up the readme.md",
+      "lines_added": 132,
+      "ai_additions": 132,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "gemini · gemini-3.6-flash-medium"
+      ],
+      "agent_ai_lines": {
+        "gemini · gemini-3.6-flash-medium": 132
+      }
+    },
+    {
+      "sha": "761f493",
+      "date": "2026-08-12",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 81,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 81,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "94951a8",
+      "date": "2026-08-11",
+      "subject": "feat: initial commit - Conway's Game of Life",
+      "lines_added": 3296,
+      "ai_additions": 257,
+      "human_additions": 0,
+      "unknown_additions": 3039,
+      "ai_pct": 8,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 257
+      }
+    }
+  ]
+}

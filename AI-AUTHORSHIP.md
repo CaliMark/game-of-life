@@ -7,23 +7,36 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **40** (last 50)
-- Total lines added: **4840**
-- **AI-generated:** 758 lines (15.7%)
+- Commits analyzed: **42** (last 50)
+- Total lines added: **4981**
+- **AI-generated:** 847 lines (17.0%)
 - **Human:** 1 lines (0.0%)
-- **Untracked:** 4081 lines (84.3%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (551 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Untracked:** 4133 lines (83.0%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (640 lines), opencode · qwen2.5-7b-instruct (3 lines)
+
+## Composition
+
+```mermaid
+pie title Lines by author (AI vs Human vs Untracked)
+    "AI" : 847
+    "Human" : 1
+    "Untracked" : 4133
+```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
-> session data). `untracked` = lines written before git-ai attribution was set
-> up (cannot be retroactively attributed). `human` = written directly by
-> CaliMark. Note: these are line-count percentages, not commit counts.
+> session data). `untracked` = lines with no attribution data — written before
+> git-ai was set up, made in the github.com web UI, or created by CI bots
+> (cannot be retroactively attributed). `human` = written directly by a human
+> and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
+> these are line-count percentages, not commit counts.
 
 ## Per-commit breakdown
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 3cd6dab | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json + composition pie chart | 89 | 100% | 0% | opencode · big-pickle |
+| 243887d | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | e7a7c91 | 2026-08-15 | docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo | 2 | 100% | 0% | opencode · big-pickle |
 | 2c9790a | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% | untracked |
 | 7b79bd1 | 2026-08-15 | Created by LM Stuido with opencode | 3 | 100% | 0% | opencode · qwen2.5-7b-instruct |
@@ -71,7 +84,53 @@ push to `main`.
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit e7a7c91f992818f651ca645f320db3cb33d7adf3 (HEAD -> main, origin/main)
+commit 3cd6dab74570c7b055572807cd2e8d72685dda8c (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T11:07:02-07:00
+
+    feat: emit machine-readable AI-AUTHORSHIP.json + composition pie chart
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      .github/workflows/authorship-report.yml
+        s_988aa8c761b089::t_5668bdcadda65f 1-9,57,66-67,69,74
+      scripts/authorship-report.sh
+        s_988aa8c761b089::t_b81adb0ebaa7b7 3-5,15,20,41-42,48-51,115-124,131,138-153,175-183,186-190,217-239
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "3cd6dab74570c7b055572807cd2e8d72685dda8c",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 243887d6f54ee596f30cb7028396ff71b3a69d05
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T02:43:17Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit e7a7c91f992818f651ca645f320db3cb33d7adf3
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-15T19:42:50-07:00
 
@@ -562,55 +621,6 @@ Date:   2026-08-13T15:23:26-07:00
 commit c3c2f3b47121040cbc2c529f2e42b0be4300173a
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-13T21:06:01Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 84fc816d4231451fe1a3243ae4180a3687ca51c5
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-13T14:04:11-07:00
-
-    docs: add glider art and expand dedication
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_16177e3814d87c::t_d3cb6086360994 9-24,26-28
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "84fc816d4231451fe1a3243ae4180a3687ca51c5",
-        "prompts": {},
-        "humans": {
-          "h_93ac30673ac1e8": {
-            "author": "CaliMark <mreed@needpc.net>"
-          }
-        },
-        "sessions": {
-          "s_16177e3814d87c": {
-            "agent_id": {
-              "tool": "cursor",
-              "id": "eca5cd01-a29b-4ac6-92e4-cf1136746b72",
-              "model": "unknown"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 417601a798ab4ebd8f04359ca29ab9090963b28e
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-13T05:27:34Z
 
     docs: regenerate AI authorship report
 
