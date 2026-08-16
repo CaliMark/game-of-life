@@ -1,0 +1,21 @@
+AI-AUTHORSHIP.md
+  s_52d0732141ad88::t_90c2214b181fbe 11-12,14-16,22,24,37,57,114-127
+AI-AUTHORSHIP.json
+  s_52d0732141ad88::t_90c2214b181fbe 3,5,7-9,12-15,25,30-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "b865bf19b178d824d33f65d7103efa9f28273d91",
+  "prompts": {},
+  "sessions": {
+    "s_52d0732141ad88": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
