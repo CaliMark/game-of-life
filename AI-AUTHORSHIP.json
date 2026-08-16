@@ -1,18 +1,24 @@
 {
-  "schema_version": 2,
-  "generated_at": "2026-08-16T20:00:14.978763+00:00",
+  "schema_version": 3,
+  "generated_at": "2026-08-16T20:47:59.090524+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 2857,
-    "ai_lines": 637,
-    "ai_pct": 22.3,
+    "total_lines": 3040,
+    "ai_lines": 760,
+    "ai_pct": 25.0,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 2218,
-    "bot_pct": 77.6,
+    "bot_lines": 2278,
+    "bot_pct": 74.9,
     "unknown_lines": 1,
     "unknown_pct": 0.0,
+    "human_directed_ai_lines": 760,
+    "human_directed_ai_pct": 100.0,
+    "autonomous_ai_lines": 0,
+    "direction_weight": 0.5,
+    "direction_credit_lines": 380,
+    "co_contributed_commits": 0,
     "agents": {
       "claude · swe-1-6-slow": 1,
       "cline · deepseek/deepseek-v4-flash": 1,
@@ -21,11 +27,51 @@
       "cursor · composer-2.5": 42,
       "devin · swe-1-6-slow": 1,
       "github-copilot · claude-haiku-4.5": 7,
-      "opencode · big-pickle": 562,
+      "opencode · big-pickle": 685,
       "opencode · qwen2.5-7b-instruct": 3
     }
   },
   "commits": [
+    {
+      "sha": "4a2cd6e",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "sync: weighted co-contribution view (human-direction credit) + co-authored marker from ai-authorship",
+      "lines_added": 125,
+      "ai_additions": 125,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 125
+      }
+    },
+    {
+      "sha": "cdfa377",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 112,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 112,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "d8fcf12",
       "date": "2026-08-16",
@@ -37,6 +83,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -55,6 +104,9 @@
       "unknown_additions": 41,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -71,6 +123,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -89,6 +144,9 @@
       "unknown_additions": 56,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -105,6 +163,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -123,6 +184,9 @@
       "unknown_additions": 103,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -139,6 +203,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -157,6 +224,9 @@
       "unknown_additions": 193,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -173,6 +243,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -191,6 +264,9 @@
       "unknown_additions": 108,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -207,6 +283,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -225,6 +304,9 @@
       "unknown_additions": 757,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -241,6 +323,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -259,6 +344,9 @@
       "unknown_additions": 52,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -275,6 +363,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -293,6 +384,9 @@
       "unknown_additions": 52,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -309,6 +403,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · qwen2.5-7b-instruct"
       ],
@@ -327,6 +424,9 @@
       "unknown_additions": 52,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -343,6 +443,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -361,6 +464,9 @@
       "unknown_additions": 59,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -377,6 +483,9 @@
       "unknown_additions": 0,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [],
       "agent_ai_lines": {}
     },
@@ -391,6 +500,9 @@
       "unknown_additions": 0,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [],
       "agent_ai_lines": {}
     },
@@ -405,6 +517,9 @@
       "unknown_additions": 47,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -421,6 +536,9 @@
       "unknown_additions": 0,
       "ai_pct": 0,
       "human_pct": 100,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "human"
       ],
@@ -437,6 +555,9 @@
       "unknown_additions": 52,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -453,6 +574,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "devin · swe-1-6-slow"
       ],
@@ -471,6 +595,9 @@
       "unknown_additions": 68,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -487,6 +614,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 2,
+      "co_contributed": false,
       "agents": [
         "claude · swe-1-6-slow",
         "opencode · big-pickle"
@@ -507,6 +637,9 @@
       "unknown_additions": 52,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -523,6 +656,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "cline · deepseek/deepseek-v4-flash"
       ],
@@ -541,6 +677,9 @@
       "unknown_additions": 39,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -557,6 +696,9 @@
       "unknown_additions": 0,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [],
       "agent_ai_lines": {}
     },
@@ -571,6 +713,9 @@
       "unknown_additions": 52,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -587,6 +732,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "cline · nemotron-3.5-lightning"
       ],
@@ -605,6 +753,9 @@
       "unknown_additions": 63,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -621,6 +772,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 2,
+      "co_contributed": false,
       "agents": [
         "cursor · composer-2.5",
         "opencode · big-pickle"
@@ -641,6 +795,9 @@
       "unknown_additions": 57,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -657,6 +814,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "cursor"
       ],
@@ -675,6 +835,9 @@
       "unknown_additions": 108,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -691,6 +854,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -709,6 +875,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -727,6 +896,9 @@
       "unknown_additions": 56,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -743,6 +915,9 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
@@ -761,6 +936,9 @@
       "unknown_additions": 33,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -777,6 +955,9 @@
       "unknown_additions": 1,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "untracked"
       ],
@@ -793,6 +974,9 @@
       "unknown_additions": 66,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [
         "bot"
       ],
@@ -809,6 +993,9 @@
       "unknown_additions": 0,
       "ai_pct": 0,
       "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "co_contributed": false,
       "agents": [],
       "agent_ai_lines": {}
     },
@@ -823,45 +1010,14 @@
       "unknown_additions": 0,
       "ai_pct": 100,
       "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "co_contributed": false,
       "agents": [
         "github-copilot · claude-haiku-4.5"
       ],
       "agent_ai_lines": {
         "github-copilot · claude-haiku-4.5": 7
-      }
-    },
-    {
-      "sha": "a4372e9",
-      "date": "2026-08-12",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 52,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 52,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "9de0204",
-      "date": "2026-08-11",
-      "author": "CaliMark",
-      "subject": "docs: note this repo is a live example of the ai-authorship project",
-      "lines_added": 2,
-      "ai_additions": 2,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 2
       }
     }
   ]
