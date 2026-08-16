@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-16T19:43:20.201296+00:00",
+  "generated_at": "2026-08-16T19:48:44.997810+00:00",
   "summary": {
-    "commits_analyzed": 48,
+    "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 6122,
-    "ai_lines": 930,
-    "ai_pct": 15.2,
+    "total_lines": 2993,
+    "ai_lines": 681,
+    "ai_pct": 22.8,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 2151,
-    "bot_pct": 35.1,
-    "unknown_lines": 3040,
-    "unknown_pct": 49.7,
+    "bot_lines": 2310,
+    "bot_pct": 77.2,
+    "unknown_lines": 1,
+    "unknown_pct": 0.0,
     "agents": {
       "claude · swe-1-6-slow": 1,
       "cline · deepseek/deepseek-v4-flash": 1,
@@ -22,11 +22,61 @@
       "devin · swe-1-6-slow": 1,
       "gemini · gemini-3.6-flash-medium": 132,
       "github-copilot · claude-haiku-4.5": 7,
-      "opencode · big-pickle": 723,
+      "opencode · big-pickle": 474,
       "opencode · qwen2.5-7b-instruct": 3
     }
   },
   "commits": [
+    {
+      "sha": "6a89530",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 56,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 56,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "1a607b4",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "sync: update authorship report script + workflow from ai-authorship",
+      "lines_added": 8,
+      "ai_additions": 8,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 8
+      }
+    },
+    {
+      "sha": "6033a7c",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 103,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 103,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "e2fa8ce",
       "date": "2026-08-16",
@@ -812,24 +862,6 @@
         "bot"
       ],
       "agent_ai_lines": {}
-    },
-    {
-      "sha": "94951a8",
-      "date": "2026-08-11",
-      "author": "CaliMark",
-      "subject": "feat: initial commit - Conway's Game of Life",
-      "lines_added": 3296,
-      "ai_additions": 257,
-      "human_additions": 0,
-      "unknown_additions": 3039,
-      "ai_pct": 8,
-      "human_pct": 0,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 257
-      }
     }
   ]
 }

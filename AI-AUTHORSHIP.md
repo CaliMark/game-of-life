@@ -8,20 +8,20 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **6233**
-- **AI-generated:** 938 lines (15.0%)
+- Total lines added: **2993**
+- **AI-generated:** 681 lines (22.8%)
 - **Human:** 1 lines (0.0%)
-- **Bot:** 2254 lines (36.2%)
-- **Untracked:** 3040 lines (48.8%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (731 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Bot:** 2310 lines (77.2%)
+- **Untracked:** 1 lines (0.0%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (474 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked; report regeneration excluded)
-    "AI" : 938
+    "AI" : 681
     "Human" : 1
-    "Untracked" : 3040
+    "Untracked" : 1
 ```
 
 ```mermaid
@@ -34,7 +34,7 @@ pie title AI lines by agent
     "devin · swe-1-6-slow" : 1
     "gemini · gemini-3.6-flash-medium" : 132
     "github-copilot · claude-haiku-4.5" : 7
-    "opencode · big-pickle" : 731
+    "opencode · big-pickle" : 474
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
@@ -54,6 +54,7 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 6a89530 | 2026-08-16 | docs: regenerate AI authorship report | 56 | 0% | 0% | bot |
 | 1a607b4 | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 8 | 100% | 0% | opencode · big-pickle |
 | 6033a7c | 2026-08-16 | docs: regenerate AI authorship report | 103 | 0% | 0% | bot |
 | e2fa8ce | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 34 | 100% | 0% | opencode · big-pickle |
@@ -103,7 +104,6 @@ pie title AI lines by agent
 | 059c0ca | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
 | 906f076 | 2026-08-11 | chore: spice up the readme.md | 132 | 100% | 0% | gemini · gemini-3.6-flash-medium |
 | 761f493 | 2026-08-12 | docs: regenerate AI authorship report | 81 | 0% | 0% | bot |
-| 94951a8 | 2026-08-11 | feat: initial commit - Conway's Game of Life | 3296 | 8% | 0% | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -111,7 +111,20 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 1a607b4b6ace18998b5538cbf5d00823e5fec73f (HEAD -> main, origin/main)
+commit 6a8953043ba91a1fadf94de3806855f79da05e1d (HEAD -> main, origin/main, origin/HEAD)
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T19:44:47Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 1a607b4b6ace18998b5538cbf5d00823e5fec73f
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T12:44:18-07:00
 
@@ -647,19 +660,6 @@ Date:   2026-08-13T22:12:05-07:00
           }
         }
       }
-
-commit b0231beb5b5ff0d9e824be7336cd1ad071404e00
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-14T03:03:15Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```
