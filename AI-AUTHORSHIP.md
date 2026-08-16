@@ -8,18 +8,18 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **2993**
-- **AI-generated:** 681 lines (22.8%)
+- Total lines added: **2995**
+- **AI-generated:** 764 lines (25.5%)
 - **Human:** 1 lines (0.0%)
-- **Bot:** 2310 lines (77.2%)
+- **Bot:** 2229 lines (74.4%)
 - **Untracked:** 1 lines (0.0%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (474 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (557 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked; report regeneration excluded)
-    "AI" : 681
+    "AI" : 764
     "Human" : 1
     "Untracked" : 1
 ```
@@ -34,7 +34,7 @@ pie title AI lines by agent
     "devin · swe-1-6-slow" : 1
     "gemini · gemini-3.6-flash-medium" : 132
     "github-copilot · claude-haiku-4.5" : 7
-    "opencode · big-pickle" : 474
+    "opencode · big-pickle" : 557
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
@@ -54,6 +54,7 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| b865bf1 | 2026-08-16 | chore: regenerate report — initial commit rolled out of 50-commit window | 83 | 100% | 0% | opencode · big-pickle |
 | 6a89530 | 2026-08-16 | docs: regenerate AI authorship report | 56 | 0% | 0% | bot |
 | 1a607b4 | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 8 | 100% | 0% | opencode · big-pickle |
 | 6033a7c | 2026-08-16 | docs: regenerate AI authorship report | 103 | 0% | 0% | bot |
@@ -103,7 +104,6 @@ pie title AI lines by agent
 | 9de0204 | 2026-08-11 | docs: note this repo is a live example of the ai-authorship project | 2 | 100% | 0% | opencode · big-pickle |
 | 059c0ca | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
 | 906f076 | 2026-08-11 | chore: spice up the readme.md | 132 | 100% | 0% | gemini · gemini-3.6-flash-medium |
-| 761f493 | 2026-08-12 | docs: regenerate AI authorship report | 81 | 0% | 0% | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -111,7 +111,40 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 6a8953043ba91a1fadf94de3806855f79da05e1d (HEAD -> main, origin/main, origin/HEAD)
+commit b865bf19b178d824d33f65d7103efa9f28273d91 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T12:52:50-07:00
+
+    chore: regenerate report — initial commit rolled out of 50-commit window
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      AI-AUTHORSHIP.md
+        s_52d0732141ad88::t_90c2214b181fbe 11-12,14-16,22,24,37,57,114-127
+      AI-AUTHORSHIP.json
+        s_52d0732141ad88::t_90c2214b181fbe 3,5,7-9,12-15,25,30-79
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "b865bf19b178d824d33f65d7103efa9f28273d91",
+        "prompts": {},
+        "sessions": {
+          "s_52d0732141ad88": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 6a8953043ba91a1fadf94de3806855f79da05e1d
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-16T19:44:47Z
 
@@ -613,53 +646,6 @@ Date:   2026-08-14T05:12:54Z
 
     Authorship note:
       (none)
-
-commit 150f8a43663855e9b3f05a0061a56ad85ead3c8b
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-13T22:12:05-07:00
-
-    feat: attribute Devin Desktop edits via .devin hooks to git-ai
-
-    - Add .devin/hooks.v1.json (Pre/PostToolUse on edit/write tools) calling
-      git-ai devin bridge so Devin Local edits are attributed to claude/swe-1-6-slow
-    - Update needpc line to include website note
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      .devin/hooks.v1.json
-        s_52d0732141ad88::t_b273453f0b15b2 1-3,5-7,9-14,16-18,20-24
-        s_52d0732141ad88::t_8549282e416819 4,15
-        s_52d0732141ad88::t_0c0ab46ecdf388 8,19
-      README.md
-        s_5bf60418c4b56d::t_135dc3745dd301 190
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "150f8a43663855e9b3f05a0061a56ad85ead3c8b",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          },
-          "s_5bf60418c4b56d": {
-            "agent_id": {
-              "tool": "claude",
-              "id": "various-alibi",
-              "model": "swe-1-6-slow"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
 
 
 ```
