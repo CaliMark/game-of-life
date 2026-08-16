@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 #
-# Generates AI-AUTHORSHIP.md — a GitHub-visible report of which AI agent (or
-# human) wrote each commit's code, backed by git-ai attribution notes.
+# Generates AI-AUTHORSHIP.md (+ AI-AUTHORSHIP.json, a machine-readable twin)
+# — a GitHub-visible report of which AI agent (or human) wrote each commit's
+# code, backed by git-ai attribution notes.
 #
 # Usage: bash scripts/authorship-report.sh [commit-limit] [detail-limit]
 #   commit-limit  how many commits to analyze            (default: 50)
@@ -11,11 +12,12 @@
 set -euo pipefail
 
 OUT="AI-AUTHORSHIP.md"
+OUT_JSON="AI-AUTHORSHIP.json"
 COMMIT_LIMIT="${1:-50}"
 DETAIL_LIMIT="${2:-25}"
 
 if ! command -v git-ai >/dev/null 2>&1; then
-  echo "git-ai CLI not found on PATH — cannot generate $OUT" >&2
+  echo "git-ai CLI not found on PATH — cannot generate $OUT / $OUT_JSON" >&2
   exit 1
 fi
 
@@ -36,15 +38,17 @@ DETAIL_TMP=".ai-authorship-detail.tmp"
 trap 'rm -f "$DETAIL_TMP"' EXIT
 git-ai log --raw -n "$DETAIL_LIMIT" --no-pager > "$DETAIL_TMP"
 
-"$PYTHON" - "$OUT" "$COMMIT_LIMIT" "$DETAIL_LIMIT" "$DETAIL_TMP" <<'PY'
+"$PYTHON" - "$OUT" "$OUT_JSON" "$COMMIT_LIMIT" "$DETAIL_LIMIT" "$DETAIL_TMP" <<'PY'
+import datetime
 import json
 import subprocess
 import sys
 
 out_file = sys.argv[1]
-commit_limit = int(sys.argv[2])
-detail_limit = int(sys.argv[3])
-detail_path = sys.argv[4]
+json_file = sys.argv[2]
+commit_limit = int(sys.argv[3])
+detail_limit = int(sys.argv[4])
+detail_path = sys.argv[5]
 
 # --- Collect commits -------------------------------------------------------
 fmt = "%h\t%ad\t%s"
@@ -108,18 +112,45 @@ def agents(c):
         return "human"
     return "none"
 
+def agents_list(c):
+    tools = sorted({fmt_tool(k) for k in c["stats"].get("tool_model_breakdown", {})})
+    if tools:
+        return tools
+    if g(c, "unknown_additions") > 0:
+        return ["untracked"]
+    if g(c, "human_additions") > 0:
+        return ["human"]
+    return []
+
 def commit_pct(part):
     tot = g(c, "human_additions") + g(c, "unknown_additions") + g(c, "ai_additions")
     return round(100 * part / tot) if tot else 0
 
 # --- Render markdown -------------------------------------------------------
 rows = []
+json_commits = []
 for c in commits:
     tot = g(c, "human_additions") + g(c, "unknown_additions") + g(c, "ai_additions")
     rows.append(
         f"| {c['sha']} | {c['date']} | {c['subject']} | {tot} | "
         f"{commit_pct(g(c, 'ai_additions'))}% | {commit_pct(g(c, 'human_additions'))}% | {agents(c)} |"
     )
+    json_commits.append({
+        "sha": c["sha"],
+        "date": c["date"],
+        "subject": c["subject"],
+        "lines_added": tot,
+        "ai_additions": g(c, "ai_additions"),
+        "human_additions": g(c, "human_additions"),
+        "unknown_additions": g(c, "unknown_additions"),
+        "ai_pct": commit_pct(g(c, "ai_additions")),
+        "human_pct": commit_pct(g(c, "human_additions")),
+        "agents": agents_list(c),
+        "agent_ai_lines": {
+            fmt_tool(k): v.get("ai_additions", 0)
+            for k, v in c["stats"].get("tool_model_breakdown", {}).items()
+        },
+    })
 
 tool_summary = ", ".join(f"{t} ({n} lines)" for t, n in sorted(tool_lines.items())) or "—"
 
@@ -141,11 +172,22 @@ push to `main`.
 - **Untracked:** {total_unknown} lines ({pct(total_unknown)}%)
 - **Agents:** {tool_summary}
 
+## Composition
+
+```mermaid
+pie title Lines by author (AI vs Human vs Untracked)
+    "AI" : {total_ai}
+    "Human" : {total_human}
+    "Untracked" : {total_unknown}
+```
+
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
-> session data). `untracked` = lines written before git-ai attribution was set
-> up (cannot be retroactively attributed). `human` = written directly by
-> CaliMark. Note: these are line-count percentages, not commit counts.
+> session data). `untracked` = lines with no attribution data — written before
+> git-ai was set up, made in the github.com web UI, or created by CI bots
+> (cannot be retroactively attributed). `human` = written directly by a human
+> and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
+> these are line-count percentages, not commit counts.
 
 ## Per-commit breakdown
 
@@ -172,5 +214,27 @@ line-level attribution of any file._
 with open(out_file, "w", encoding="utf-8", newline="\n") as f:
     f.write(md)
 
-print(f"Wrote {out_file} ({len(md)} bytes, {len(commits)} commits)")
+report = {
+    "schema_version": 1,
+    "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+    "summary": {
+        "commits_analyzed": len(commits),
+        "commit_limit": commit_limit,
+        "total_lines": total,
+        "ai_lines": total_ai,
+        "ai_pct": pct(total_ai),
+        "human_lines": total_human,
+        "human_pct": pct(total_human),
+        "unknown_lines": total_unknown,
+        "unknown_pct": pct(total_unknown),
+        "agents": {t: n for t, n in sorted(tool_lines.items())},
+    },
+    "commits": json_commits,
+}
+
+with open(json_file, "w", encoding="utf-8", newline="\n") as f:
+    json.dump(report, f, indent=2, ensure_ascii=False)
+    f.write("\n")
+
+print(f"Wrote {out_file} ({len(md)} bytes, {len(commits)} commits) and {json_file} ({len(json.dumps(report))} bytes)")
 PY
