@@ -1,18 +1,18 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-16T19:05:55.442766+00:00",
+  "generated_at": "2026-08-16T19:43:20.201296+00:00",
   "summary": {
-    "commits_analyzed": 46,
+    "commits_analyzed": 48,
     "commit_limit": 50,
-    "total_lines": 5895,
-    "ai_lines": 896,
+    "total_lines": 6122,
+    "ai_lines": 930,
     "ai_pct": 15.2,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 1958,
-    "bot_pct": 33.2,
+    "bot_lines": 2151,
+    "bot_pct": 35.1,
     "unknown_lines": 3040,
-    "unknown_pct": 51.6,
+    "unknown_pct": 49.7,
     "agents": {
       "claude · swe-1-6-slow": 1,
       "cline · deepseek/deepseek-v4-flash": 1,
@@ -22,11 +22,45 @@
       "devin · swe-1-6-slow": 1,
       "gemini · gemini-3.6-flash-medium": 132,
       "github-copilot · claude-haiku-4.5": 7,
-      "opencode · big-pickle": 689,
+      "opencode · big-pickle": 723,
       "opencode · qwen2.5-7b-instruct": 3
     }
   },
   "commits": [
+    {
+      "sha": "e2fa8ce",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "sync: update authorship report script + workflow from ai-authorship",
+      "lines_added": 34,
+      "ai_additions": 34,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 34
+      }
+    },
+    {
+      "sha": "ee29603",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 193,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 193,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
     {
       "sha": "f37f6ab",
       "date": "2026-08-16",
