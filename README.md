@@ -109,6 +109,8 @@ A high-performance, web-based simulation of John Conway's Game of Life built wit
 
 This project is a **live example** of our other GitHub project, [AI Authorship](https://github.com/CaliMark/ai-authorship) — every commit is attributed to the AI agent (or human) that wrote it, with the report regenerated automatically. If you're interested, check out the repo.
 
+> **Self-hosted proof:** [LOCAL-MODEL-NOTE.md](LOCAL-MODEL-NOTE.md) was written entirely by a local model (`qwen2.5-7b-instruct`) running offline through [LM Studio](https://lmstudio.ai) — no cloud, no API calls. See the [`AI-AUTHORSHIP.md`](AI-AUTHORSHIP.md) report for the `opencode · qwen2.5-7b-instruct` attribution on that commit.
+
 ---
 
 ## 🚀 Quick Start
