@@ -1,16 +1,16 @@
 {
   "schema_version": 2,
-  "generated_at": "2026-08-16T19:48:44.997810+00:00",
+  "generated_at": "2026-08-16T20:00:14.978763+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 2993,
-    "ai_lines": 681,
-    "ai_pct": 22.8,
+    "total_lines": 2857,
+    "ai_lines": 637,
+    "ai_pct": 22.3,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 2310,
-    "bot_pct": 77.2,
+    "bot_lines": 2218,
+    "bot_pct": 77.6,
     "unknown_lines": 1,
     "unknown_pct": 0.0,
     "agents": {
@@ -20,13 +20,64 @@
       "cursor": 19,
       "cursor · composer-2.5": 42,
       "devin · swe-1-6-slow": 1,
-      "gemini · gemini-3.6-flash-medium": 132,
       "github-copilot · claude-haiku-4.5": 7,
-      "opencode · big-pickle": 474,
+      "opencode · big-pickle": 562,
       "opencode · qwen2.5-7b-instruct": 3
     }
   },
   "commits": [
+    {
+      "sha": "d8fcf12",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "sync: fix copy-in workflow to commit AI-AUTHORSHIP.json alongside the .md",
+      "lines_added": 5,
+      "ai_additions": 5,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 5
+      }
+    },
+    {
+      "sha": "54f5cf4",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 41,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 41,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
+      "sha": "b865bf1",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "chore: regenerate report — initial commit rolled out of 50-commit window",
+      "lines_added": 83,
+      "ai_additions": 83,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 83
+      }
+    },
     {
       "sha": "6a89530",
       "date": "2026-08-16",
@@ -812,56 +863,6 @@
       "agent_ai_lines": {
         "opencode · big-pickle": 2
       }
-    },
-    {
-      "sha": "059c0ca",
-      "date": "2026-08-12",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 52,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 52,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "906f076",
-      "date": "2026-08-11",
-      "author": "CaliMark",
-      "subject": "chore: spice up the readme.md",
-      "lines_added": 132,
-      "ai_additions": 132,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "agents": [
-        "gemini · gemini-3.6-flash-medium"
-      ],
-      "agent_ai_lines": {
-        "gemini · gemini-3.6-flash-medium": 132
-      }
-    },
-    {
-      "sha": "761f493",
-      "date": "2026-08-12",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 81,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 81,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {}
     }
   ]
 }

@@ -8,18 +8,18 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **2995**
-- **AI-generated:** 764 lines (25.5%)
+- Total lines added: **2857**
+- **AI-generated:** 637 lines (22.3%)
 - **Human:** 1 lines (0.0%)
-- **Bot:** 2229 lines (74.4%)
+- **Bot:** 2218 lines (77.6%)
 - **Untracked:** 1 lines (0.0%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (557 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (562 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked; report regeneration excluded)
-    "AI" : 764
+    "AI" : 637
     "Human" : 1
     "Untracked" : 1
 ```
@@ -32,9 +32,8 @@ pie title AI lines by agent
     "cursor" : 19
     "cursor · composer-2.5" : 42
     "devin · swe-1-6-slow" : 1
-    "gemini · gemini-3.6-flash-medium" : 132
     "github-copilot · claude-haiku-4.5" : 7
-    "opencode · big-pickle" : 557
+    "opencode · big-pickle" : 562
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
@@ -54,6 +53,8 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| d8fcf12 | 2026-08-16 | sync: fix copy-in workflow to commit AI-AUTHORSHIP.json alongside the .md | 5 | 100% | 0% | opencode · big-pickle |
+| 54f5cf4 | 2026-08-16 | docs: regenerate AI authorship report | 41 | 0% | 0% | bot |
 | b865bf1 | 2026-08-16 | chore: regenerate report — initial commit rolled out of 50-commit window | 83 | 100% | 0% | opencode · big-pickle |
 | 6a89530 | 2026-08-16 | docs: regenerate AI authorship report | 56 | 0% | 0% | bot |
 | 1a607b4 | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 8 | 100% | 0% | opencode · big-pickle |
@@ -102,8 +103,6 @@ pie title AI lines by agent
 | c8156e6 | 2026-08-12 | Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon | 7 | 100% | 0% | github-copilot · claude-haiku-4.5 |
 | a4372e9 | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
 | 9de0204 | 2026-08-11 | docs: note this repo is a live example of the ai-authorship project | 2 | 100% | 0% | opencode · big-pickle |
-| 059c0ca | 2026-08-12 | docs: regenerate AI authorship report | 52 | 0% | 0% | bot |
-| 906f076 | 2026-08-11 | chore: spice up the readme.md | 132 | 100% | 0% | gemini · gemini-3.6-flash-medium |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -111,7 +110,51 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit b865bf19b178d824d33f65d7103efa9f28273d91 (HEAD -> main, origin/main)
+commit d8fcf128f16ea9cb5778792ca0a8ae9f0801f452 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T12:59:46-07:00
+
+    sync: fix copy-in workflow to commit AI-AUTHORSHIP.json alongside the .md
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      .github/workflows/authorship-report.yml
+        s_988aa8c761b089::t_1863205ea494a2 60,69-70,72,77
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "d8fcf128f16ea9cb5778792ca0a8ae9f0801f452",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 54f5cf4db37cded72f028cf8c8345ac056820517
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T19:53:17Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit b865bf19b178d824d33f65d7103efa9f28273d91
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T12:52:50-07:00
 
@@ -593,50 +636,6 @@ Date:   2026-08-14T18:07:06-07:00
 commit 7195ad12bfb4b3af140a2ac777466aa3c658850a
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-15T00:29:39Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit ca7ee4bca2ad5f7d866505c5c8be69e996cc6b26
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T17:28:52-07:00
-
-    docs: add TeamWork mention via Devin Desktop live test
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_1d3426a336de71::t_6db6a07db46476 190
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "ca7ee4bca2ad5f7d866505c5c8be69e996cc6b26",
-        "prompts": {},
-        "sessions": {
-          "s_1d3426a336de71": {
-            "agent_id": {
-              "tool": "devin",
-              "id": "various-alibi",
-              "model": "swe-1-6-slow"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 9973fdeafae7effe3bf594934b2448192d4bbdb3
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-14T05:12:54Z
 
     docs: regenerate AI authorship report
 
