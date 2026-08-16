@@ -102,6 +102,16 @@ for c in commits:
         label = fmt_tool(key)
         tool_lines[label] = tool_lines.get(label, 0) + val.get("ai_additions", 0)
 
+# Mermaid pie block for per-agent AI lines (only agents with lines > 0).
+def agent_pie():
+    entries = [(t, n) for t, n in sorted(tool_lines.items()) if n > 0]
+    if not entries:
+        return ""
+    lines = ["```mermaid", "pie title AI lines by agent"]
+    lines += [f'    "{t}" : {n}' for t, n in entries]
+    lines.append("```")
+    return "\n".join(lines)
+
 def agents(c):
     tools = sorted({fmt_tool(k) for k in c["stats"].get("tool_model_breakdown", {})})
     if tools:
@@ -180,6 +190,8 @@ pie title Lines by author (AI vs Human vs Untracked)
     "Human" : {total_human}
     "Untracked" : {total_unknown}
 ```
+
+{agent_pie()}
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
