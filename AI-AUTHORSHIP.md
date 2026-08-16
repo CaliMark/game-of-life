@@ -7,21 +7,20 @@ push to `main`.
 
 ## Summary
 
-- Commits analyzed: **48** (last 50)
-- Total lines added: **6122**
-- **AI-generated:** 930 lines (15.2%)
+- Commits analyzed: **50** (last 50)
+- Total lines added: **6233**
+- **AI-generated:** 938 lines (15.0%)
 - **Human:** 1 lines (0.0%)
-- **Bot:** 2151 lines (35.1%)
-- **Untracked:** 3040 lines (49.7%)
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (723 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Bot:** 2254 lines (36.2%)
+- **Untracked:** 3040 lines (48.8%)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), gemini · gemini-3.6-flash-medium (132 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (731 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
-pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : 930
+pie title Lines by author (AI vs Human vs Untracked; report regeneration excluded)
+    "AI" : 938
     "Human" : 1
-    "Bot" : 2151
     "Untracked" : 3040
 ```
 
@@ -35,7 +34,7 @@ pie title AI lines by agent
     "devin · swe-1-6-slow" : 1
     "gemini · gemini-3.6-flash-medium" : 132
     "github-copilot · claude-haiku-4.5" : 7
-    "opencode · big-pickle" : 723
+    "opencode · big-pickle" : 731
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
@@ -55,6 +54,8 @@ pie title AI lines by agent
 
 | Commit | Date | Message | Lines | AI | Human | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- |
+| 1a607b4 | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 8 | 100% | 0% | opencode · big-pickle |
+| 6033a7c | 2026-08-16 | docs: regenerate AI authorship report | 103 | 0% | 0% | bot |
 | e2fa8ce | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 34 | 100% | 0% | opencode · big-pickle |
 | ee29603 | 2026-08-16 | docs: regenerate AI authorship report | 193 | 0% | 0% | bot |
 | f37f6ab | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 37 | 100% | 0% | opencode · big-pickle |
@@ -110,7 +111,51 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit e2fa8ce32781d05eb67ce7dcef9616eea1107c5e (HEAD -> main, origin/main)
+commit 1a607b4b6ace18998b5538cbf5d00823e5fec73f (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T12:44:18-07:00
+
+    sync: update authorship report script + workflow from ai-authorship
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      .github/workflows/authorship-report.yml
+        s_988aa8c761b089::t_6212bb4e2c97fd 29-31,60,69-70,72,77
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "1a607b4b6ace18998b5538cbf5d00823e5fec73f",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 6033a7cd278a26bba8d7898abbe65c716baa9b77
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T19:43:20Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit e2fa8ce32781d05eb67ce7dcef9616eea1107c5e
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T12:42:50-07:00
 
@@ -606,50 +651,6 @@ Date:   2026-08-13T22:12:05-07:00
 commit b0231beb5b5ff0d9e824be7336cd1ad071404e00
 Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
 Date:   2026-08-14T03:03:15Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 605ebd838cf4e3a72c59e2eb41fd0d992fb58b98
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-13T20:01:57-07:00
-
-    docs: add needpc line to README
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_b3fc50989fc1c5::t_8c392c1b2c748d 190
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "605ebd838cf4e3a72c59e2eb41fd0d992fb58b98",
-        "prompts": {},
-        "sessions": {
-          "s_b3fc50989fc1c5": {
-            "agent_id": {
-              "tool": "cline",
-              "id": "1786676246340",
-              "model": "deepseek/deepseek-v4-flash"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit a0a233c34bd7f8fdd6cb4bb34b80febc77902129
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-14T02:06:21Z
 
     docs: regenerate AI authorship report
 
