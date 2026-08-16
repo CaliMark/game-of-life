@@ -26,10 +26,9 @@ env:
   # git-ai, so CI's note-reading version stays compatible with the notes
   # git-ai writes on your machine. Verify against the release's SHA256SUMS.
   GIT_AI_VERSION: "1.6.22"
-  # Show the "Bot" slice (the workflow's own regeneration commits) in the
-  # composition pie. Unset/0 = pie shows AI / Human / Untracked and leaves
-  # bot commits to the summary + per-commit table.
-  REPORT_SHOW_BOT_CHART: "1"
+  # The composition pie hides the workflow's own bot commits by default.
+  # Uncomment to show the "Bot" slice in the pie:
+  # REPORT_SHOW_BOT_CHART: "1"
 
 jobs:
   generate:
@@ -58,7 +57,7 @@ jobs:
         run: |
           git fetch origin refs/notes/ai:refs/notes/ai
 
-      - name: Generate AI-AUTHORSHIP.md + AI-AUTHORSHIP.json
+      - name: Generate AI-AUTHORSHIP.md
         run: |
           export PATH="$HOME/.local/bin:$PATH"
           bash scripts/authorship-report.sh
@@ -67,13 +66,13 @@ jobs:
 
       - name: Commit report back if changed
         run: |
-          if [ -z "$(git status --porcelain -- AI-AUTHORSHIP.md AI-AUTHORSHIP.json)" ]; then
-            echo "AI-AUTHORSHIP reports unchanged — nothing to do"
+          if [ -z "$(git status --porcelain -- AI-AUTHORSHIP.md)" ]; then
+            echo "AI-AUTHORSHIP.md unchanged — nothing to do"
           else
-            git add AI-AUTHORSHIP.md AI-AUTHORSHIP.json
+            git add AI-AUTHORSHIP.md
             git -c user.name="github-actions[bot]" \
                 -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
                 commit -m "docs: regenerate AI authorship report"
             git push
-            echo "Pushed updated AI-AUTHORSHIP reports"
+            echo "Pushed updated AI-AUTHORSHIP.md"
           fi
