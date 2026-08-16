@@ -51,7 +51,7 @@ detail_limit = int(sys.argv[4])
 detail_path = sys.argv[5]
 
 # --- Collect commits -------------------------------------------------------
-fmt = "%h\t%ad\t%s"
+fmt = "%h\t%ad\t%an\t%s"
 raw = subprocess.run(
     ["git", "log", f"-n{commit_limit}", f"--pretty=format:{fmt}", "--date=short"],
     check=True, capture_output=True, text=True,
@@ -59,10 +59,10 @@ raw = subprocess.run(
 
 commits = []
 for line in raw.splitlines():
-    parts = line.split("\t", 2)
-    if len(parts) != 3:
+    parts = line.split("\t", 3)
+    if len(parts) != 4:
         continue
-    sha, date, subject = parts
+    sha, date, author, subject = parts
     stats = {}
     p = subprocess.run(["git-ai", "stats", sha, "--json"], capture_output=True, text=True)
     if p.returncode == 0 and p.stdout.strip():
@@ -70,19 +70,30 @@ for line in raw.splitlines():
             stats = json.loads(p.stdout)
         except json.JSONDecodeError:
             stats = {}
-    commits.append({"sha": sha, "date": date, "subject": subject.replace("|", "\\|"), "stats": stats})
+    commits.append({
+        "sha": sha, "date": date, "author": author,
+        "subject": subject.replace("|", "\\|"), "stats": stats,
+    })
 
 def g(c, key, default=0):
     return c["stats"].get(key, default)
 
+# GitHub convention: automated accounts end in "[bot]" (github-actions[bot],
+# dependabot[bot], renovate[bot], ...). Their commits have no git-ai note, so
+# they'd show as "untracked" — but we know exactly who wrote them, so label
+# them separately instead of lumping them in with genuinely unknown lines.
+def is_bot(c):
+    return c["author"].endswith("[bot]")
+
 def totals():
     human = sum(g(c, "human_additions") for c in commits)
-    unknown = sum(g(c, "unknown_additions") for c in commits)
+    bot = sum(g(c, "unknown_additions") for c in commits if is_bot(c))
+    unknown = sum(g(c, "unknown_additions") for c in commits if not is_bot(c))
     ai = sum(g(c, "ai_additions") for c in commits)
-    return human, unknown, ai
+    return human, bot, unknown, ai
 
-total_human, total_unknown, total_ai = totals()
-total = total_human + total_unknown + total_ai
+total_human, total_bot, total_unknown, total_ai = totals()
+total = total_human + total_bot + total_unknown + total_ai
 
 def pct(part):
     return round(100 * part / total, 1) if total else 0.0
@@ -116,6 +127,8 @@ def agents(c):
     tools = sorted({fmt_tool(k) for k in c["stats"].get("tool_model_breakdown", {})})
     if tools:
         return ", ".join(tools)
+    if is_bot(c) and g(c, "unknown_additions") > 0:
+        return "bot"
     if g(c, "unknown_additions") > 0:
         return "untracked"
     if g(c, "human_additions") > 0:
@@ -126,6 +139,8 @@ def agents_list(c):
     tools = sorted({fmt_tool(k) for k in c["stats"].get("tool_model_breakdown", {})})
     if tools:
         return tools
+    if is_bot(c) and g(c, "unknown_additions") > 0:
+        return ["bot"]
     if g(c, "unknown_additions") > 0:
         return ["untracked"]
     if g(c, "human_additions") > 0:
@@ -148,6 +163,7 @@ for c in commits:
     json_commits.append({
         "sha": c["sha"],
         "date": c["date"],
+        "author": c["author"],
         "subject": c["subject"],
         "lines_added": tot,
         "ai_additions": g(c, "ai_additions"),
@@ -179,15 +195,17 @@ push to `main`.
 - Total lines added: **{total}**
 - **AI-generated:** {total_ai} lines ({pct(total_ai)}%)
 - **Human:** {total_human} lines ({pct(total_human)}%)
+- **Bot:** {total_bot} lines ({pct(total_bot)}%)
 - **Untracked:** {total_unknown} lines ({pct(total_unknown)}%)
 - **Agents:** {tool_summary}
 
 ## Composition
 
 ```mermaid
-pie title Lines by author (AI vs Human vs Untracked)
+pie title Lines by author (AI vs Human vs Bot vs Untracked)
     "AI" : {total_ai}
     "Human" : {total_human}
+    "Bot" : {total_bot}
     "Untracked" : {total_unknown}
 ```
 
@@ -195,10 +213,12 @@ pie title Lines by author (AI vs Human vs Untracked)
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
-> session data). `untracked` = lines with no attribution data — written before
-> git-ai was set up, made in the github.com web UI, or created by CI bots
-> (cannot be retroactively attributed). `human` = written directly by a human
-> and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
+> session data). `bot` = committed by an automated account (`github-actions[bot]`
+> and other `[bot]` accounts, e.g. the workflow regenerating this report) — known
+> authorship, not attributed through git-ai. `untracked` = lines with no
+> attribution data — written before git-ai was set up or made in the github.com
+> web UI (cannot be retroactively attributed). `human` = written directly by a
+> human and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
 > these are line-count percentages, not commit counts.
 
 ## Per-commit breakdown
@@ -227,7 +247,7 @@ with open(out_file, "w", encoding="utf-8", newline="\n") as f:
     f.write(md)
 
 report = {
-    "schema_version": 1,
+    "schema_version": 2,
     "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
     "summary": {
         "commits_analyzed": len(commits),
@@ -237,6 +257,8 @@ report = {
         "ai_pct": pct(total_ai),
         "human_lines": total_human,
         "human_pct": pct(total_human),
+        "bot_lines": total_bot,
+        "bot_pct": pct(total_bot),
         "unknown_lines": total_unknown,
         "unknown_pct": pct(total_unknown),
         "agents": {t: n for t, n in sorted(tool_lines.items())},
