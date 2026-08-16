@@ -57,7 +57,7 @@ jobs:
         run: |
           git fetch origin refs/notes/ai:refs/notes/ai
 
-      - name: Generate AI-AUTHORSHIP.md
+      - name: Generate AI-AUTHORSHIP.md + AI-AUTHORSHIP.json
         run: |
           export PATH="$HOME/.local/bin:$PATH"
           bash scripts/authorship-report.sh
@@ -66,13 +66,13 @@ jobs:
 
       - name: Commit report back if changed
         run: |
-          if [ -z "$(git status --porcelain -- AI-AUTHORSHIP.md)" ]; then
-            echo "AI-AUTHORSHIP.md unchanged — nothing to do"
+          if [ -z "$(git status --porcelain -- AI-AUTHORSHIP.md AI-AUTHORSHIP.json)" ]; then
+            echo "AI-AUTHORSHIP reports unchanged — nothing to do"
           else
-            git add AI-AUTHORSHIP.md
+            git add AI-AUTHORSHIP.md AI-AUTHORSHIP.json
             git -c user.name="github-actions[bot]" \
                 -c user.email="41898282+github-actions[bot]@users.noreply.github.com" \
                 commit -m "docs: regenerate AI authorship report"
             git push
-            echo "Pushed updated AI-AUTHORSHIP.md"
+            echo "Pushed updated AI-AUTHORSHIP reports"
           fi
