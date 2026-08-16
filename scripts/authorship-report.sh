@@ -35,13 +35,18 @@ fi
 
 # Fetch the raw detail log first so any git-ai errors surface clearly.
 DETAIL_TMP=".ai-authorship-detail.tmp"
-trap 'rm -f "$DETAIL_TMP"' EXIT
+# A second, wider raw log is parsed for per-commit session metadata (whether a
+# human drove the session) so the co-contribution view can weight AI lines.
+NOTE_TMP=".ai-authorship-notes.tmp"
+trap 'rm -f "$DETAIL_TMP" "$NOTE_TMP"' EXIT
 git-ai log --raw -n "$DETAIL_LIMIT" --no-pager > "$DETAIL_TMP"
+git-ai log --raw -n "$COMMIT_LIMIT" --no-pager > "$NOTE_TMP"
 
-"$PYTHON" - "$OUT" "$OUT_JSON" "$COMMIT_LIMIT" "$DETAIL_LIMIT" "$DETAIL_TMP" <<'PY'
+"$PYTHON" - "$OUT" "$OUT_JSON" "$COMMIT_LIMIT" "$DETAIL_LIMIT" "$DETAIL_TMP" "$NOTE_TMP" <<'PY'
 import datetime
 import json
 import os
+import re
 import subprocess
 import sys
 
@@ -50,6 +55,7 @@ json_file = sys.argv[2]
 commit_limit = int(sys.argv[3])
 detail_limit = int(sys.argv[4])
 detail_path = sys.argv[5]
+note_path = sys.argv[6]
 
 # Whether to draw the "Bot" slice in the composition pie. Default off: the
 # report's own regeneration commits (github-actions[bot]) are self-reference
@@ -58,8 +64,21 @@ detail_path = sys.argv[5]
 # true/yes) to include the Bot slice.
 show_bot_chart = os.environ.get("REPORT_SHOW_BOT_CHART", "0").lower() in ("1", "true", "yes")
 
+# Co-contribution weighting. Every git-ai session records the human who drove
+# it (human_author), so AI lines produced in such sessions are human-directed.
+# REPORT_HUMAN_DIRECTION_WEIGHT credits that human with a share (default 0.5)
+# of those lines; 0 = strict line-count view, 1 = full co-authorship.
+# REPORT_SHOW_DIRECTION=0 restores the strict composition pie.
+show_direction = os.environ.get("REPORT_SHOW_DIRECTION", "1").lower() in ("1", "true", "yes")
+try:
+    direction_weight = float(os.environ.get("REPORT_HUMAN_DIRECTION_WEIGHT", "0.5"))
+except ValueError:
+    direction_weight = 0.5
+if not (0.0 <= direction_weight <= 1.0):
+    direction_weight = 0.5
+
 # --- Collect commits -------------------------------------------------------
-fmt = "%h\t%ad\t%an\t%s"
+fmt = "%H\t%ad\t%an\t%s"
 raw = subprocess.run(
     ["git", "log", f"-n{commit_limit}", f"--pretty=format:{fmt}", "--date=short"],
     check=True, capture_output=True, text=True,
@@ -83,6 +102,48 @@ for line in raw.splitlines():
         "subject": subject.replace("|", "\\|"), "stats": stats,
     })
 
+# Parse the raw git-ai log to learn, per commit, whether a human drove the
+# session(s) that produced its AI lines. The raw log prints the authorship
+# note JSON after a "---" separator; session blocks carry human_author.
+note_info = {}
+cur_sha = None
+json_buf = []
+in_json = False
+
+def flush_note():
+    global cur_sha, json_buf, in_json
+    if cur_sha and json_buf:
+        try:
+            note = json.loads("\n".join(json_buf))
+            sessions = note.get("sessions") or {}
+            note_info[cur_sha] = {
+                "human_directed": any(
+                    isinstance(s, dict) and s.get("human_author")
+                    for s in sessions.values()
+                ),
+                "session_count": len(sessions),
+            }
+        except json.JSONDecodeError:
+            pass
+    cur_sha = None
+    json_buf = []
+    in_json = False
+
+for line in open(note_path, encoding="utf-8"):
+    if line.startswith("commit "):
+        flush_note()
+        cur_sha = line.split()[1]
+    elif line.strip() == "---":
+        in_json = True
+    elif in_json and cur_sha:
+        json_buf.append(line)
+flush_note()
+
+for c in commits:
+    info = note_info.get(c["sha"], {"human_directed": False, "session_count": 0})
+    c["human_directed"] = info["human_directed"]
+    c["session_count"] = info["session_count"]
+
 def g(c, key, default=0):
     return c["stats"].get(key, default)
 
@@ -102,6 +163,15 @@ def totals():
 
 total_human, total_bot, total_unknown, total_ai = totals()
 total = total_human + total_bot + total_unknown + total_ai
+
+# Co-contribution: split AI lines into human-directed (session recorded its
+# human driver) vs autonomous. The human is credited with direction_weight of
+# the human-directed AI lines. A commit is "co-authored" when it contains BOTH
+# human-written and AI lines.
+total_human_directed_ai = sum(g(c, "ai_additions") for c in commits if c["human_directed"])
+total_autonomous_ai = total_ai - total_human_directed_ai
+total_direction_credit = round(direction_weight * total_human_directed_ai)
+co_contributed_commits = [c for c in commits if g(c, "ai_additions") > 0 and g(c, "human_additions") > 0]
 
 def pct(part):
     return round(100 * part / total, 1) if total else 0.0
@@ -164,12 +234,15 @@ rows = []
 json_commits = []
 for c in commits:
     tot = g(c, "human_additions") + g(c, "unknown_additions") + g(c, "ai_additions")
+    co = c in co_contributed_commits
+    sha_short = c["sha"][:7]
     rows.append(
-        f"| {c['sha']} | {c['date']} | {c['subject']} | {tot} | "
-        f"{commit_pct(g(c, 'ai_additions'))}% | {commit_pct(g(c, 'human_additions'))}% | {agents(c)} |"
+        f"| {sha_short} | {c['date']} | {c['subject']} | {tot} | "
+        f"{commit_pct(g(c, 'ai_additions'))}% | {commit_pct(g(c, 'human_additions'))}% | "
+        f"{'✓' if co else ''} | {agents(c)} |"
     )
     json_commits.append({
-        "sha": c["sha"],
+        "sha": sha_short,
         "date": c["date"],
         "author": c["author"],
         "subject": c["subject"],
@@ -179,6 +252,9 @@ for c in commits:
         "unknown_additions": g(c, "unknown_additions"),
         "ai_pct": commit_pct(g(c, "ai_additions")),
         "human_pct": commit_pct(g(c, "human_additions")),
+        "human_directed": c["human_directed"],
+        "session_count": c["session_count"],
+        "co_contributed": co,
         "agents": agents_list(c),
         "agent_ai_lines": {
             fmt_tool(k): v.get("ai_additions", 0)
@@ -190,8 +266,23 @@ tool_summary = ", ".join(f"{t} ({n} lines)" for t, n in sorted(tool_lines.items(
 
 detail = open(detail_path, encoding="utf-8").read()
 
-# Composition pie. Bot slice is opt-in via REPORT_SHOW_BOT_CHART (see above).
-if show_bot_chart:
+# Composition pie. Two modes:
+#   - show_direction (default): weighted co-contribution view. Human-direct
+#     lines plus the credited share of human-directed AI lines (direction
+#     weight W) vs autonomous AI vs Bot vs Untracked.
+#   - otherwise: strict line-count view. Bot slice is opt-in via
+#     REPORT_SHOW_BOT_CHART (see above).
+if show_direction:
+    pie_title = f"Co-contribution (weighted, human direction weight W={direction_weight:g})"
+    pie_rows = [
+        f'    "Human (direct)" : {total_human}',
+        f'    "Human (direction)" : {total_direction_credit}',
+        f'    "AI" : {total_ai - total_direction_credit}',
+    ]
+    if show_bot_chart:
+        pie_rows.append(f'    "Bot" : {total_bot}')
+    pie_rows.append(f'    "Untracked" : {total_unknown}')
+elif show_bot_chart:
     pie_title = "Lines by author (AI vs Human vs Bot vs Untracked)"
     pie_rows = [
         f'    "AI" : {total_ai}',
@@ -223,6 +314,8 @@ push to `main`.
 - **Human:** {total_human} lines ({pct(total_human)}%)
 - **Bot:** {total_bot} lines ({pct(total_bot)}%)
 - **Untracked:** {total_unknown} lines ({pct(total_unknown)}%)
+- **Human-directed AI:** {total_human_directed_ai} lines ({round(100 * total_human_directed_ai / total_ai, 1) if total_ai else 0.0}% of AI; direction weight {direction_weight:g})
+- **Co-authored commits (human + AI lines):** {len(co_contributed_commits)}
 - **Agents:** {tool_summary}
 
 ## Composition
@@ -238,15 +331,21 @@ push to `main`.
 > authorship, not attributed through git-ai. `untracked` = lines with no
 > attribution data — written before git-ai was set up or made in the github.com
 > web UI (cannot be retroactively attributed). `human` = written directly by a
-> human and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
-> these are line-count percentages, not commit counts. The composition pie
-> excludes the report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1`
-> to include them.
+> human and recorded via `git-ai checkpoint human` or the git-ai extension.
+> `Human (direct)` = human-written lines; `Human (direction)` = the credited
+> share of AI lines from sessions whose human driver git-ai recorded (weight
+> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `AI` = the AI lines not
+> credited to the human (including autonomous AI with no recorded driver). A
+> `✓` in the per-commit table marks a co-authored commit (contains both
+> human-written and AI lines). These are line-count percentages, not commit
+> counts. The composition pie excludes the report's own `bot` commits by
+> default; set `REPORT_SHOW_BOT_CHART=1` to include them, or
+> `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked line-count pie.
 
 ## Per-commit breakdown
 
-| Commit | Date | Message | Lines | AI | Human | Agent(s) |
-| --- | --- | --- | --- | --- | --- | --- |
+| Commit | Date | Message | Lines | AI | Human | Co | Agent(s) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
 {chr(10).join(rows)}
 
 ## Raw git-ai log (last {detail_limit} commits)
@@ -269,7 +368,7 @@ with open(out_file, "w", encoding="utf-8", newline="\n") as f:
     f.write(md)
 
 report = {
-    "schema_version": 2,
+    "schema_version": 3,
     "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
     "summary": {
         "commits_analyzed": len(commits),
@@ -283,6 +382,12 @@ report = {
         "bot_pct": pct(total_bot),
         "unknown_lines": total_unknown,
         "unknown_pct": pct(total_unknown),
+        "human_directed_ai_lines": total_human_directed_ai,
+        "human_directed_ai_pct": round(100 * total_human_directed_ai / total_ai, 1) if total_ai else 0.0,
+        "autonomous_ai_lines": total_autonomous_ai,
+        "direction_weight": direction_weight,
+        "direction_credit_lines": total_direction_credit,
+        "co_contributed_commits": len(co_contributed_commits),
         "agents": {t: n for t, n in sorted(tool_lines.items())},
     },
     "commits": json_commits,

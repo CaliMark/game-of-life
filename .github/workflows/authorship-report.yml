@@ -29,6 +29,11 @@ env:
   # The composition pie hides the workflow's own bot commits by default.
   # Uncomment to show the "Bot" slice in the pie:
   # REPORT_SHOW_BOT_CHART: "1"
+  # Co-contribution weighting: credits the human who directed each session
+  # with a share of that session's AI lines (default 0.5). Set REPORT_SHOW_DIRECTION
+  # to "0" for a strict AI/Human/Untracked line-count pie instead.
+  # REPORT_HUMAN_DIRECTION_WEIGHT: "0.5"
+  # REPORT_SHOW_DIRECTION: "1"
 
 jobs:
   generate:
