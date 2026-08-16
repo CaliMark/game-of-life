@@ -1,16 +1,18 @@
 {
-  "schema_version": 1,
-  "generated_at": "2026-08-16T18:17:20.459327+00:00",
+  "schema_version": 2,
+  "generated_at": "2026-08-16T19:05:55.442766+00:00",
   "summary": {
-    "commits_analyzed": 44,
+    "commits_analyzed": 46,
     "commit_limit": 50,
-    "total_lines": 5750,
-    "ai_lines": 859,
-    "ai_pct": 14.9,
+    "total_lines": 5895,
+    "ai_lines": 896,
+    "ai_pct": 15.2,
     "human_lines": 1,
     "human_pct": 0.0,
-    "unknown_lines": 4890,
-    "unknown_pct": 85.0,
+    "bot_lines": 1958,
+    "bot_pct": 33.2,
+    "unknown_lines": 3040,
+    "unknown_pct": 51.6,
     "agents": {
       "claude · swe-1-6-slow": 1,
       "cline · deepseek/deepseek-v4-flash": 1,
@@ -20,14 +22,49 @@
       "devin · swe-1-6-slow": 1,
       "gemini · gemini-3.6-flash-medium": 132,
       "github-copilot · claude-haiku-4.5": 7,
-      "opencode · big-pickle": 652,
+      "opencode · big-pickle": 689,
       "opencode · qwen2.5-7b-instruct": 3
     }
   },
   "commits": [
     {
+      "sha": "f37f6ab",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "sync: update authorship report script + workflow from ai-authorship",
+      "lines_added": 37,
+      "ai_additions": 37,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 37
+      }
+    },
+    {
+      "sha": "4bc8085",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 108,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 108,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {}
+    },
+    {
       "sha": "9a23637",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "feat: add per-agent breakdown pie chart to report composition",
       "lines_added": 12,
       "ai_additions": 12,
@@ -45,6 +82,7 @@
     {
       "sha": "9243d1b",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 757,
       "ai_additions": 0,
@@ -53,13 +91,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "3cd6dab",
       "date": "2026-08-16",
+      "author": "CaliMark",
       "subject": "feat: emit machine-readable AI-AUTHORSHIP.json + composition pie chart",
       "lines_added": 89,
       "ai_additions": 89,
@@ -77,6 +116,7 @@
     {
       "sha": "243887d",
       "date": "2026-08-16",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -85,13 +125,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "e7a7c91",
       "date": "2026-08-15",
+      "author": "CaliMark",
       "subject": "docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo",
       "lines_added": 2,
       "ai_additions": 2,
@@ -109,6 +150,7 @@
     {
       "sha": "2c9790a",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -117,13 +159,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "7b79bd1",
       "date": "2026-08-15",
+      "author": "CaliMark",
       "subject": "Created by LM Stuido with opencode",
       "lines_added": 3,
       "ai_additions": 3,
@@ -141,6 +184,7 @@
     {
       "sha": "b79a733",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -149,13 +193,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "d8ae5d6",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: add live website link (needpc.net/life)",
       "lines_added": 2,
       "ai_additions": 2,
@@ -173,6 +218,7 @@
     {
       "sha": "d61a459",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 59,
       "ai_additions": 0,
@@ -181,13 +227,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "3a4581d",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: tidy separator before license section",
       "lines_added": 0,
       "ai_additions": 0,
@@ -201,6 +248,7 @@
     {
       "sha": "293f451",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: remove needpc.net line",
       "lines_added": 0,
       "ai_additions": 0,
@@ -214,6 +262,7 @@
     {
       "sha": "8cba1ef",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 47,
       "ai_additions": 0,
@@ -222,13 +271,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "b7e37f0",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: manually shorten needpc.net line (human-attributed edit)",
       "lines_added": 1,
       "ai_additions": 0,
@@ -244,6 +294,7 @@
     {
       "sha": "7195ad1",
       "date": "2026-08-15",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -252,13 +303,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "ca7ee4b",
       "date": "2026-08-14",
+      "author": "CaliMark",
       "subject": "docs: add TeamWork mention via Devin Desktop live test",
       "lines_added": 1,
       "ai_additions": 1,
@@ -276,6 +328,7 @@
     {
       "sha": "9973fde",
       "date": "2026-08-14",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 68,
       "ai_additions": 0,
@@ -284,13 +337,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "150f8a4",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "feat: attribute Devin Desktop edits via .devin hooks to git-ai",
       "lines_added": 25,
       "ai_additions": 25,
@@ -310,6 +364,7 @@
     {
       "sha": "b0231be",
       "date": "2026-08-14",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -318,13 +373,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "605ebd8",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "docs: add needpc line to README",
       "lines_added": 1,
       "ai_additions": 1,
@@ -342,6 +398,7 @@
     {
       "sha": "a0a233c",
       "date": "2026-08-14",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 39,
       "ai_additions": 0,
@@ -350,13 +407,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "09df4eb",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "Remove divider rule pattern gallery",
       "lines_added": 0,
       "ai_additions": 0,
@@ -370,6 +428,7 @@
     {
       "sha": "45b21c8",
       "date": "2026-08-14",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -378,13 +437,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "fc81dca",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "Center pattern table in README",
       "lines_added": 1,
       "ai_additions": 1,
@@ -402,6 +462,7 @@
     {
       "sha": "f15318b",
       "date": "2026-08-13",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 63,
       "ai_additions": 0,
@@ -410,13 +471,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "e918bdb",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS)",
       "lines_added": 43,
       "ai_additions": 43,
@@ -436,6 +498,7 @@
     {
       "sha": "c3c2f3b",
       "date": "2026-08-13",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 57,
       "ai_additions": 0,
@@ -444,13 +507,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "84fc816",
       "date": "2026-08-13",
+      "author": "CaliMark",
       "subject": "docs: add glider art and expand dedication",
       "lines_added": 19,
       "ai_additions": 19,
@@ -468,6 +532,7 @@
     {
       "sha": "417601a",
       "date": "2026-08-13",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 108,
       "ai_additions": 0,
@@ -476,13 +541,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "d32a64f",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "fix: show brand title on mobile and contain active button glow in panels",
       "lines_added": 26,
       "ai_additions": 26,
@@ -500,6 +566,7 @@
     {
       "sha": "00864a3",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "feat: add undo/redo history for drawing, stamps, clear, randomize, and step",
       "lines_added": 197,
       "ai_additions": 197,
@@ -517,6 +584,7 @@
     {
       "sha": "372c70f",
       "date": "2026-08-13",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 56,
       "ai_additions": 0,
@@ -525,13 +593,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "3d0b9a8",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan)",
       "lines_added": 40,
       "ai_additions": 40,
@@ -549,6 +618,7 @@
     {
       "sha": "6139bdc",
       "date": "2026-08-12",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 33,
       "ai_additions": 0,
@@ -557,13 +627,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "460a12e",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "Fix formatting in README.md section headers",
       "lines_added": 1,
       "ai_additions": 0,
@@ -579,6 +650,7 @@
     {
       "sha": "a486b28",
       "date": "2026-08-12",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 66,
       "ai_additions": 0,
@@ -587,13 +659,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "0e31e40",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "Merge branch 'main' of https://github.com/CaliMark/game-of-life",
       "lines_added": 0,
       "ai_additions": 0,
@@ -607,6 +680,7 @@
     {
       "sha": "c8156e6",
       "date": "2026-08-12",
+      "author": "CaliMark",
       "subject": "Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon",
       "lines_added": 7,
       "ai_additions": 7,
@@ -624,6 +698,7 @@
     {
       "sha": "a4372e9",
       "date": "2026-08-12",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -632,13 +707,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "9de0204",
       "date": "2026-08-11",
+      "author": "CaliMark",
       "subject": "docs: note this repo is a live example of the ai-authorship project",
       "lines_added": 2,
       "ai_additions": 2,
@@ -656,6 +732,7 @@
     {
       "sha": "059c0ca",
       "date": "2026-08-12",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 52,
       "ai_additions": 0,
@@ -664,13 +741,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "906f076",
       "date": "2026-08-11",
+      "author": "CaliMark",
       "subject": "chore: spice up the readme.md",
       "lines_added": 132,
       "ai_additions": 132,
@@ -688,6 +766,7 @@
     {
       "sha": "761f493",
       "date": "2026-08-12",
+      "author": "github-actions[bot]",
       "subject": "docs: regenerate AI authorship report",
       "lines_added": 81,
       "ai_additions": 0,
@@ -696,13 +775,14 @@
       "ai_pct": 0,
       "human_pct": 0,
       "agents": [
-        "untracked"
+        "bot"
       ],
       "agent_ai_lines": {}
     },
     {
       "sha": "94951a8",
       "date": "2026-08-11",
+      "author": "CaliMark",
       "subject": "feat: initial commit - Conway's Game of Life",
       "lines_added": 3296,
       "ai_additions": 257,
