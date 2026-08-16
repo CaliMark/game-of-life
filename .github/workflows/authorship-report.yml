@@ -26,6 +26,10 @@ env:
   # git-ai, so CI's note-reading version stays compatible with the notes
   # git-ai writes on your machine. Verify against the release's SHA256SUMS.
   GIT_AI_VERSION: "1.6.22"
+  # Show the "Bot" slice (the workflow's own regeneration commits) in the
+  # composition pie. Unset/0 = pie shows AI / Human / Untracked and leaves
+  # bot commits to the summary + per-commit table.
+  REPORT_SHOW_BOT_CHART: "1"
 
 jobs:
   generate:

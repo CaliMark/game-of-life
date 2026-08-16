@@ -41,6 +41,7 @@ git-ai log --raw -n "$DETAIL_LIMIT" --no-pager > "$DETAIL_TMP"
 "$PYTHON" - "$OUT" "$OUT_JSON" "$COMMIT_LIMIT" "$DETAIL_LIMIT" "$DETAIL_TMP" <<'PY'
 import datetime
 import json
+import os
 import subprocess
 import sys
 
@@ -49,6 +50,13 @@ json_file = sys.argv[2]
 commit_limit = int(sys.argv[3])
 detail_limit = int(sys.argv[4])
 detail_path = sys.argv[5]
+
+# Whether to draw the "Bot" slice in the composition pie. Default off: the
+# report's own regeneration commits (github-actions[bot]) are self-reference
+# noise, so by default the chart shows AI / Human / Untracked and leaves bots
+# to the summary line and per-commit table. Set REPORT_SHOW_BOT_CHART=1 (or
+# true/yes) to include the Bot slice.
+show_bot_chart = os.environ.get("REPORT_SHOW_BOT_CHART", "0").lower() in ("1", "true", "yes")
 
 # --- Collect commits -------------------------------------------------------
 fmt = "%h\t%ad\t%an\t%s"
@@ -182,6 +190,24 @@ tool_summary = ", ".join(f"{t} ({n} lines)" for t, n in sorted(tool_lines.items(
 
 detail = open(detail_path, encoding="utf-8").read()
 
+# Composition pie. Bot slice is opt-in via REPORT_SHOW_BOT_CHART (see above).
+if show_bot_chart:
+    pie_title = "Lines by author (AI vs Human vs Bot vs Untracked)"
+    pie_rows = [
+        f'    "AI" : {total_ai}',
+        f'    "Human" : {total_human}',
+        f'    "Bot" : {total_bot}',
+        f'    "Untracked" : {total_unknown}',
+    ]
+else:
+    pie_title = "Lines by author (AI vs Human vs Untracked; report regeneration excluded)"
+    pie_rows = [
+        f'    "AI" : {total_ai}',
+        f'    "Human" : {total_human}',
+        f'    "Untracked" : {total_unknown}',
+    ]
+pie_block = "```mermaid\npie title " + pie_title + "\n" + "\n".join(pie_rows) + "\n```"
+
 md = f"""# AI Authorship Report
 
 This file shows which AI coding agent (or human) wrote the code in each commit,
@@ -201,13 +227,7 @@ push to `main`.
 
 ## Composition
 
-```mermaid
-pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : {total_ai}
-    "Human" : {total_human}
-    "Bot" : {total_bot}
-    "Untracked" : {total_unknown}
-```
+{pie_block}
 
 {agent_pie()}
 
@@ -219,7 +239,9 @@ pie title Lines by author (AI vs Human vs Bot vs Untracked)
 > attribution data — written before git-ai was set up or made in the github.com
 > web UI (cannot be retroactively attributed). `human` = written directly by a
 > human and recorded via `git-ai checkpoint human` or the git-ai extension. Note:
-> these are line-count percentages, not commit counts.
+> these are line-count percentages, not commit counts. The composition pie
+> excludes the report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1`
+> to include them.
 
 ## Per-commit breakdown
 
