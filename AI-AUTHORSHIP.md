@@ -8,15 +8,15 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4084**
-- **AI-generated:** 612 lines (15.0%)
+- Total lines added: **4205**
+- **AI-generated:** 611 lines (14.5%)
 - **Human:** 1 lines (0.2% of project)
-- **Bot:** 3434 lines (84.1%)
-- **Untracked:** 37 lines (0.9%)
-- **Human-directed AI:** 612 lines (weighted credit: 306 lines at W=0.5, 50.1% of project)
+- **Bot:** 3555 lines (84.5%) — excluded from pie
+- **Untracked:** 38 lines (0.9%)
+- **Human-directed AI:** 611 lines (weighted credit: 306 lines at W=0.5, 50.2% of project)
 - **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 306 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (606 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** claude · swe-1-6-slow (1 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (606 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
@@ -25,16 +25,14 @@ pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 1
     "Human (direction)" : 306
     "AI · big-pickle" : 303
-    "AI · deepseek/deepseek-v4-flash" : 1
     "AI · qwen2.5-7b-instruct" : 1
     "AI · swe-1-6-slow" : 1
-    "Untracked" : 37
+    "Untracked" : 38
 ```
 
 ```mermaid
 pie title AI lines by agent
     "claude · swe-1-6-slow" : 1
-    "cline · deepseek/deepseek-v4-flash" : 1
     "devin · swe-1-6-slow" : 1
     "opencode · big-pickle" : 606
     "opencode · qwen2.5-7b-instruct" : 3
@@ -43,7 +41,6 @@ pie title AI lines by agent
 ```mermaid
 pie title AI lines by tool
     "claude" : 1
-    "cline" : 1
     "devin" : 1
     "opencode" : 609
 ```
@@ -51,7 +48,6 @@ pie title AI lines by tool
 ```mermaid
 pie title AI lines by model
     "big-pickle" : 606
-    "deepseek/deepseek-v4-flash" : 1
     "qwen2.5-7b-instruct" : 3
     "swe-1-6-slow" : 2
 ```
@@ -102,6 +98,8 @@ pie title Human lines by contributor
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ed754b5 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 1 | 0% | 0% |  |  | untracked |
+| 2a389b7 | 2026-08-17 | docs: regenerate AI authorship report | 173 | 0% | 0% |  |  | bot |
 | 96738d5 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 37 | 0% | 0% |  |  | untracked |
 | c401213 | 2026-08-17 | docs: regenerate AI authorship report | 91 | 0% | 0% |  |  | bot |
 | 1827d1a | 2026-08-17 | chore: hide agent chart (REPORT_SHOW_AGENT_CHART=0) | 1 | 100% | 0% |  |  | opencode · big-pickle |
@@ -150,8 +148,6 @@ pie title Human lines by contributor
 | ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% |  |  | devin · swe-1-6-slow |
 | 9973fde | 2026-08-14 | docs: regenerate AI authorship report | 68 | 0% | 0% |  |  | bot |
 | 150f8a4 | 2026-08-13 | feat: attribute Devin Desktop edits via .devin hooks to git-ai | 25 | 100% | 0% |  |  | claude · swe-1-6-slow, opencode · big-pickle |
-| b0231be | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
-| 605ebd8 | 2026-08-13 | docs: add needpc line to README | 1 | 100% | 0% |  |  | cline · deepseek/deepseek-v4-flash |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -159,7 +155,33 @@ pie title Human lines by contributor
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 96738d5052eb0eb2b4c1b4b796890214435845f6 (HEAD -> main, origin/main)
+commit ed754b5e26eb1fbec9878f596e7688c204518729 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T14:29:08-07:00
+
+    sync: update authorship report script + workflow from ai-authorship
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 2a389b7017f16742dffbcac32b30c927a57071b7
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T21:19:26Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 96738d5052eb0eb2b4c1b4b796890214435845f6
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T14:18:56-07:00
 
@@ -657,50 +679,6 @@ Date:   2026-08-16T12:52:50-07:00
             "agent_id": {
               "tool": "opencode",
               "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 6a8953043ba91a1fadf94de3806855f79da05e1d
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-16T19:44:47Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 1a607b4b6ace18998b5538cbf5d00823e5fec73f
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T12:44:18-07:00
-
-    sync: update authorship report script + workflow from ai-authorship
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      .github/workflows/authorship-report.yml
-        s_988aa8c761b089::t_6212bb4e2c97fd 29-31,60,69-70,72,77
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "1a607b4b6ace18998b5538cbf5d00823e5fec73f",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
               "model": "big-pickle"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
