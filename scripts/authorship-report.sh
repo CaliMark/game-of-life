@@ -257,6 +257,13 @@ for c in commits:
         else:
             tool_lines[key] = tool_lines.get(key, 0) + n
 
+# Human-written lines broken down by commit author.
+human_lines_by_author = {}
+for c in commits:
+    ha = g(c, "human_additions")
+    if ha > 0:
+        human_lines_by_author[c["author"]] = human_lines_by_author.get(c["author"], 0) + ha
+
 # Mermaid pie block for per-agent AI lines (only agents with lines > 0).
 def generic_pie(title, mapping):
     entries = [(t, n) for t, n in sorted(mapping.items()) if n > 0]
@@ -353,6 +360,7 @@ detail = open(detail_path, encoding="utf-8").read()
 agent_pie_block = agent_pie()
 tool_pie_block = generic_pie("AI lines by tool", tool_lines) if show_breakdown else ""
 model_pie_block = generic_pie("AI lines by model", model_lines) if show_breakdown else ""
+human_pie_block = generic_pie("Human lines by contributor", human_lines_by_author)
 
 # Composition pie. Two modes:
 #   - show_direction (default): weighted co-contribution view. Human-direct
@@ -434,6 +442,8 @@ push to `main`.
 
 {model_pie_block}
 
+{human_pie_block}
+
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
 > session data). `bot` = committed by an automated account (`github-actions[bot]`
@@ -456,7 +466,8 @@ push to `main`.
 > include them, or `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked
 > line-count pie. The "AI lines by tool" and "AI lines by model" pies break
 > down the AI attribution by the agent tool and LLM model that produced the
-> lines.
+> lines. "Human lines by contributor" shows human-written lines broken down by
+> the commit author who recorded them (via `git-ai checkpoint human`).
 
 ## Per-commit breakdown
 
