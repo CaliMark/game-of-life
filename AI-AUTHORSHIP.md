@@ -8,15 +8,15 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3925**
-- **AI-generated:** 612 lines (15.6%)
+- Total lines added: **3995**
+- **AI-generated:** 611 lines (15.3%)
 - **Human:** 1 lines (0.2% of project)
-- **Bot:** 3312 lines (84.4%)
-- **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 612 lines (weighted credit: 305 lines at W=0.5, 49.9% of project)
+- **Bot:** 3382 lines (84.7%)
+- **Untracked:** 1 lines (0.0%)
+- **Human-directed AI:** 611 lines (weighted credit: 305 lines at W=0.5, 50.0% of project)
 - **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 305 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (605 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (605 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
@@ -26,26 +26,17 @@ pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direction)" : 305
     "AI · big-pickle" : 303
     "AI · deepseek/deepseek-v4-flash" : 1
-    "AI · nemotron-3.5-lightning" : 1
     "AI · qwen2.5-7b-instruct" : 1
     "AI · swe-1-6-slow" : 1
-    "Untracked" : 0
+    "Untracked" : 1
 ```
 
-```mermaid
-pie title AI lines by agent
-    "claude · swe-1-6-slow" : 1
-    "cline · deepseek/deepseek-v4-flash" : 1
-    "cline · nemotron-3.5-lightning" : 1
-    "devin · swe-1-6-slow" : 1
-    "opencode · big-pickle" : 605
-    "opencode · qwen2.5-7b-instruct" : 3
-```
+
 
 ```mermaid
 pie title AI lines by tool
     "claude" : 1
-    "cline" : 2
+    "cline" : 1
     "devin" : 1
     "opencode" : 608
 ```
@@ -54,7 +45,6 @@ pie title AI lines by tool
 pie title AI lines by model
     "big-pickle" : 605
     "deepseek/deepseek-v4-flash" : 1
-    "nemotron-3.5-lightning" : 1
     "qwen2.5-7b-instruct" : 3
     "swe-1-6-slow" : 2
 ```
@@ -93,6 +83,8 @@ pie title Human lines by contributor
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 1827d1a | 2026-08-17 | chore: hide agent chart (REPORT_SHOW_AGENT_CHART=0) | 1 | 0% | 0% |  |  | untracked |
+| 0feadae | 2026-08-17 | docs: regenerate AI authorship report | 122 | 0% | 0% |  |  | bot |
 | b064e18 | 2026-08-16 | chore: sync authorship script (REPORT_SHOW_AGENT_CHART toggle) | 8 | 100% | 0% |  |  | opencode · big-pickle |
 | b405462 | 2026-08-17 | docs: regenerate AI authorship report | 124 | 0% | 0% |  |  | bot |
 | a89f108 | 2026-08-16 | chore: sync authorship script (Human % matches pie) | 1 | 100% | 0% |  |  | opencode · big-pickle |
@@ -141,8 +133,6 @@ pie title Human lines by contributor
 | 605ebd8 | 2026-08-13 | docs: add needpc line to README | 1 | 100% | 0% |  |  | cline · deepseek/deepseek-v4-flash |
 | a0a233c | 2026-08-14 | docs: regenerate AI authorship report | 39 | 0% | 0% |  |  | bot |
 | 09df4eb | 2026-08-13 | Remove divider rule pattern gallery | 0 | 0% | 0% |  |  | none |
-| 45b21c8 | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
-| fc81dca | 2026-08-13 | Center pattern table in README | 1 | 100% | 0% |  |  | cline · nemotron-3.5-lightning |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -150,7 +140,33 @@ pie title Human lines by contributor
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit b064e18c2ed565701ad047e0008d6b5f4cc327a6 (HEAD -> main, origin/main)
+commit 1827d1a97e5b7591296d806cbcfb73dc9ce82977 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T00:37:55-07:00
+
+    chore: hide agent chart (REPORT_SHOW_AGENT_CHART=0)
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 0feadae710905ad931eefa1d09179ea107a2e999
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T06:37:57Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit b064e18c2ed565701ad047e0008d6b5f4cc327a6
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T23:36:56-07:00
 
@@ -662,50 +678,6 @@ Date:   2026-08-16T12:42:50-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "e2fa8ce32781d05eb67ce7dcef9616eea1107c5e",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit ee29603c3cfa92745986f6358a7e4fe1a9af740b
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-16T19:05:55Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit f37f6aba442a02e97b8ea11f616495b499fbaad3
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T12:05:27-07:00
-
-    sync: update authorship report script + workflow from ai-authorship
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      scripts/authorship-report.sh
-        s_988aa8c761b089::t_6a341bd64174aa 54,62-63,65,73-76,81-87,90-91,93,95-96,130-131,142-143,166,198,205,208,216-221,250,260-261
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "f37f6aba442a02e97b8ea11f616495b499fbaad3",
         "prompts": {},
         "sessions": {
           "s_988aa8c761b089": {

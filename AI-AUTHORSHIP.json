@@ -1,19 +1,19 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T06:37:57.090933+00:00",
+  "generated_at": "2026-08-17T07:38:56.532168+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3925,
-    "ai_lines": 612,
-    "ai_pct": 15.6,
+    "total_lines": 3995,
+    "ai_lines": 611,
+    "ai_pct": 15.3,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 3312,
-    "bot_pct": 84.4,
-    "unknown_lines": 0,
+    "bot_lines": 3382,
+    "bot_pct": 84.7,
+    "unknown_lines": 1,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 612,
+    "human_directed_ai_lines": 611,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
@@ -27,26 +27,68 @@
     "agents": {
       "claude · swe-1-6-slow": 1,
       "cline · deepseek/deepseek-v4-flash": 1,
-      "cline · nemotron-3.5-lightning": 1,
       "devin · swe-1-6-slow": 1,
       "opencode · big-pickle": 605,
       "opencode · qwen2.5-7b-instruct": 3
     },
     "tools": {
       "claude": 1,
-      "cline": 2,
+      "cline": 1,
       "devin": 1,
       "opencode": 608
     },
     "models": {
       "big-pickle": 605,
       "deepseek/deepseek-v4-flash": 1,
-      "nemotron-3.5-lightning": 1,
       "qwen2.5-7b-instruct": 3,
       "swe-1-6-slow": 2
     }
   },
   "commits": [
+    {
+      "sha": "1827d1a",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "chore: hide agent chart (REPORT_SHOW_AGENT_CHART=0)",
+      "lines_added": 1,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 1,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
+    {
+      "sha": "0feadae",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 122,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 122,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "b064e18",
       "date": "2026-08-16",
@@ -1226,56 +1268,6 @@
       "agent_ai_lines": {},
       "tool_ai_lines": {},
       "model_ai_lines": {}
-    },
-    {
-      "sha": "45b21c8",
-      "date": "2026-08-14",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 52,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 52,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "fc81dca",
-      "date": "2026-08-13",
-      "author": "CaliMark",
-      "subject": "Center pattern table in README",
-      "lines_added": 1,
-      "ai_additions": 1,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "cline · nemotron-3.5-lightning"
-      ],
-      "agent_ai_lines": {
-        "cline · nemotron-3.5-lightning": 1
-      },
-      "tool_ai_lines": {
-        "cline": 1
-      },
-      "model_ai_lines": {
-        "nemotron-3.5-lightning": 1
-      }
     }
   ]
 }
