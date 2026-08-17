@@ -1,24 +1,24 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T04:58:45.095269+00:00",
+  "generated_at": "2026-08-17T05:08:38.563700+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3997,
-    "ai_lines": 886,
-    "ai_pct": 22.2,
+    "total_lines": 3865,
+    "ai_lines": 690,
+    "ai_pct": 17.9,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 3110,
-    "bot_pct": 77.8,
+    "bot_lines": 3174,
+    "bot_pct": 82.1,
     "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 867,
-    "human_directed_ai_pct": 97.9,
+    "human_directed_ai_lines": 671,
+    "human_directed_ai_pct": 97.2,
     "autonomous_ai_lines": 19,
     "direction_weight": 0.5,
-    "direction_credit_lines": 433,
-    "human_direction_credit_lines": 433,
+    "direction_credit_lines": 335,
+    "human_direction_credit_lines": 335,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
@@ -31,7 +31,7 @@
       "cursor": 19,
       "cursor · composer-2.5": 42,
       "devin · swe-1-6-slow": 1,
-      "opencode · big-pickle": 818,
+      "opencode · big-pickle": 622,
       "opencode · qwen2.5-7b-instruct": 3
     },
     "tools": {
@@ -39,10 +39,10 @@
       "cline": 2,
       "cursor": 61,
       "devin": 1,
-      "opencode": 821
+      "opencode": 625
     },
     "models": {
-      "big-pickle": 818,
+      "big-pickle": 622,
       "composer-2.5": 42,
       "deepseek/deepseek-v4-flash": 1,
       "nemotron-3.5-lightning": 1,
@@ -51,6 +51,56 @@
     }
   },
   "commits": [
+    {
+      "sha": "a518e99",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "chore: sync authorship script (weighted percentage fix)",
+      "lines_added": 1,
+      "ai_additions": 1,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 1
+      },
+      "tool_ai_lines": {
+        "opencode": 1
+      },
+      "model_ai_lines": {
+        "big-pickle": 1
+      }
+    },
+    {
+      "sha": "231d684",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 120,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 120,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "587d53b",
       "date": "2026-08-16",
@@ -1232,56 +1282,6 @@
       "model_ai_lines": {
         "big-pickle": 26
       }
-    },
-    {
-      "sha": "00864a3",
-      "date": "2026-08-12",
-      "author": "CaliMark",
-      "subject": "feat: add undo/redo history for drawing, stamps, clear, randomize, and step",
-      "lines_added": 197,
-      "ai_additions": 197,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "opencode · big-pickle": 197
-      },
-      "tool_ai_lines": {
-        "opencode": 197
-      },
-      "model_ai_lines": {
-        "big-pickle": 197
-      }
-    },
-    {
-      "sha": "372c70f",
-      "date": "2026-08-13",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 56,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 56,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
     }
   ]
 }
