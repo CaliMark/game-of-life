@@ -77,8 +77,26 @@ except ValueError:
 if not (0.0 <= direction_weight <= 1.0):
     direction_weight = 0.5
 
+# Idea-origin weighting. When a feature implements an idea the agent itself
+# suggested earlier (tagged with an "Idea-By: agent" commit trailer), the human
+# who requested it still directed execution but did not originate the idea.
+# REPORT_IDEA_WEIGHT is the share of the direction credit on those lines that is
+# withheld from the human and shown as an "Agent (idea)" slice (default 0.3).
+try:
+    idea_weight = float(os.environ.get("REPORT_IDEA_WEIGHT", "0.3"))
+except ValueError:
+    idea_weight = 0.3
+if not (0.0 <= idea_weight <= 1.0):
+    idea_weight = 0.3
+
+# Per-tool and per-model breakdown pies. Default on: alongside "AI lines by
+# agent" the report draws "AI lines by tool" and "AI lines by model", and the
+# weighted pie's "AI" slice is split per model when more than one model has
+# lines. Set REPORT_SHOW_BREAKDOWN=0 to disable.
+show_breakdown = os.environ.get("REPORT_SHOW_BREAKDOWN", "1").lower() in ("1", "true", "yes")
+
 # --- Collect commits -------------------------------------------------------
-fmt = "%H\t%ad\t%an\t%s"
+fmt = "%H\t%ad\t%an\t%s\t%(trailers:key=Idea-By,only=yes,unfold=yes,valueonly=yes)"
 raw = subprocess.run(
     ["git", "log", f"-n{commit_limit}", f"--pretty=format:{fmt}", "--date=short"],
     check=True, capture_output=True, text=True,
@@ -86,10 +104,11 @@ raw = subprocess.run(
 
 commits = []
 for line in raw.splitlines():
-    parts = line.split("\t", 3)
-    if len(parts) != 4:
+    parts = line.split("\t", 4)
+    if len(parts) != 5:
         continue
-    sha, date, author, subject = parts
+    sha, date, author, subject, idea_by = parts
+    idea_source = "agent" if idea_by.strip().lower() == "agent" else "human"
     stats = {}
     p = subprocess.run(["git-ai", "stats", sha, "--json"], capture_output=True, text=True)
     if p.returncode == 0 and p.stdout.strip():
@@ -100,6 +119,7 @@ for line in raw.splitlines():
     commits.append({
         "sha": sha, "date": date, "author": author,
         "subject": subject.replace("|", "\\|"), "stats": stats,
+        "idea_source": idea_source,
     })
 
 # Parse the raw git-ai log to learn, per commit, whether a human drove the
@@ -165,12 +185,47 @@ total_human, total_bot, total_unknown, total_ai = totals()
 total = total_human + total_bot + total_unknown + total_ai
 
 # Co-contribution: split AI lines into human-directed (session recorded its
-# human driver) vs autonomous. The human is credited with direction_weight of
-# the human-directed AI lines. A commit is "co-authored" when it contains BOTH
-# human-written and AI lines.
-total_human_directed_ai = sum(g(c, "ai_additions") for c in commits if c["human_directed"])
+# human driver) vs autonomous. A commit is "co-authored" when it contains BOTH
+# human-written and AI lines. Human-directed AI is attributed per model, and the
+# human is credited with direction_weight of it; for lines implementing an
+# agent-suggested idea (Idea-By: agent trailer) the idea_weight share of that
+# credit is shown as an "Agent (idea)" slice instead.
+model_human_directed_ai = {}
+model_agent_idea_ai = {}
+model_total_ai = {}
+for c in commits:
+    for key, val in c["stats"].get("tool_model_breakdown", {}).items():
+        if "::" not in key:
+            continue
+        _, model = key.split("::", 1)
+        if model == "unknown":
+            continue
+        n = val.get("ai_additions", 0)
+        model_total_ai[model] = model_total_ai.get(model, 0) + n
+        if c["human_directed"]:
+            model_human_directed_ai[model] = model_human_directed_ai.get(model, 0) + n
+            if c["idea_source"] == "agent":
+                model_agent_idea_ai[model] = model_agent_idea_ai.get(model, 0) + n
+
+model_human_credit = {}
+model_agent_idea_credit = {}
+model_ai_remainder = {}
+for model in model_total_ai:
+    directed = model_human_directed_ai.get(model, 0)
+    idea = model_agent_idea_ai.get(model, 0)
+    normal = directed - idea
+    h = round(direction_weight * normal) + round(direction_weight * (1 - idea_weight) * idea)
+    a = round(direction_weight * idea_weight * idea)
+    model_human_credit[model] = h
+    model_agent_idea_credit[model] = a
+    model_ai_remainder[model] = model_total_ai[model] - h - a
+
+total_human_directed_ai = sum(model_human_directed_ai.values())
+total_agent_idea_ai = sum(model_agent_idea_ai.values())
 total_autonomous_ai = total_ai - total_human_directed_ai
-total_direction_credit = round(direction_weight * total_human_directed_ai)
+human_direction_credit = sum(model_human_credit.values())
+agent_idea_credit = sum(model_agent_idea_credit.values())
+total_direction_credit = human_direction_credit + agent_idea_credit
 co_contributed_commits = [c for c in commits if g(c, "ai_additions") > 0 and g(c, "human_additions") > 0]
 
 def pct(part):
@@ -184,22 +239,36 @@ def fmt_tool(key):
         return f"{tool} · {model}" if model != "unknown" else tool
     return key
 
-# Per-tool AI breakdown (tool_model_breakdown keys look like "tool::model")
+# Per-agent AI breakdown (combined "tool · model" labels), plus per-dimension
+# per-tool and per-model breakdowns.
+agent_lines = {}
 tool_lines = {}
+model_lines = {}
 for c in commits:
     for key, val in c["stats"].get("tool_model_breakdown", {}).items():
+        n = val.get("ai_additions", 0)
         label = fmt_tool(key)
-        tool_lines[label] = tool_lines.get(label, 0) + val.get("ai_additions", 0)
+        agent_lines[label] = agent_lines.get(label, 0) + n
+        if "::" in key:
+            tool, model = key.split("::", 1)
+            tool_lines[tool] = tool_lines.get(tool, 0) + n
+            if model != "unknown":
+                model_lines[model] = model_lines.get(model, 0) + n
+        else:
+            tool_lines[key] = tool_lines.get(key, 0) + n
 
 # Mermaid pie block for per-agent AI lines (only agents with lines > 0).
-def agent_pie():
-    entries = [(t, n) for t, n in sorted(tool_lines.items()) if n > 0]
+def generic_pie(title, mapping):
+    entries = [(t, n) for t, n in sorted(mapping.items()) if n > 0]
     if not entries:
         return ""
-    lines = ["```mermaid", "pie title AI lines by agent"]
+    lines = ["```mermaid", f"pie title {title}"]
     lines += [f'    "{t}" : {n}' for t, n in entries]
     lines.append("```")
     return "\n".join(lines)
+
+def agent_pie():
+    return generic_pie("AI lines by agent", agent_lines)
 
 def agents(c):
     tools = sorted({fmt_tool(k) for k in c["stats"].get("tool_model_breakdown", {})})
@@ -235,11 +304,23 @@ json_commits = []
 for c in commits:
     tot = g(c, "human_additions") + g(c, "unknown_additions") + g(c, "ai_additions")
     co = c in co_contributed_commits
+    idea = c["idea_source"] == "agent"
     sha_short = c["sha"][:7]
+    tool_n = {}
+    model_n = {}
+    for key, val in c["stats"].get("tool_model_breakdown", {}).items():
+        n = val.get("ai_additions", 0)
+        if "::" in key:
+            tool, model = key.split("::", 1)
+            tool_n[tool] = tool_n.get(tool, 0) + n
+            if model != "unknown":
+                model_n[model] = model_n.get(model, 0) + n
+        else:
+            tool_n[key] = tool_n.get(key, 0) + n
     rows.append(
         f"| {sha_short} | {c['date']} | {c['subject']} | {tot} | "
         f"{commit_pct(g(c, 'ai_additions'))}% | {commit_pct(g(c, 'human_additions'))}% | "
-        f"{'✓' if co else ''} | {agents(c)} |"
+        f"{'✓' if co else ''} | {'A' if idea else ''} | {agents(c)} |"
     )
     json_commits.append({
         "sha": sha_short,
@@ -254,17 +335,24 @@ for c in commits:
         "human_pct": commit_pct(g(c, "human_additions")),
         "human_directed": c["human_directed"],
         "session_count": c["session_count"],
+        "idea_source": c["idea_source"],
         "co_contributed": co,
         "agents": agents_list(c),
         "agent_ai_lines": {
             fmt_tool(k): v.get("ai_additions", 0)
             for k, v in c["stats"].get("tool_model_breakdown", {}).items()
         },
+        "tool_ai_lines": tool_n,
+        "model_ai_lines": model_n,
     })
 
-tool_summary = ", ".join(f"{t} ({n} lines)" for t, n in sorted(tool_lines.items())) or "—"
+tool_summary = ", ".join(f"{t} ({n} lines)" for t, n in sorted(agent_lines.items())) or "—"
 
 detail = open(detail_path, encoding="utf-8").read()
+
+agent_pie_block = agent_pie()
+tool_pie_block = generic_pie("AI lines by tool", tool_lines) if show_breakdown else ""
+model_pie_block = generic_pie("AI lines by model", model_lines) if show_breakdown else ""
 
 # Composition pie. Two modes:
 #   - show_direction (default): weighted co-contribution view. Human-direct
@@ -273,12 +361,29 @@ detail = open(detail_path, encoding="utf-8").read()
 #   - otherwise: strict line-count view. Bot slice is opt-in via
 #     REPORT_SHOW_BOT_CHART (see above).
 if show_direction:
-    pie_title = f"Co-contribution (weighted, human direction weight W={direction_weight:g})"
+    pie_title = f"Co-contribution (weighted, human direction weight W={direction_weight:g}"
+    if agent_idea_credit:
+        pie_title += f", idea weight I={idea_weight:g}"
+    pie_title += ")"
     pie_rows = [
         f'    "Human (direct)" : {total_human}',
-        f'    "Human (direction)" : {total_direction_credit}',
-        f'    "AI" : {total_ai - total_direction_credit}',
+        f'    "Human (direction)" : {human_direction_credit}',
     ]
+    if agent_idea_credit:
+        pie_rows.append(f'    "Agent (idea)" : {agent_idea_credit}')
+    ai_remaining = total_ai - total_direction_credit
+    if show_breakdown and len(model_lines) > 1:
+        distributed = 0
+        for model in sorted(model_lines):
+            rem = model_ai_remainder.get(model, 0)
+            if rem > 0:
+                pie_rows.append(f'    "AI \u00b7 {model}" : {rem}')
+                distributed += rem
+        gap = ai_remaining - distributed
+        if gap > 0:
+            pie_rows.append(f'    "AI \u00b7 other" : {gap}')
+    else:
+        pie_rows.append(f'    "AI" : {ai_remaining}')
     if show_bot_chart:
         pie_rows.append(f'    "Bot" : {total_bot}')
     pie_rows.append(f'    "Untracked" : {total_unknown}')
@@ -315,6 +420,7 @@ push to `main`.
 - **Bot:** {total_bot} lines ({pct(total_bot)}%)
 - **Untracked:** {total_unknown} lines ({pct(total_unknown)}%)
 - **Human-directed AI:** {total_human_directed_ai} lines ({round(100 * total_human_directed_ai / total_ai, 1) if total_ai else 0.0}% of AI; direction weight {direction_weight:g})
+- **Agent-suggested ideas:** {total_agent_idea_ai} AI lines ({round(100 * total_agent_idea_ai / total_ai, 1) if total_ai else 0.0}% of AI; idea weight {idea_weight:g}) — credit to human: {human_direction_credit} lines; credit to agent: {agent_idea_credit} lines
 - **Co-authored commits (human + AI lines):** {len(co_contributed_commits)}
 - **Agents:** {tool_summary}
 
@@ -322,7 +428,11 @@ push to `main`.
 
 {pie_block}
 
-{agent_pie()}
+{agent_pie_block}
+
+{tool_pie_block}
+
+{model_pie_block}
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
 > the lines (model is recorded when git-ai can resolve it from the agent's
@@ -334,18 +444,24 @@ push to `main`.
 > human and recorded via `git-ai checkpoint human` or the git-ai extension.
 > `Human (direct)` = human-written lines; `Human (direction)` = the credited
 > share of AI lines from sessions whose human driver git-ai recorded (weight
-> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `AI` = the AI lines not
-> credited to the human (including autonomous AI with no recorded driver). A
-> `✓` in the per-commit table marks a co-authored commit (contains both
-> human-written and AI lines). These are line-count percentages, not commit
-> counts. The composition pie excludes the report's own `bot` commits by
-> default; set `REPORT_SHOW_BOT_CHART=1` to include them, or
-> `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked line-count pie.
+> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `Agent (idea)` = lines
+> implementing an idea the agent itself suggested earlier (via `Idea-By: agent`
+> commit trailer), credited to the agent rather than the human who requested
+> it (weight `I` = `REPORT_IDEA_WEIGHT`, default 0.3). `AI` = the AI lines not
+> credited to the human (including autonomous AI with no recorded driver). `A` in
+> the per-commit table marks a commit whose idea the agent originated; `✓` marks
+> a co-authored commit (contains both human-written and AI lines). These are
+> line-count percentages, not commit counts. The composition pie excludes the
+> report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1` to
+> include them, or `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked
+> line-count pie. The "AI lines by tool" and "AI lines by model" pies break
+> down the AI attribution by the agent tool and LLM model that produced the
+> lines.
 
 ## Per-commit breakdown
 
-| Commit | Date | Message | Lines | AI | Human | Co | Agent(s) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
 {chr(10).join(rows)}
 
 ## Raw git-ai log (last {detail_limit} commits)
@@ -368,7 +484,7 @@ with open(out_file, "w", encoding="utf-8", newline="\n") as f:
     f.write(md)
 
 report = {
-    "schema_version": 3,
+    "schema_version": 4,
     "generated_at": datetime.datetime.now(datetime.timezone.utc).isoformat(),
     "summary": {
         "commits_analyzed": len(commits),
@@ -387,8 +503,15 @@ report = {
         "autonomous_ai_lines": total_autonomous_ai,
         "direction_weight": direction_weight,
         "direction_credit_lines": total_direction_credit,
+        "human_direction_credit_lines": human_direction_credit,
+        "agent_idea_ai_lines": total_agent_idea_ai,
+        "agent_idea_ai_pct": round(100 * total_agent_idea_ai / total_ai, 1) if total_ai else 0.0,
+        "idea_weight": idea_weight,
+        "agent_idea_credit_lines": agent_idea_credit,
         "co_contributed_commits": len(co_contributed_commits),
-        "agents": {t: n for t, n in sorted(tool_lines.items())},
+        "agents": {t: n for t, n in sorted(agent_lines.items())},
+        "tools": {t: n for t, n in sorted(tool_lines.items())},
+        "models": {m: n for m, n in sorted(model_lines.items())},
     },
     "commits": json_commits,
 }

@@ -34,6 +34,12 @@ env:
   # to "0" for a strict AI/Human/Untracked line-count pie instead.
   # REPORT_HUMAN_DIRECTION_WEIGHT: "0.5"
   # REPORT_SHOW_DIRECTION: "1"
+  # Idea-origin weighting: when an Idea-By: agent trailer marks a commit as
+  # implementing an agent-suggested idea, this share of the direction credit on
+  # those lines is withheld from the human and shown as an "Agent (idea)" slice.
+  # REPORT_IDEA_WEIGHT: "0.3"
+  # Show per-tool and per-model breakdown pies alongside the combined agent pie.
+  # REPORT_SHOW_BREAKDOWN: "1"
 
 jobs:
   generate:
