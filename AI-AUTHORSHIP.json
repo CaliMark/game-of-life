@@ -1,24 +1,24 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T01:12:41.057399+00:00",
+  "generated_at": "2026-08-17T01:58:57.451191+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3511,
-    "ai_lines": 913,
-    "ai_pct": 26.0,
+    "total_lines": 3939,
+    "ai_lines": 925,
+    "ai_pct": 23.5,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 2596,
-    "bot_pct": 73.9,
-    "unknown_lines": 1,
+    "bot_lines": 3013,
+    "bot_pct": 76.5,
+    "unknown_lines": 0,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 894,
+    "human_directed_ai_lines": 906,
     "human_directed_ai_pct": 97.9,
     "autonomous_ai_lines": 19,
     "direction_weight": 0.5,
-    "direction_credit_lines": 446,
-    "human_direction_credit_lines": 446,
+    "direction_credit_lines": 452,
+    "human_direction_credit_lines": 452,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
@@ -31,7 +31,7 @@
       "cursor": 19,
       "cursor · composer-2.5": 42,
       "devin · swe-1-6-slow": 1,
-      "opencode · big-pickle": 845,
+      "opencode · big-pickle": 857,
       "opencode · qwen2.5-7b-instruct": 3
     },
     "tools": {
@@ -39,10 +39,10 @@
       "cline": 2,
       "cursor": 61,
       "devin": 1,
-      "opencode": 848
+      "opencode": 860
     },
     "models": {
-      "big-pickle": 845,
+      "big-pickle": 857,
       "composer-2.5": 42,
       "deepseek/deepseek-v4-flash": 1,
       "nemotron-3.5-lightning": 1,
@@ -51,6 +51,56 @@
     }
   },
   "commits": [
+    {
+      "sha": "5e213ad",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "sync: human lines by contributor pie from ai-authorship",
+      "lines_added": 12,
+      "ai_additions": 12,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 12
+      },
+      "tool_ai_lines": {
+        "opencode": 12
+      },
+      "model_ai_lines": {
+        "big-pickle": 12
+      }
+    },
+    {
+      "sha": "480bd3f",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 483,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 483,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "7611865",
       "date": "2026-08-16",
@@ -1220,50 +1270,6 @@
       "ai_additions": 0,
       "human_additions": 0,
       "unknown_additions": 33,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "460a12e",
-      "date": "2026-08-12",
-      "author": "CaliMark",
-      "subject": "Fix formatting in README.md section headers",
-      "lines_added": 1,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 1,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "untracked"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "a486b28",
-      "date": "2026-08-12",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 66,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 66,
       "ai_pct": 0,
       "human_pct": 0,
       "human_directed": false,
