@@ -431,8 +431,8 @@ push to `main`.
 - **Human:** {total_human} lines ({round(100 * total_human / (total_human + total_ai), 1) if (total_human + total_ai) else 0.0}% of project)
 - **Bot:** {total_bot} lines ({pct(total_bot)}%){"" if show_bot_chart else " — excluded from pie"}
 - **Untracked:** {total_unknown} lines ({pct(total_unknown)}%)
-- **Human-directed AI:** {total_human_directed_ai} lines (weighted credit: {human_direction_credit} lines at W={direction_weight:g}, {round(100 * (total_human + human_direction_credit) / (total_human + total_ai), 1) if (total_human + total_ai) else 0.0}% of project)
-- **Agent-suggested ideas:** {total_agent_idea_ai} AI lines ({round(100 * total_agent_idea_ai / total_ai, 1) if total_ai else 0.0}% of AI; idea weight {idea_weight:g}) — credit to human: {human_direction_credit} lines; credit to agent: {agent_idea_credit} lines
+- **Human-directed AI:** {total_human_directed_ai} lines (weighted credit: {human_direction_credit} lines at W={direction_weight:g}, {round(100 * (total_human + human_direction_credit) / (total_human + total_ai), 1) if (total_human + total_ai) else 0.0}% of project){"" if show_direction else " — not shown in strict pie"}
+- **Agent-suggested ideas:** {total_agent_idea_ai} AI lines ({round(100 * total_agent_idea_ai / total_ai, 1) if total_ai else 0.0}% of AI; idea weight {idea_weight:g}) — credit to human: {human_direction_credit} lines; credit to agent: {agent_idea_credit} lines{"" if show_direction else " — not shown in strict pie"}
 - **Co-authored commits (human + AI lines):** {len(co_contributed_commits)}
 - **Agents:** {tool_summary}
 
