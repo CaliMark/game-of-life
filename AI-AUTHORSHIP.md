@@ -8,23 +8,23 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3865**
-- **AI-generated:** 690 lines (17.9%)
+- Total lines added: **3853**
+- **AI-generated:** 665 lines (17.3%)
 - **Human:** 1 lines (0.0%)
-- **Bot:** 3174 lines (82.1%)
+- **Bot:** 3187 lines (82.7%)
 - **Untracked:** 0 lines (0.0%)
-- **Human-directed AI:** 671 lines (weighted credit: 335 lines at W=0.5, 48.6% of AI)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 335 lines; credit to agent: 0 lines
+- **Human-directed AI:** 646 lines (weighted credit: 322 lines at W=0.5, 48.5% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 322 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (622 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (597 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 1
-    "Human (direction)" : 335
-    "AI · big-pickle" : 311
+    "Human (direction)" : 322
+    "AI · big-pickle" : 299
     "AI · composer-2.5" : 21
     "AI · deepseek/deepseek-v4-flash" : 1
     "AI · nemotron-3.5-lightning" : 1
@@ -42,7 +42,7 @@ pie title AI lines by agent
     "cursor" : 19
     "cursor · composer-2.5" : 42
     "devin · swe-1-6-slow" : 1
-    "opencode · big-pickle" : 622
+    "opencode · big-pickle" : 597
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
@@ -52,12 +52,12 @@ pie title AI lines by tool
     "cline" : 2
     "cursor" : 61
     "devin" : 1
-    "opencode" : 625
+    "opencode" : 600
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 622
+    "big-pickle" : 597
     "composer-2.5" : 42
     "deepseek/deepseek-v4-flash" : 1
     "nemotron-3.5-lightning" : 1
@@ -99,6 +99,8 @@ pie title Human lines by contributor
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2094d75 | 2026-08-16 | chore: sync authorship script (pie-matched percentage) | 1 | 100% | 0% |  |  | opencode · big-pickle |
+| 8a1c327 | 2026-08-17 | docs: regenerate AI authorship report | 121 | 0% | 0% |  |  | bot |
 | a518e99 | 2026-08-16 | chore: sync authorship script (weighted percentage fix) | 1 | 100% | 0% |  |  | opencode · big-pickle |
 | 231d684 | 2026-08-17 | docs: regenerate AI authorship report | 120 | 0% | 0% |  |  | bot |
 | 587d53b | 2026-08-16 | chore: sync authorship script (weighted credit text fix) | 1 | 100% | 0% |  |  | opencode · big-pickle |
@@ -147,8 +149,6 @@ pie title Human lines by contributor
 | e918bdb | 2026-08-13 | docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS) | 43 | 100% | 0% |  |  | cursor · composer-2.5, opencode · big-pickle |
 | c3c2f3b | 2026-08-13 | docs: regenerate AI authorship report | 57 | 0% | 0% |  |  | bot |
 | 84fc816 | 2026-08-13 | docs: add glider art and expand dedication | 19 | 100% | 0% |  |  | cursor |
-| 417601a | 2026-08-13 | docs: regenerate AI authorship report | 108 | 0% | 0% |  |  | bot |
-| d32a64f | 2026-08-12 | fix: show brand title on mobile and contain active button glow in panels | 26 | 100% | 0% |  |  | opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -156,7 +156,51 @@ pie title Human lines by contributor
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit a518e9901e348058aee59b4bdc000069976be1af (HEAD -> main, origin/main)
+commit 2094d75e6986268511b5865c82c97bfab0c4e58b (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T22:23:35-07:00
+
+    chore: sync authorship script (pie-matched percentage)
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      scripts/authorship-report.sh
+        s_988aa8c761b089::t_7f62fa8179d9e5 430
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "2094d75e6986268511b5865c82c97bfab0c4e58b",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit 8a1c3273ac2ceda0e4533c5c112627e15bd0b234
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T05:08:38Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit a518e9901e348058aee59b4bdc000069976be1af
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T22:07:55-07:00
 
@@ -674,50 +718,6 @@ Date:   2026-08-16T11:07:02-07:00
             "agent_id": {
               "tool": "opencode",
               "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 243887d6f54ee596f30cb7028396ff71b3a69d05
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-16T02:43:17Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit e7a7c91f992818f651ca645f320db3cb33d7adf3
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-15T19:42:50-07:00
-
-    docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      README.md
-        s_52d0732141ad88::t_1b890fc7be7842 112-113
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "e7a7c91f992818f651ca645f320db3cb33d7adf3",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
               "model": "big-pickle"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
