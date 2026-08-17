@@ -95,6 +95,10 @@ if not (0.0 <= idea_weight <= 1.0):
 # lines. Set REPORT_SHOW_BREAKDOWN=0 to disable.
 show_breakdown = os.environ.get("REPORT_SHOW_BREAKDOWN", "1").lower() in ("1", "true", "yes")
 
+# Whether to draw the "AI lines by agent" (tool x model) pie. Default on.
+# Set REPORT_SHOW_AGENT_CHART=0 to hide it when tool and model pies suffice.
+show_agent_chart = os.environ.get("REPORT_SHOW_AGENT_CHART", "1").lower() in ("1", "true", "yes")
+
 # --- Collect commits -------------------------------------------------------
 fmt = "%H\t%ad\t%an\t%s\t%(trailers:key=Idea-By,only=yes,unfold=yes,valueonly=yes)"
 raw = subprocess.run(
@@ -357,7 +361,7 @@ tool_summary = ", ".join(f"{t} ({n} lines)" for t, n in sorted(agent_lines.items
 
 detail = open(detail_path, encoding="utf-8").read()
 
-agent_pie_block = agent_pie()
+agent_pie_block = agent_pie() if show_agent_chart else ""
 tool_pie_block = generic_pie("AI lines by tool", tool_lines) if show_breakdown else ""
 model_pie_block = generic_pie("AI lines by model", model_lines) if show_breakdown else ""
 human_pie_block = generic_pie("Human lines by contributor", human_lines_by_author)
