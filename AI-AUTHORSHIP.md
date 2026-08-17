@@ -8,22 +8,29 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **3040**
-- **AI-generated:** 760 lines (25.0%)
+- Total lines added: **3511**
+- **AI-generated:** 913 lines (26.0%)
 - **Human:** 1 lines (0.0%)
-- **Bot:** 2278 lines (74.9%)
+- **Bot:** 2596 lines (73.9%)
 - **Untracked:** 1 lines (0.0%)
-- **Human-directed AI:** 760 lines (100.0% of AI; direction weight 0.5)
+- **Human-directed AI:** 894 lines (97.9% of AI; direction weight 0.5)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 446 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), github-copilot · claude-haiku-4.5 (7 lines), opencode · big-pickle (685 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** claude · swe-1-6-slow (1 lines), cline · deepseek/deepseek-v4-flash (1 lines), cline · nemotron-3.5-lightning (1 lines), cursor (19 lines), cursor · composer-2.5 (42 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (845 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 1
-    "Human (direction)" : 380
-    "AI" : 380
+    "Human (direction)" : 446
+    "AI · big-pickle" : 423
+    "AI · composer-2.5" : 21
+    "AI · deepseek/deepseek-v4-flash" : 1
+    "AI · nemotron-3.5-lightning" : 1
+    "AI · qwen2.5-7b-instruct" : 1
+    "AI · swe-1-6-slow" : 1
+    "AI · other" : 19
     "Untracked" : 1
 ```
 
@@ -35,9 +42,27 @@ pie title AI lines by agent
     "cursor" : 19
     "cursor · composer-2.5" : 42
     "devin · swe-1-6-slow" : 1
-    "github-copilot · claude-haiku-4.5" : 7
-    "opencode · big-pickle" : 685
+    "opencode · big-pickle" : 845
     "opencode · qwen2.5-7b-instruct" : 3
+```
+
+```mermaid
+pie title AI lines by tool
+    "claude" : 1
+    "cline" : 2
+    "cursor" : 61
+    "devin" : 1
+    "opencode" : 848
+```
+
+```mermaid
+pie title AI lines by model
+    "big-pickle" : 845
+    "composer-2.5" : 42
+    "deepseek/deepseek-v4-flash" : 1
+    "nemotron-3.5-lightning" : 1
+    "qwen2.5-7b-instruct" : 3
+    "swe-1-6-slow" : 2
 ```
 
 > **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
@@ -50,68 +75,74 @@ pie title AI lines by agent
 > human and recorded via `git-ai checkpoint human` or the git-ai extension.
 > `Human (direct)` = human-written lines; `Human (direction)` = the credited
 > share of AI lines from sessions whose human driver git-ai recorded (weight
-> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `AI` = the AI lines not
-> credited to the human (including autonomous AI with no recorded driver). A
-> `✓` in the per-commit table marks a co-authored commit (contains both
-> human-written and AI lines). These are line-count percentages, not commit
-> counts. The composition pie excludes the report's own `bot` commits by
-> default; set `REPORT_SHOW_BOT_CHART=1` to include them, or
-> `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked line-count pie.
+> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `Agent (idea)` = lines
+> implementing an idea the agent itself suggested earlier (via `Idea-By: agent`
+> commit trailer), credited to the agent rather than the human who requested
+> it (weight `I` = `REPORT_IDEA_WEIGHT`, default 0.3). `AI` = the AI lines not
+> credited to the human (including autonomous AI with no recorded driver). `A` in
+> the per-commit table marks a commit whose idea the agent originated; `✓` marks
+> a co-authored commit (contains both human-written and AI lines). These are
+> line-count percentages, not commit counts. The composition pie excludes the
+> report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1` to
+> include them, or `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked
+> line-count pie. The "AI lines by tool" and "AI lines by model" pies break
+> down the AI attribution by the agent tool and LLM model that produced the
+> lines.
 
 ## Per-commit breakdown
 
-| Commit | Date | Message | Lines | AI | Human | Co | Agent(s) |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 4a2cd6e | 2026-08-16 | sync: weighted co-contribution view (human-direction credit) + co-authored marker from ai-authorship | 125 | 100% | 0% |  | opencode · big-pickle |
-| cdfa377 | 2026-08-16 | docs: regenerate AI authorship report | 112 | 0% | 0% |  | bot |
-| d8fcf12 | 2026-08-16 | sync: fix copy-in workflow to commit AI-AUTHORSHIP.json alongside the .md | 5 | 100% | 0% |  | opencode · big-pickle |
-| 54f5cf4 | 2026-08-16 | docs: regenerate AI authorship report | 41 | 0% | 0% |  | bot |
-| b865bf1 | 2026-08-16 | chore: regenerate report — initial commit rolled out of 50-commit window | 83 | 100% | 0% |  | opencode · big-pickle |
-| 6a89530 | 2026-08-16 | docs: regenerate AI authorship report | 56 | 0% | 0% |  | bot |
-| 1a607b4 | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 8 | 100% | 0% |  | opencode · big-pickle |
-| 6033a7c | 2026-08-16 | docs: regenerate AI authorship report | 103 | 0% | 0% |  | bot |
-| e2fa8ce | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 34 | 100% | 0% |  | opencode · big-pickle |
-| ee29603 | 2026-08-16 | docs: regenerate AI authorship report | 193 | 0% | 0% |  | bot |
-| f37f6ab | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 37 | 100% | 0% |  | opencode · big-pickle |
-| 4bc8085 | 2026-08-16 | docs: regenerate AI authorship report | 108 | 0% | 0% |  | bot |
-| 9a23637 | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 12 | 100% | 0% |  | opencode · big-pickle |
-| 9243d1b | 2026-08-16 | docs: regenerate AI authorship report | 757 | 0% | 0% |  | bot |
-| 3cd6dab | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json + composition pie chart | 89 | 100% | 0% |  | opencode · big-pickle |
-| 243887d | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
-| e7a7c91 | 2026-08-15 | docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo | 2 | 100% | 0% |  | opencode · big-pickle |
-| 2c9790a | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
-| 7b79bd1 | 2026-08-15 | Created by LM Stuido with opencode | 3 | 100% | 0% |  | opencode · qwen2.5-7b-instruct |
-| b79a733 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
-| d8ae5d6 | 2026-08-14 | docs: add live website link (needpc.net/life) | 2 | 100% | 0% |  | opencode · big-pickle |
-| d61a459 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% |  | bot |
-| 3a4581d | 2026-08-14 | docs: tidy separator before license section | 0 | 0% | 0% |  | none |
-| 293f451 | 2026-08-14 | docs: remove needpc.net line | 0 | 0% | 0% |  | none |
-| 8cba1ef | 2026-08-15 | docs: regenerate AI authorship report | 47 | 0% | 0% |  | bot |
-| b7e37f0 | 2026-08-14 | docs: manually shorten needpc.net line (human-attributed edit) | 1 | 0% | 100% |  | human |
-| 7195ad1 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
-| ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% |  | devin · swe-1-6-slow |
-| 9973fde | 2026-08-14 | docs: regenerate AI authorship report | 68 | 0% | 0% |  | bot |
-| 150f8a4 | 2026-08-13 | feat: attribute Devin Desktop edits via .devin hooks to git-ai | 25 | 100% | 0% |  | claude · swe-1-6-slow, opencode · big-pickle |
-| b0231be | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
-| 605ebd8 | 2026-08-13 | docs: add needpc line to README | 1 | 100% | 0% |  | cline · deepseek/deepseek-v4-flash |
-| a0a233c | 2026-08-14 | docs: regenerate AI authorship report | 39 | 0% | 0% |  | bot |
-| 09df4eb | 2026-08-13 | Remove divider rule pattern gallery | 0 | 0% | 0% |  | none |
-| 45b21c8 | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% |  | bot |
-| fc81dca | 2026-08-13 | Center pattern table in README | 1 | 100% | 0% |  | cline · nemotron-3.5-lightning |
-| f15318b | 2026-08-13 | docs: regenerate AI authorship report | 63 | 0% | 0% |  | bot |
-| e918bdb | 2026-08-13 | docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS) | 43 | 100% | 0% |  | cursor · composer-2.5, opencode · big-pickle |
-| c3c2f3b | 2026-08-13 | docs: regenerate AI authorship report | 57 | 0% | 0% |  | bot |
-| 84fc816 | 2026-08-13 | docs: add glider art and expand dedication | 19 | 100% | 0% |  | cursor |
-| 417601a | 2026-08-13 | docs: regenerate AI authorship report | 108 | 0% | 0% |  | bot |
-| d32a64f | 2026-08-12 | fix: show brand title on mobile and contain active button glow in panels | 26 | 100% | 0% |  | opencode · big-pickle |
-| 00864a3 | 2026-08-12 | feat: add undo/redo history for drawing, stamps, clear, randomize, and step | 197 | 100% | 0% |  | opencode · big-pickle |
-| 372c70f | 2026-08-13 | docs: regenerate AI authorship report | 56 | 0% | 0% |  | bot |
-| 3d0b9a8 | 2026-08-12 | fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan) | 40 | 100% | 0% |  | opencode · big-pickle |
-| 6139bdc | 2026-08-12 | docs: regenerate AI authorship report | 33 | 0% | 0% |  | bot |
-| 460a12e | 2026-08-12 | Fix formatting in README.md section headers | 1 | 0% | 0% |  | untracked |
-| a486b28 | 2026-08-12 | docs: regenerate AI authorship report | 66 | 0% | 0% |  | bot |
-| 0e31e40 | 2026-08-12 | Merge branch 'main' of https://github.com/CaliMark/game-of-life | 0 | 0% | 0% |  | none |
-| c8156e6 | 2026-08-12 | Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon | 7 | 100% | 0% |  | github-copilot · claude-haiku-4.5 |
+| Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 7611865 | 2026-08-16 | sync: tool/model breakdown pies + agent-idea provenance from ai-authorship | 160 | 100% | 0% |  |  | opencode · big-pickle |
+| f979a1f | 2026-08-16 | docs: regenerate AI authorship report | 318 | 0% | 0% |  |  | bot |
+| 4a2cd6e | 2026-08-16 | sync: weighted co-contribution view (human-direction credit) + co-authored marker from ai-authorship | 125 | 100% | 0% |  |  | opencode · big-pickle |
+| cdfa377 | 2026-08-16 | docs: regenerate AI authorship report | 112 | 0% | 0% |  |  | bot |
+| d8fcf12 | 2026-08-16 | sync: fix copy-in workflow to commit AI-AUTHORSHIP.json alongside the .md | 5 | 100% | 0% |  |  | opencode · big-pickle |
+| 54f5cf4 | 2026-08-16 | docs: regenerate AI authorship report | 41 | 0% | 0% |  |  | bot |
+| b865bf1 | 2026-08-16 | chore: regenerate report — initial commit rolled out of 50-commit window | 83 | 100% | 0% |  |  | opencode · big-pickle |
+| 6a89530 | 2026-08-16 | docs: regenerate AI authorship report | 56 | 0% | 0% |  |  | bot |
+| 1a607b4 | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 8 | 100% | 0% |  |  | opencode · big-pickle |
+| 6033a7c | 2026-08-16 | docs: regenerate AI authorship report | 103 | 0% | 0% |  |  | bot |
+| e2fa8ce | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 34 | 100% | 0% |  |  | opencode · big-pickle |
+| ee29603 | 2026-08-16 | docs: regenerate AI authorship report | 193 | 0% | 0% |  |  | bot |
+| f37f6ab | 2026-08-16 | sync: update authorship report script + workflow from ai-authorship | 37 | 100% | 0% |  |  | opencode · big-pickle |
+| 4bc8085 | 2026-08-16 | docs: regenerate AI authorship report | 108 | 0% | 0% |  |  | bot |
+| 9a23637 | 2026-08-16 | feat: add per-agent breakdown pie chart to report composition | 12 | 100% | 0% |  |  | opencode · big-pickle |
+| 9243d1b | 2026-08-16 | docs: regenerate AI authorship report | 757 | 0% | 0% |  |  | bot |
+| 3cd6dab | 2026-08-16 | feat: emit machine-readable AI-AUTHORSHIP.json + composition pie chart | 89 | 100% | 0% |  |  | opencode · big-pickle |
+| 243887d | 2026-08-16 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
+| e7a7c91 | 2026-08-15 | docs: note local-model (LM Studio qwen2.5-7b-instruct) proof on this repo | 2 | 100% | 0% |  |  | opencode · big-pickle |
+| 2c9790a | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
+| 7b79bd1 | 2026-08-15 | Created by LM Stuido with opencode | 3 | 100% | 0% |  |  | opencode · qwen2.5-7b-instruct |
+| b79a733 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
+| d8ae5d6 | 2026-08-14 | docs: add live website link (needpc.net/life) | 2 | 100% | 0% |  |  | opencode · big-pickle |
+| d61a459 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% |  |  | bot |
+| 3a4581d | 2026-08-14 | docs: tidy separator before license section | 0 | 0% | 0% |  |  | none |
+| 293f451 | 2026-08-14 | docs: remove needpc.net line | 0 | 0% | 0% |  |  | none |
+| 8cba1ef | 2026-08-15 | docs: regenerate AI authorship report | 47 | 0% | 0% |  |  | bot |
+| b7e37f0 | 2026-08-14 | docs: manually shorten needpc.net line (human-attributed edit) | 1 | 0% | 100% |  |  | human |
+| 7195ad1 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
+| ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% |  |  | devin · swe-1-6-slow |
+| 9973fde | 2026-08-14 | docs: regenerate AI authorship report | 68 | 0% | 0% |  |  | bot |
+| 150f8a4 | 2026-08-13 | feat: attribute Devin Desktop edits via .devin hooks to git-ai | 25 | 100% | 0% |  |  | claude · swe-1-6-slow, opencode · big-pickle |
+| b0231be | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
+| 605ebd8 | 2026-08-13 | docs: add needpc line to README | 1 | 100% | 0% |  |  | cline · deepseek/deepseek-v4-flash |
+| a0a233c | 2026-08-14 | docs: regenerate AI authorship report | 39 | 0% | 0% |  |  | bot |
+| 09df4eb | 2026-08-13 | Remove divider rule pattern gallery | 0 | 0% | 0% |  |  | none |
+| 45b21c8 | 2026-08-14 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
+| fc81dca | 2026-08-13 | Center pattern table in README | 1 | 100% | 0% |  |  | cline · nemotron-3.5-lightning |
+| f15318b | 2026-08-13 | docs: regenerate AI authorship report | 63 | 0% | 0% |  |  | bot |
+| e918bdb | 2026-08-13 | docs: replace glider with Conway pattern gallery (glider, blinker, toad, block, LWSS) | 43 | 100% | 0% |  |  | cursor · composer-2.5, opencode · big-pickle |
+| c3c2f3b | 2026-08-13 | docs: regenerate AI authorship report | 57 | 0% | 0% |  |  | bot |
+| 84fc816 | 2026-08-13 | docs: add glider art and expand dedication | 19 | 100% | 0% |  |  | cursor |
+| 417601a | 2026-08-13 | docs: regenerate AI authorship report | 108 | 0% | 0% |  |  | bot |
+| d32a64f | 2026-08-12 | fix: show brand title on mobile and contain active button glow in panels | 26 | 100% | 0% |  |  | opencode · big-pickle |
+| 00864a3 | 2026-08-12 | feat: add undo/redo history for drawing, stamps, clear, randomize, and step | 197 | 100% | 0% |  |  | opencode · big-pickle |
+| 372c70f | 2026-08-13 | docs: regenerate AI authorship report | 56 | 0% | 0% |  |  | bot |
+| 3d0b9a8 | 2026-08-12 | fix: improve mobile touch gestures (proportional pinch zoom, two-finger pan) | 40 | 100% | 0% |  |  | opencode · big-pickle |
+| 6139bdc | 2026-08-12 | docs: regenerate AI authorship report | 33 | 0% | 0% |  |  | bot |
+| 460a12e | 2026-08-12 | Fix formatting in README.md section headers | 1 | 0% | 0% |  |  | untracked |
+| a486b28 | 2026-08-12 | docs: regenerate AI authorship report | 66 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -119,7 +150,53 @@ pie title AI lines by agent
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 4a2cd6e3fced29e1899d87761d445fd225308691 (HEAD -> main, origin/main)
+commit 7611865bc2ad619035c975f164cb20fef2eb229c (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-16T18:12:09-07:00
+
+    sync: tool/model breakdown pies + agent-idea provenance from ai-authorship
+
+    Git AI stats:
+      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
+           0%                                  100%
+
+    Authorship note:
+      .github/workflows/authorship-report.yml
+        s_988aa8c761b089::t_d9298cfad1df7b 37-42
+      scripts/authorship-report.sh
+        s_988aa8c761b089::t_ab7357c0f6406a 80-97,99,107-108,110-111,122,188-224,226-228,242-244,246,249,251-258,261-262,265,270-272,307,309-319,323,338,345-346,349,353-356,364-367,370,372-386,423,431-435,447-459,463-464,487,506-510,512-514
+      ---
+      {
+        "schema_version": "authorship/3.0.0",
+        "git_ai_version": "1.6.22",
+        "base_commit_sha": "7611865bc2ad619035c975f164cb20fef2eb229c",
+        "prompts": {},
+        "sessions": {
+          "s_988aa8c761b089": {
+            "agent_id": {
+              "tool": "opencode",
+              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+              "model": "big-pickle"
+            },
+            "human_author": "CaliMark <mreed@needpc.net>"
+          }
+        }
+      }
+
+commit f979a1f97b90da57c58920dee67f6c30809dfbda
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-16T20:47:59Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 4a2cd6e3fced29e1899d87761d445fd225308691
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-16T13:47:31-07:00
 
@@ -629,38 +706,6 @@ Date:   2026-08-14T18:08:48-07:00
         "base_commit_sha": "3a4581d0690a3a7a483a95bd2f1bdc1dd4095ea4",
         "prompts": {}
       }
-
-commit 293f45188ab256bed0378d313abae684436a51cc
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-14T18:08:23-07:00
-
-    docs: remove needpc.net line
-
-    Git AI stats:
-      you  [90m                                        [0m ai
-           [90m             (no additions)             [0m
-
-    Authorship note:
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "293f45188ab256bed0378d313abae684436a51cc",
-        "prompts": {}
-      }
-
-commit 8cba1ef48c2db7bd74345d3a6ab89b38a9c4fa73
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-15T01:08:03Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
 
 
 ```

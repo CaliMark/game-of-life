@@ -1,23 +1,28 @@
 {
-  "schema_version": 3,
-  "generated_at": "2026-08-16T20:47:59.090524+00:00",
+  "schema_version": 4,
+  "generated_at": "2026-08-17T01:12:41.057399+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 3040,
-    "ai_lines": 760,
-    "ai_pct": 25.0,
+    "total_lines": 3511,
+    "ai_lines": 913,
+    "ai_pct": 26.0,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 2278,
-    "bot_pct": 74.9,
+    "bot_lines": 2596,
+    "bot_pct": 73.9,
     "unknown_lines": 1,
     "unknown_pct": 0.0,
-    "human_directed_ai_lines": 760,
-    "human_directed_ai_pct": 100.0,
-    "autonomous_ai_lines": 0,
+    "human_directed_ai_lines": 894,
+    "human_directed_ai_pct": 97.9,
+    "autonomous_ai_lines": 19,
     "direction_weight": 0.5,
-    "direction_credit_lines": 380,
+    "direction_credit_lines": 446,
+    "human_direction_credit_lines": 446,
+    "agent_idea_ai_lines": 0,
+    "agent_idea_ai_pct": 0.0,
+    "idea_weight": 0.3,
+    "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
       "claude · swe-1-6-slow": 1,
@@ -26,12 +31,76 @@
       "cursor": 19,
       "cursor · composer-2.5": 42,
       "devin · swe-1-6-slow": 1,
-      "github-copilot · claude-haiku-4.5": 7,
-      "opencode · big-pickle": 685,
+      "opencode · big-pickle": 845,
       "opencode · qwen2.5-7b-instruct": 3
+    },
+    "tools": {
+      "claude": 1,
+      "cline": 2,
+      "cursor": 61,
+      "devin": 1,
+      "opencode": 848
+    },
+    "models": {
+      "big-pickle": 845,
+      "composer-2.5": 42,
+      "deepseek/deepseek-v4-flash": 1,
+      "nemotron-3.5-lightning": 1,
+      "qwen2.5-7b-instruct": 3,
+      "swe-1-6-slow": 2
     }
   },
   "commits": [
+    {
+      "sha": "7611865",
+      "date": "2026-08-16",
+      "author": "CaliMark",
+      "subject": "sync: tool/model breakdown pies + agent-idea provenance from ai-authorship",
+      "lines_added": 160,
+      "ai_additions": 160,
+      "human_additions": 0,
+      "unknown_additions": 0,
+      "ai_pct": 100,
+      "human_pct": 0,
+      "human_directed": true,
+      "session_count": 1,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "opencode · big-pickle"
+      ],
+      "agent_ai_lines": {
+        "opencode · big-pickle": 160
+      },
+      "tool_ai_lines": {
+        "opencode": 160
+      },
+      "model_ai_lines": {
+        "big-pickle": 160
+      }
+    },
+    {
+      "sha": "f979a1f",
+      "date": "2026-08-16",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 318,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 318,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "4a2cd6e",
       "date": "2026-08-16",
@@ -45,12 +114,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 125
+      },
+      "tool_ai_lines": {
+        "opencode": 125
+      },
+      "model_ai_lines": {
+        "big-pickle": 125
       }
     },
     {
@@ -66,11 +142,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "d8fcf12",
@@ -85,12 +164,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 5
+      },
+      "tool_ai_lines": {
+        "opencode": 5
+      },
+      "model_ai_lines": {
+        "big-pickle": 5
       }
     },
     {
@@ -106,11 +192,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "b865bf1",
@@ -125,12 +214,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 83
+      },
+      "tool_ai_lines": {
+        "opencode": 83
+      },
+      "model_ai_lines": {
+        "big-pickle": 83
       }
     },
     {
@@ -146,11 +242,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "1a607b4",
@@ -165,12 +264,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 8
+      },
+      "tool_ai_lines": {
+        "opencode": 8
+      },
+      "model_ai_lines": {
+        "big-pickle": 8
       }
     },
     {
@@ -186,11 +292,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "e2fa8ce",
@@ -205,12 +314,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 34
+      },
+      "tool_ai_lines": {
+        "opencode": 34
+      },
+      "model_ai_lines": {
+        "big-pickle": 34
       }
     },
     {
@@ -226,11 +342,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "f37f6ab",
@@ -245,12 +364,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 37
+      },
+      "tool_ai_lines": {
+        "opencode": 37
+      },
+      "model_ai_lines": {
+        "big-pickle": 37
       }
     },
     {
@@ -266,11 +392,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "9a23637",
@@ -285,12 +414,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 12
+      },
+      "tool_ai_lines": {
+        "opencode": 12
+      },
+      "model_ai_lines": {
+        "big-pickle": 12
       }
     },
     {
@@ -306,11 +442,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "3cd6dab",
@@ -325,12 +464,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 89
+      },
+      "tool_ai_lines": {
+        "opencode": 89
+      },
+      "model_ai_lines": {
+        "big-pickle": 89
       }
     },
     {
@@ -346,11 +492,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "e7a7c91",
@@ -365,12 +514,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 2
+      },
+      "tool_ai_lines": {
+        "opencode": 2
+      },
+      "model_ai_lines": {
+        "big-pickle": 2
       }
     },
     {
@@ -386,11 +542,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "7b79bd1",
@@ -405,12 +564,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · qwen2.5-7b-instruct"
       ],
       "agent_ai_lines": {
         "opencode · qwen2.5-7b-instruct": 3
+      },
+      "tool_ai_lines": {
+        "opencode": 3
+      },
+      "model_ai_lines": {
+        "qwen2.5-7b-instruct": 3
       }
     },
     {
@@ -426,11 +592,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "d8ae5d6",
@@ -445,12 +614,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 2
+      },
+      "tool_ai_lines": {
+        "opencode": 2
+      },
+      "model_ai_lines": {
+        "big-pickle": 2
       }
     },
     {
@@ -466,11 +642,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "3a4581d",
@@ -485,9 +664,12 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "293f451",
@@ -502,9 +684,12 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "8cba1ef",
@@ -519,11 +704,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "b7e37f0",
@@ -538,11 +726,14 @@
       "human_pct": 100,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "human"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "7195ad1",
@@ -557,11 +748,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "ca7ee4b",
@@ -576,12 +770,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "devin · swe-1-6-slow"
       ],
       "agent_ai_lines": {
         "devin · swe-1-6-slow": 1
+      },
+      "tool_ai_lines": {
+        "devin": 1
+      },
+      "model_ai_lines": {
+        "swe-1-6-slow": 1
       }
     },
     {
@@ -597,11 +798,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "150f8a4",
@@ -616,6 +820,7 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 2,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "claude · swe-1-6-slow",
@@ -624,6 +829,14 @@
       "agent_ai_lines": {
         "claude · swe-1-6-slow": 1,
         "opencode · big-pickle": 24
+      },
+      "tool_ai_lines": {
+        "claude": 1,
+        "opencode": 24
+      },
+      "model_ai_lines": {
+        "swe-1-6-slow": 1,
+        "big-pickle": 24
       }
     },
     {
@@ -639,11 +852,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "605ebd8",
@@ -658,12 +874,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "cline · deepseek/deepseek-v4-flash"
       ],
       "agent_ai_lines": {
         "cline · deepseek/deepseek-v4-flash": 1
+      },
+      "tool_ai_lines": {
+        "cline": 1
+      },
+      "model_ai_lines": {
+        "deepseek/deepseek-v4-flash": 1
       }
     },
     {
@@ -679,11 +902,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "09df4eb",
@@ -698,9 +924,12 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "45b21c8",
@@ -715,11 +944,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "fc81dca",
@@ -734,12 +966,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "cline · nemotron-3.5-lightning"
       ],
       "agent_ai_lines": {
         "cline · nemotron-3.5-lightning": 1
+      },
+      "tool_ai_lines": {
+        "cline": 1
+      },
+      "model_ai_lines": {
+        "nemotron-3.5-lightning": 1
       }
     },
     {
@@ -755,11 +994,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "e918bdb",
@@ -774,6 +1016,7 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 2,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "cursor · composer-2.5",
@@ -782,6 +1025,14 @@
       "agent_ai_lines": {
         "cursor · composer-2.5": 42,
         "opencode · big-pickle": 1
+      },
+      "tool_ai_lines": {
+        "cursor": 42,
+        "opencode": 1
+      },
+      "model_ai_lines": {
+        "composer-2.5": 42,
+        "big-pickle": 1
       }
     },
     {
@@ -797,11 +1048,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "84fc816",
@@ -816,13 +1070,18 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "cursor"
       ],
       "agent_ai_lines": {
         "cursor": 19
-      }
+      },
+      "tool_ai_lines": {
+        "cursor": 19
+      },
+      "model_ai_lines": {}
     },
     {
       "sha": "417601a",
@@ -837,11 +1096,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "d32a64f",
@@ -856,12 +1118,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 26
+      },
+      "tool_ai_lines": {
+        "opencode": 26
+      },
+      "model_ai_lines": {
+        "big-pickle": 26
       }
     },
     {
@@ -877,12 +1146,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 197
+      },
+      "tool_ai_lines": {
+        "opencode": 197
+      },
+      "model_ai_lines": {
+        "big-pickle": 197
       }
     },
     {
@@ -898,11 +1174,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "3d0b9a8",
@@ -917,12 +1196,19 @@
       "human_pct": 0,
       "human_directed": true,
       "session_count": 1,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "opencode · big-pickle"
       ],
       "agent_ai_lines": {
         "opencode · big-pickle": 40
+      },
+      "tool_ai_lines": {
+        "opencode": 40
+      },
+      "model_ai_lines": {
+        "big-pickle": 40
       }
     },
     {
@@ -938,11 +1224,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "460a12e",
@@ -957,11 +1246,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "untracked"
       ],
-      "agent_ai_lines": {}
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     },
     {
       "sha": "a486b28",
@@ -976,49 +1268,14 @@
       "human_pct": 0,
       "human_directed": false,
       "session_count": 0,
+      "idea_source": "human",
       "co_contributed": false,
       "agents": [
         "bot"
       ],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "0e31e40",
-      "date": "2026-08-12",
-      "author": "CaliMark",
-      "subject": "Merge branch 'main' of https://github.com/CaliMark/game-of-life",
-      "lines_added": 0,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "co_contributed": false,
-      "agents": [],
-      "agent_ai_lines": {}
-    },
-    {
-      "sha": "c8156e6",
-      "date": "2026-08-12",
-      "author": "CaliMark",
-      "subject": "Update README: correct father's DOB to 1947, move AI Authorship note below Features, use info icon",
-      "lines_added": 7,
-      "ai_additions": 7,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 1,
-      "co_contributed": false,
-      "agents": [
-        "github-copilot · claude-haiku-4.5"
-      ],
-      "agent_ai_lines": {
-        "github-copilot · claude-haiku-4.5": 7
-      }
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
     }
   ]
 }
