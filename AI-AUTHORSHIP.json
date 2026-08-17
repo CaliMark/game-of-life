@@ -1,47 +1,89 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-17T21:29:34.953027+00:00",
+  "generated_at": "2026-08-17T21:42:23.332548+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4205,
-    "ai_lines": 611,
-    "ai_pct": 14.5,
+    "total_lines": 4202,
+    "ai_lines": 586,
+    "ai_pct": 13.9,
     "human_lines": 1,
     "human_pct": 0.0,
-    "bot_lines": 3555,
-    "bot_pct": 84.5,
-    "unknown_lines": 38,
-    "unknown_pct": 0.9,
-    "human_directed_ai_lines": 611,
+    "bot_lines": 3575,
+    "bot_pct": 85.1,
+    "unknown_lines": 40,
+    "unknown_pct": 1.0,
+    "human_directed_ai_lines": 586,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
     "direction_weight": 0.5,
-    "direction_credit_lines": 306,
-    "human_direction_credit_lines": 306,
+    "direction_credit_lines": 293,
+    "human_direction_credit_lines": 293,
     "agent_idea_ai_lines": 0,
     "agent_idea_ai_pct": 0.0,
     "idea_weight": 0.3,
     "agent_idea_credit_lines": 0,
     "co_contributed_commits": 0,
     "agents": {
-      "claude · swe-1-6-slow": 1,
       "devin · swe-1-6-slow": 1,
-      "opencode · big-pickle": 606,
+      "opencode · big-pickle": 582,
       "opencode · qwen2.5-7b-instruct": 3
     },
     "tools": {
-      "claude": 1,
       "devin": 1,
-      "opencode": 609
+      "opencode": 585
     },
     "models": {
-      "big-pickle": 606,
+      "big-pickle": 582,
       "qwen2.5-7b-instruct": 3,
-      "swe-1-6-slow": 2
+      "swe-1-6-slow": 1
     }
   },
   "commits": [
+    {
+      "sha": "16baa7b",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "sync: update authorship report script + workflow from ai-authorship",
+      "lines_added": 2,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 2,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
+    {
+      "sha": "77e89f5",
+      "date": "2026-08-17",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 88,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 88,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "ed754b5",
       "date": "2026-08-17",
@@ -1212,60 +1254,6 @@
       },
       "model_ai_lines": {
         "swe-1-6-slow": 1
-      }
-    },
-    {
-      "sha": "9973fde",
-      "date": "2026-08-14",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 68,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 68,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "150f8a4",
-      "date": "2026-08-13",
-      "author": "CaliMark",
-      "subject": "feat: attribute Devin Desktop edits via .devin hooks to git-ai",
-      "lines_added": 25,
-      "ai_additions": 25,
-      "human_additions": 0,
-      "unknown_additions": 0,
-      "ai_pct": 100,
-      "human_pct": 0,
-      "human_directed": true,
-      "session_count": 2,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "claude · swe-1-6-slow",
-        "opencode · big-pickle"
-      ],
-      "agent_ai_lines": {
-        "claude · swe-1-6-slow": 1,
-        "opencode · big-pickle": 24
-      },
-      "tool_ai_lines": {
-        "claude": 1,
-        "opencode": 24
-      },
-      "model_ai_lines": {
-        "swe-1-6-slow": 1,
-        "big-pickle": 24
       }
     }
   ]

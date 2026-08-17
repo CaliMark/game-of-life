@@ -8,48 +8,46 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4205**
-- **AI-generated:** 611 lines (14.5%)
+- Total lines added: **4202**
+- **AI-generated:** 586 lines (13.9%)
 - **Human:** 1 lines (0.2% of project)
-- **Bot:** 3555 lines (84.5%) — excluded from pie
-- **Untracked:** 38 lines (0.9%)
-- **Human-directed AI:** 611 lines (weighted credit: 306 lines at W=0.5, 50.2% of project)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 306 lines; credit to agent: 0 lines
+- **Bot:** 3575 lines (85.1%) — excluded from pie
+- **Untracked:** 40 lines (1.0%)
+- **Human-directed AI:** 586 lines (weighted credit: 293 lines at W=0.5, 50.1% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 293 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** claude · swe-1-6-slow (1 lines), devin · swe-1-6-slow (1 lines), opencode · big-pickle (606 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** devin · swe-1-6-slow (1 lines), opencode · big-pickle (582 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 1
-    "Human (direction)" : 306
-    "AI · big-pickle" : 303
+    "Human (direction)" : 293
+    "AI · big-pickle" : 291
     "AI · qwen2.5-7b-instruct" : 1
     "AI · swe-1-6-slow" : 1
-    "Untracked" : 38
+    "Untracked" : 40
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "claude · swe-1-6-slow" : 1
     "devin · swe-1-6-slow" : 1
-    "opencode · big-pickle" : 606
+    "opencode · big-pickle" : 582
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "claude" : 1
     "devin" : 1
-    "opencode" : 609
+    "opencode" : 585
 ```
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 606
+    "big-pickle" : 582
     "qwen2.5-7b-instruct" : 3
-    "swe-1-6-slow" : 2
+    "swe-1-6-slow" : 1
 ```
 
 ```mermaid
@@ -98,6 +96,8 @@ pie title Human lines by contributor
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 16baa7b | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 2 | 0% | 0% |  |  | untracked |
+| 77e89f5 | 2026-08-17 | docs: regenerate AI authorship report | 88 | 0% | 0% |  |  | bot |
 | ed754b5 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 1 | 0% | 0% |  |  | untracked |
 | 2a389b7 | 2026-08-17 | docs: regenerate AI authorship report | 173 | 0% | 0% |  |  | bot |
 | 96738d5 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 37 | 0% | 0% |  |  | untracked |
@@ -146,8 +146,6 @@ pie title Human lines by contributor
 | b7e37f0 | 2026-08-14 | docs: manually shorten needpc.net line (human-attributed edit) | 1 | 0% | 100% |  |  | human |
 | 7195ad1 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
 | ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% |  |  | devin · swe-1-6-slow |
-| 9973fde | 2026-08-14 | docs: regenerate AI authorship report | 68 | 0% | 0% |  |  | bot |
-| 150f8a4 | 2026-08-13 | feat: attribute Devin Desktop edits via .devin hooks to git-ai | 25 | 100% | 0% |  |  | claude · swe-1-6-slow, opencode · big-pickle |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -155,7 +153,33 @@ pie title Human lines by contributor
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit ed754b5e26eb1fbec9878f596e7688c204518729 (HEAD -> main, origin/main)
+commit 16baa7b78496f71696ce3d1131207d688d3c1c79 (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T14:41:55-07:00
+
+    sync: update authorship report script + workflow from ai-authorship
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 77e89f55f497a2e115d027b97a933456f828a98e
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T21:29:34Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit ed754b5e26eb1fbec9878f596e7688c204518729
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T14:29:08-07:00
 
@@ -633,52 +657,6 @@ Date:   2026-08-16T12:59:46-07:00
             "agent_id": {
               "tool": "opencode",
               "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 54f5cf4db37cded72f028cf8c8345ac056820517
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-16T19:53:17Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit b865bf19b178d824d33f65d7103efa9f28273d91
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T12:52:50-07:00
-
-    chore: regenerate report — initial commit rolled out of 50-commit window
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      AI-AUTHORSHIP.md
-        s_52d0732141ad88::t_90c2214b181fbe 11-12,14-16,22,24,37,57,114-127
-      AI-AUTHORSHIP.json
-        s_52d0732141ad88::t_90c2214b181fbe 3,5,7-9,12-15,25,30-79
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "b865bf19b178d824d33f65d7103efa9f28273d91",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
               "model": "big-pickle"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
