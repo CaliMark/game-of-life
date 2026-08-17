@@ -448,30 +448,42 @@ push to `main`.
 
 {human_pie_block}
 
-> **Legend:** `opencode · big-pickle` = agent and the LLM model that generated
-> the lines (model is recorded when git-ai can resolve it from the agent's
-> session data). `bot` = committed by an automated account (`github-actions[bot]`
-> and other `[bot]` accounts, e.g. the workflow regenerating this report) — known
-> authorship, not attributed through git-ai. `untracked` = lines with no
-> attribution data — written before git-ai was set up or made in the github.com
-> web UI (cannot be retroactively attributed). `human` = written directly by a
-> human and recorded via `git-ai checkpoint human` or the git-ai extension.
-> `Human (direct)` = human-written lines; `Human (direction)` = the credited
-> share of AI lines from sessions whose human driver git-ai recorded (weight
-> `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5); `Agent (idea)` = lines
-> implementing an idea the agent itself suggested earlier (via `Idea-By: agent`
-> commit trailer), credited to the agent rather than the human who requested
-> it (weight `I` = `REPORT_IDEA_WEIGHT`, default 0.3). `AI` = the AI lines not
-> credited to the human (including autonomous AI with no recorded driver). `A` in
-> the per-commit table marks a commit whose idea the agent originated; `✓` marks
-> a co-authored commit (contains both human-written and AI lines). These are
-> line-count percentages, not commit counts. The composition pie excludes the
-> report's own `bot` commits by default; set `REPORT_SHOW_BOT_CHART=1` to
-> include them, or `REPORT_SHOW_DIRECTION=0` for a strict AI/Human/Untracked
-> line-count pie. The "AI lines by tool" and "AI lines by model" pies break
-> down the AI attribution by the agent tool and LLM model that produced the
-> lines. "Human lines by contributor" shows human-written lines broken down by
-> the commit author who recorded them (via `git-ai checkpoint human`).
+<details>
+<summary>Legend — Human, AI, direction credit, and table markers</summary>
+
+> **Agent format:** `opencode · big-pickle` = agent and the LLM model that
+> generated the lines (model is recorded when git-ai can resolve it from the
+> agent's session data).
+>
+> **Pie slices:** `Human (direct)` = human-written lines; `Human (direction)` =
+> the credited share of AI lines from sessions whose human driver git-ai
+> recorded (weight `W` = `REPORT_HUMAN_DIRECTION_WEIGHT`, default 0.5);
+> `Agent (idea)` = lines implementing an idea the agent itself suggested
+> earlier (via `Idea-By: agent` commit trailer), credited to the agent rather
+> than the human who requested it (weight `I` = `REPORT_IDEA_WEIGHT`, default
+> 0.3); `AI` = the AI lines not credited to the human (including autonomous
+> AI with no recorded driver).
+>
+> **Table markers:** `✓` = co-authored commit (contains both human-written
+> and AI lines); `A` = commit whose idea the agent originated.
+>
+> **Other:** `bot` = committed by an automated account (`github-actions[bot]`
+> and other `[bot]` accounts) — known authorship, not attributed through
+> git-ai. `untracked` = lines with no attribution data — written before
+> git-ai was set up or made in the github.com web UI (cannot be retroactively
+> attributed). `human` = written directly by a human and recorded via
+> `git-ai checkpoint human` or the git-ai extension.
+>
+> **Config:** these are line-count percentages, not commit counts. The
+> composition pie excludes the report's own `bot` commits by default; set
+> `REPORT_SHOW_BOT_CHART=1` to include them, or `REPORT_SHOW_DIRECTION=0`
+> for a strict AI/Human/Untracked line-count pie. The "AI lines by tool" and
+> "AI lines by model" pies break down the AI attribution by the agent tool
+> and LLM model that produced the lines. "Human lines by contributor" shows
+> human-written lines broken down by the commit author who recorded them (via
+> `git-ai checkpoint human`).
+
+</details>
 
 ## Per-commit breakdown
 

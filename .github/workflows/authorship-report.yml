@@ -42,7 +42,7 @@ env:
   # REPORT_SHOW_BREAKDOWN: "1"
   # Show the "AI lines by agent" (tool x model) pie. Set to "0" to hide it
   # when the tool and model pies already suffice.
-  REPORT_SHOW_AGENT_CHART: "0"
+  # REPORT_SHOW_AGENT_CHART: "1"
 
 jobs:
   generate:
