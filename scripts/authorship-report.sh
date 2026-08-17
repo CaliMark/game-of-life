@@ -424,7 +424,7 @@ push to `main`.
 - Commits analyzed: **{len(commits)}** (last {commit_limit})
 - Total lines added: **{total}**
 - **AI-generated:** {total_ai} lines ({pct(total_ai)}%)
-- **Human:** {total_human} lines ({pct(total_human)}%)
+- **Human:** {total_human} lines ({round(100 * total_human / (total_human + total_ai), 1) if (total_human + total_ai) else 0.0}% of project)
 - **Bot:** {total_bot} lines ({pct(total_bot)}%)
 - **Untracked:** {total_unknown} lines ({pct(total_unknown)}%)
 - **Human-directed AI:** {total_human_directed_ai} lines (weighted credit: {human_direction_credit} lines at W={direction_weight:g}, {round(100 * (total_human + human_direction_credit) / (total_human + total_ai), 1) if (total_human + total_ai) else 0.0}% of project)
