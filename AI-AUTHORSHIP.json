@@ -1,18 +1,18 @@
 {
   "schema_version": 4,
-  "generated_at": "2026-08-18T02:08:57.706399+00:00",
+  "generated_at": "2026-08-18T02:18:42.953870+00:00",
   "summary": {
     "commits_analyzed": 50,
     "commit_limit": 50,
-    "total_lines": 4300,
+    "total_lines": 4385,
     "ai_lines": 585,
-    "ai_pct": 13.6,
-    "human_lines": 1,
+    "ai_pct": 13.3,
+    "human_lines": 0,
     "human_pct": 0.0,
-    "bot_lines": 3625,
-    "bot_pct": 84.3,
-    "unknown_lines": 89,
-    "unknown_pct": 2.1,
+    "bot_lines": 3694,
+    "bot_pct": 84.2,
+    "unknown_lines": 106,
+    "unknown_pct": 2.4,
     "human_directed_ai_lines": 585,
     "human_directed_ai_pct": 100.0,
     "autonomous_ai_lines": 0,
@@ -37,6 +37,50 @@
     }
   },
   "commits": [
+    {
+      "sha": "5489ba1",
+      "date": "2026-08-17",
+      "author": "CaliMark",
+      "subject": "sync: update authorship report script + workflow from ai-authorship",
+      "lines_added": 17,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 17,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "untracked"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
+    {
+      "sha": "f380c63",
+      "date": "2026-08-18",
+      "author": "github-actions[bot]",
+      "subject": "docs: regenerate AI authorship report",
+      "lines_added": 116,
+      "ai_additions": 0,
+      "human_additions": 0,
+      "unknown_additions": 116,
+      "ai_pct": 0,
+      "human_pct": 0,
+      "human_directed": false,
+      "session_count": 0,
+      "idea_source": "human",
+      "co_contributed": false,
+      "agents": [
+        "bot"
+      ],
+      "agent_ai_lines": {},
+      "tool_ai_lines": {},
+      "model_ai_lines": {}
+    },
     {
       "sha": "444e7e0",
       "date": "2026-08-17",
@@ -1199,50 +1243,6 @@
       "idea_source": "human",
       "co_contributed": false,
       "agents": [],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "8cba1ef",
-      "date": "2026-08-15",
-      "author": "github-actions[bot]",
-      "subject": "docs: regenerate AI authorship report",
-      "lines_added": 47,
-      "ai_additions": 0,
-      "human_additions": 0,
-      "unknown_additions": 47,
-      "ai_pct": 0,
-      "human_pct": 0,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "bot"
-      ],
-      "agent_ai_lines": {},
-      "tool_ai_lines": {},
-      "model_ai_lines": {}
-    },
-    {
-      "sha": "b7e37f0",
-      "date": "2026-08-14",
-      "author": "CaliMark",
-      "subject": "docs: manually shorten needpc.net line (human-attributed edit)",
-      "lines_added": 1,
-      "ai_additions": 0,
-      "human_additions": 1,
-      "unknown_additions": 0,
-      "ai_pct": 0,
-      "human_pct": 100,
-      "human_directed": false,
-      "session_count": 0,
-      "idea_source": "human",
-      "co_contributed": false,
-      "agents": [
-        "human"
-      ],
       "agent_ai_lines": {},
       "tool_ai_lines": {},
       "model_ai_lines": {}
