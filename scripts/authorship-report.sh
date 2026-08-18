@@ -451,6 +451,16 @@ else:
     ]
 bot_pie_block = "```mermaid\npie title " + bot_pie_title + "\n" + "\n".join(bot_pie_rows) + "\n```"
 
+# Non-weighted with bot: AI vs Human vs Bot vs Untracked (no direction credit)
+strict_bot_pie_title = "Lines by author (AI vs Human vs Bot vs Untracked)"
+strict_bot_pie_rows = [
+    f'    "AI" : {total_ai}',
+    f'    "Human" : {total_human}',
+    f'    "Bot" : {total_bot}',
+    f'    "Untracked" : {total_unknown}',
+]
+strict_bot_pie_block = "```mermaid\npie title " + strict_bot_pie_title + "\n" + "\n".join(strict_bot_pie_rows) + "\n```"
+
 md = f"""# AI Authorship Report
 
 This file shows which AI coding agent (or human) wrote the code in each commit,
@@ -494,6 +504,13 @@ push to `main`.
 <summary>Show chart with bot commits included</summary>
 
 {bot_pie_block}
+
+</details>
+
+<details>
+<summary>Show AI vs Human vs Bot (non-weighted)</summary>
+
+{strict_bot_pie_block}
 
 </details>
 
