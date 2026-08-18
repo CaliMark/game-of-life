@@ -1,0 +1,21 @@
+.github/workflows/authorship-report.yml
+  s_988aa8c761b089::t_fa94a251a2519c 46-48
+scripts/authorship-report.sh
+  s_988aa8c761b089::t_e1242a2a14ba93 102-108,471-486,509
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.22",
+  "base_commit_sha": "f9c693d94fa1d8d21d64a8947154c949ef5cccad",
+  "prompts": {},
+  "sessions": {
+    "s_988aa8c761b089": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
+        "model": "big-pickle"
+      },
+      "human_author": "CaliMark <mreed@needpc.net>"
+    }
+  }
+}
