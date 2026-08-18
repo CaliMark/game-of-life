@@ -8,84 +8,97 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4520**
-- **AI-generated:** 585 lines (12.9%)
+- Total lines added: **4589**
+- **AI-generated:** 583 lines (12.7%)
 - **Human:** 0 lines (0.0% of project)
-- **Bot:** 3802 lines (84.1%) — excluded from pie
-- **Untracked:** 133 lines (2.9%)
-- **Human-directed AI:** 585 lines (weighted credit: 293 lines at W=0.5, 50.1% of project)
-- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 293 lines; credit to agent: 0 lines
+- **Bot:** 3855 lines (84.0%) — excluded from pie
+- **Untracked:** 151 lines (3.3%)
+- **Human-directed AI:** 583 lines (weighted credit: 292 lines at W=0.5, 50.1% of project)
+- **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 292 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** opencode · big-pickle (582 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** opencode · big-pickle (580 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
 ```mermaid
 pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 293
-    "AI · big-pickle" : 291
+    "Human (direction)" : 292
+    "AI · big-pickle" : 290
     "AI · qwen2.5-7b-instruct" : 1
-    "Untracked" : 133
+    "Untracked" : 151
 ```
 
 <details>
-<summary>Show Strict AI/Human/Untracked chart</summary>
+<summary>Show Strict AI/Human/Untracked</summary>
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Untracked)
-    "AI" : 585
+    "AI" : 583
     "Human" : 0
-    "Untracked" : 133
+    "Untracked" : 151
 ```
 
 </details>
 
 <details>
-<summary>Show Weighted with bot commits chart</summary>
+<summary>Show Weighted with bot commits</summary>
 
 ```mermaid
 pie title Co-contribution with bot (weighted, W=0.5)
     "Human (direct)" : 0
-    "Human (direction)" : 293
-    "AI" : 292
-    "Bot" : 3802
-    "Untracked" : 133
+    "Human (direction)" : 292
+    "AI" : 291
+    "Bot" : 3855
+    "Untracked" : 151
 ```
 
 </details>
 
 <details>
-<summary>Show AI vs Human vs Bot (non-weighted) chart</summary>
+<summary>Show AI vs Human vs Bot (non-weighted)</summary>
 
 ```mermaid
 pie title Lines by author (AI vs Human vs Bot vs Untracked)
-    "AI" : 585
+    "AI" : 583
     "Human" : 0
-    "Bot" : 3802
-    "Untracked" : 133
+    "Bot" : 3855
+    "Untracked" : 151
 ```
 
 </details>
 
+<details>
+<summary>Show AI lines by agent</summary>
+
 ```mermaid
 pie title AI lines by agent
-    "opencode · big-pickle" : 582
+    "opencode · big-pickle" : 580
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
+</details>
+
+<details>
+<summary>Show AI lines by tool</summary>
+
 ```mermaid
 pie title AI lines by tool
-    "opencode" : 585
+    "opencode" : 583
 ```
+
+</details>
+
+<details>
+<summary>Show AI lines by model</summary>
 
 ```mermaid
 pie title AI lines by model
-    "big-pickle" : 582
+    "big-pickle" : 580
     "qwen2.5-7b-instruct" : 3
 ```
 
-
+</details>
 
 <details>
 <summary>Legend — Human, AI, direction credit, and table markers</summary>
@@ -128,6 +141,8 @@ pie title AI lines by model
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| d273937 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 18 | 0% | 0% |  |  | untracked |
+| b15c30e | 2026-08-18 | docs: regenerate AI authorship report | 112 | 0% | 0% |  |  | bot |
 | cc9e052 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 27 | 0% | 0% |  |  | untracked |
 | fd7b48f | 2026-08-18 | docs: regenerate AI authorship report | 108 | 0% | 0% |  |  | bot |
 | 5489ba1 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 17 | 0% | 0% |  |  | untracked |
@@ -176,8 +191,6 @@ pie title AI lines by model
 | 2c9790a | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
 | 7b79bd1 | 2026-08-15 | Created by LM Stuido with opencode | 3 | 100% | 0% |  |  | opencode · qwen2.5-7b-instruct |
 | b79a733 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
-| d8ae5d6 | 2026-08-14 | docs: add live website link (needpc.net/life) | 2 | 100% | 0% |  |  | opencode · big-pickle |
-| d61a459 | 2026-08-15 | docs: regenerate AI authorship report | 59 | 0% | 0% |  |  | bot |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -185,7 +198,33 @@ pie title AI lines by model
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit cc9e0520f096616613b416669ec1505e0301ac91 (HEAD -> main, origin/main)
+commit d273937eacc4128bd281235122ca2d42ba38c25f (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T21:20:06-07:00
+
+    sync: update authorship report script + workflow from ai-authorship
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit b15c30eddc14c6f5c03d721a8e1a2643d86fac95
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-18T03:11:05Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit cc9e0520f096616613b416669ec1505e0301ac91
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T20:10:36-07:00
 
@@ -587,50 +626,6 @@ Date:   2026-08-16T21:58:03-07:00
             "agent_id": {
               "tool": "opencode",
               "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit 4c3973e09028619c536315752f6b523df742d017
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-17T01:58:57Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit 5e213ad36392097823d2126716da246876874487
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T18:58:28-07:00
-
-    sync: human lines by contributor pie from ai-authorship
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      scripts/authorship-report.sh
-        s_52d0732141ad88::t_0c661d97d72b06 260-266,363,445-446,469-470
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "5e213ad36392097823d2126716da246876874487",
-        "prompts": {},
-        "sessions": {
-          "s_52d0732141ad88": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_008f7fcbaffeQRUMaWQo3qCxm4",
               "model": "big-pickle"
             },
             "human_author": "CaliMark <mreed@needpc.net>"
