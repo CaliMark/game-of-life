@@ -371,7 +371,7 @@ detail = open(detail_path, encoding="utf-8").read()
 agent_pie_block = agent_pie() if show_agent_chart else ""
 tool_pie_block = generic_pie("AI lines by tool", tool_lines) if show_breakdown else ""
 model_pie_block = generic_pie("AI lines by model", model_lines) if show_breakdown else ""
-human_pie_block = generic_pie("Human lines by contributor", human_lines_by_author)
+human_pie_block = generic_pie("Human lines by contributor", human_lines_by_author) if human_lines_by_author else ""
 
 # Composition pie. Two modes:
 #   - show_direction (default): weighted co-contribution view. Human-direct
@@ -469,20 +469,26 @@ strict_bot_pie_rows = [
 strict_bot_pie_block = "```mermaid\npie title " + strict_bot_pie_title + "\n" + "\n".join(strict_bot_pie_rows) + "\n```"
 
 # Build composition section: default_chart determines the top (expanded) chart,
-# all others are collapsed.
-chart_options = [
-    ("weighted", "Co-contribution (weighted)", pie_block),
-    ("strict", "Strict AI/Human/Untracked", strict_pie_block),
-    ("bot", "Weighted with bot commits", bot_pie_block),
-    ("strict_bot", "AI vs Human vs Bot (non-weighted)", strict_bot_pie_block),
+# all others are collapsed. Each chart can be toggled on/off via env vars.
+all_charts = [
+    ("weighted", "Co-contribution (weighted)", pie_block, True),
+    ("strict", "Strict AI/Human/Untracked", strict_pie_block, True),
+    ("bot", "Weighted with bot commits", bot_pie_block, True),
+    ("strict_bot", "AI vs Human vs Bot (non-weighted)", strict_bot_pie_block, True),
+    ("agent", "AI lines by agent", agent_pie_block, show_agent_chart),
+    ("tool", "AI lines by tool", tool_pie_block, show_breakdown),
+    ("model", "AI lines by model", model_pie_block, show_breakdown),
+    ("human", "Human lines by contributor", human_pie_block, bool(human_lines_by_author)),
 ]
-top_label = next(lbl for key, lbl, _ in chart_options if key == default_chart)
-top_block = next(blk for key, _, blk in chart_options if key == default_chart)
+# Filter to charts that have content and are enabled
+active_charts = [(k, l, b) for k, l, b, enabled in all_charts if b and enabled]
+# Separate top chart from collapsed charts
+top_chart = next((b for k, _, b in active_charts if k == default_chart), active_charts[0][2] if active_charts else "")
 collapsed_sections = []
-for key, lbl, blk in chart_options:
+for key, lbl, blk in active_charts:
     if key != default_chart:
-        collapsed_sections.append(f"<details>\n<summary>Show {lbl} chart</summary>\n\n{blk}\n\n</details>")
-charts_block = top_block + "\n\n" + "\n\n".join(collapsed_sections)
+        collapsed_sections.append(f"<details>\n<summary>Show {lbl}</summary>\n\n{blk}\n\n</details>")
+charts_block = top_chart + ("\n\n" + "\n\n".join(collapsed_sections) if collapsed_sections else "")
 
 md = f"""# AI Authorship Report
 
@@ -507,14 +513,6 @@ push to `main`.
 ## Composition
 
 {charts_block}
-
-{agent_pie_block}
-
-{tool_pie_block}
-
-{model_pie_block}
-
-{human_pie_block}
 
 <details>
 <summary>Legend — Human, AI, direction credit, and table markers</summary>
