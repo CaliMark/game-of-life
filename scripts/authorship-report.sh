@@ -416,6 +416,41 @@ else:
     ]
 pie_block = "```mermaid\npie title " + pie_title + "\n" + "\n".join(pie_rows) + "\n```"
 
+# Alternative charts (always generated, shown in collapsible blocks)
+# Strict chart: AI vs Human vs Untracked (no direction credit, no bot)
+strict_pie_title = "Lines by author (AI vs Human vs Untracked)"
+strict_pie_rows = [
+    f'    "AI" : {total_ai}',
+    f'    "Human" : {total_human}',
+    f'    "Untracked" : {total_unknown}',
+]
+strict_pie_block = "```mermaid\npie title " + strict_pie_title + "\n" + "\n".join(strict_pie_rows) + "\n```"
+
+# Bot-included chart: same as main but always includes bot
+if show_direction:
+    bot_pie_title = f"Co-contribution with bot (weighted, W={direction_weight:g}"
+    if agent_idea_credit:
+        bot_pie_title += f", I={idea_weight:g}"
+    bot_pie_title += ")"
+    bot_pie_rows = [
+        f'    "Human (direct)" : {total_human}',
+        f'    "Human (direction)" : {human_direction_credit}',
+    ]
+    if agent_idea_credit:
+        bot_pie_rows.append(f'    "Agent (idea)" : {agent_idea_credit}')
+    bot_pie_rows.append(f'    "AI" : {ai_remaining}')
+    bot_pie_rows.append(f'    "Bot" : {total_bot}')
+    bot_pie_rows.append(f'    "Untracked" : {total_unknown}')
+else:
+    bot_pie_title = "Lines by author (AI vs Human vs Bot vs Untracked)"
+    bot_pie_rows = [
+        f'    "AI" : {total_ai}',
+        f'    "Human" : {total_human}',
+        f'    "Bot" : {total_bot}',
+        f'    "Untracked" : {total_unknown}',
+    ]
+bot_pie_block = "```mermaid\npie title " + bot_pie_title + "\n" + "\n".join(bot_pie_rows) + "\n```"
+
 md = f"""# AI Authorship Report
 
 This file shows which AI coding agent (or human) wrote the code in each commit,
@@ -447,6 +482,20 @@ push to `main`.
 {model_pie_block}
 
 {human_pie_block}
+
+<details>
+<summary>Show strict AI/Human/Untracked chart (no direction credit)</summary>
+
+{strict_pie_block}
+
+</details>
+
+<details>
+<summary>Show chart with bot commits included</summary>
+
+{bot_pie_block}
+
+</details>
 
 <details>
 <summary>Legend — Human, AI, direction credit, and table markers</summary>
