@@ -99,6 +99,13 @@ show_breakdown = os.environ.get("REPORT_SHOW_BREAKDOWN", "1").lower() in ("1", "
 # Set REPORT_SHOW_AGENT_CHART=0 to hide it when tool and model pies suffice.
 show_agent_chart = os.environ.get("REPORT_SHOW_AGENT_CHART", "1").lower() in ("1", "true", "yes")
 
+# Which composition chart is shown expanded at the top. All other charts are
+# collapsed under it. Options: "weighted" (default), "strict", "bot",
+# "strict_bot".
+default_chart = os.environ.get("REPORT_DEFAULT_CHART", "weighted").lower().strip()
+if default_chart not in ("weighted", "strict", "bot", "strict_bot"):
+    default_chart = "weighted"
+
 # --- Collect commits -------------------------------------------------------
 fmt = "%H\t%ad\t%an\t%s\t%(trailers:key=Idea-By,only=yes,unfold=yes,valueonly=yes)"
 raw = subprocess.run(
@@ -461,6 +468,22 @@ strict_bot_pie_rows = [
 ]
 strict_bot_pie_block = "```mermaid\npie title " + strict_bot_pie_title + "\n" + "\n".join(strict_bot_pie_rows) + "\n```"
 
+# Build composition section: default_chart determines the top (expanded) chart,
+# all others are collapsed.
+chart_options = [
+    ("weighted", "Co-contribution (weighted)", pie_block),
+    ("strict", "Strict AI/Human/Untracked", strict_pie_block),
+    ("bot", "Weighted with bot commits", bot_pie_block),
+    ("strict_bot", "AI vs Human vs Bot (non-weighted)", strict_bot_pie_block),
+]
+top_label = next(lbl for key, lbl, _ in chart_options if key == default_chart)
+top_block = next(blk for key, _, blk in chart_options if key == default_chart)
+collapsed_sections = []
+for key, lbl, blk in chart_options:
+    if key != default_chart:
+        collapsed_sections.append(f"<details>\n<summary>Show {lbl} chart</summary>\n\n{blk}\n\n</details>")
+charts_block = top_block + "\n\n" + "\n\n".join(collapsed_sections)
+
 md = f"""# AI Authorship Report
 
 This file shows which AI coding agent (or human) wrote the code in each commit,
@@ -483,7 +506,7 @@ push to `main`.
 
 ## Composition
 
-{pie_block}
+{charts_block}
 
 {agent_pie_block}
 
@@ -492,27 +515,6 @@ push to `main`.
 {model_pie_block}
 
 {human_pie_block}
-
-<details>
-<summary>Show strict AI/Human/Untracked chart (no direction credit)</summary>
-
-{strict_pie_block}
-
-</details>
-
-<details>
-<summary>Show chart with bot commits included</summary>
-
-{bot_pie_block}
-
-</details>
-
-<details>
-<summary>Show AI vs Human vs Bot (non-weighted)</summary>
-
-{strict_bot_pie_block}
-
-</details>
 
 <details>
 <summary>Legend — Human, AI, direction credit, and table markers</summary>

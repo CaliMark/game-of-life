@@ -43,6 +43,9 @@ env:
   # Show the "AI lines by agent" (tool x model) pie. Set to "0" to hide it
   # when the tool and model pies already suffice.
   # REPORT_SHOW_AGENT_CHART: "1"
+  # Which composition chart is expanded at the top. All others are collapsed
+  # under it. Options: "weighted" (default), "strict", "bot", "strict_bot".
+  # REPORT_DEFAULT_CHART: "weighted"
 
 jobs:
   generate:
