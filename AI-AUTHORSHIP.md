@@ -8,15 +8,15 @@ push to `main`.
 ## Summary
 
 - Commits analyzed: **50** (last 50)
-- Total lines added: **4202**
-- **AI-generated:** 586 lines (13.9%)
+- Total lines added: **4300**
+- **AI-generated:** 585 lines (13.6%)
 - **Human:** 1 lines (0.2% of project)
-- **Bot:** 3575 lines (85.1%) — excluded from pie
-- **Untracked:** 40 lines (1.0%)
-- **Human-directed AI:** 586 lines (weighted credit: 293 lines at W=0.5, 50.1% of project)
+- **Bot:** 3625 lines (84.3%) — excluded from pie
+- **Untracked:** 89 lines (2.1%)
+- **Human-directed AI:** 585 lines (weighted credit: 293 lines at W=0.5, 50.2% of project)
 - **Agent-suggested ideas:** 0 AI lines (0.0% of AI; idea weight 0.3) — credit to human: 293 lines; credit to agent: 0 lines
 - **Co-authored commits (human + AI lines):** 0
-- **Agents:** devin · swe-1-6-slow (1 lines), opencode · big-pickle (582 lines), opencode · qwen2.5-7b-instruct (3 lines)
+- **Agents:** opencode · big-pickle (582 lines), opencode · qwen2.5-7b-instruct (3 lines)
 
 ## Composition
 
@@ -26,20 +26,17 @@ pie title Co-contribution (weighted, human direction weight W=0.5)
     "Human (direction)" : 293
     "AI · big-pickle" : 291
     "AI · qwen2.5-7b-instruct" : 1
-    "AI · swe-1-6-slow" : 1
-    "Untracked" : 40
+    "Untracked" : 89
 ```
 
 ```mermaid
 pie title AI lines by agent
-    "devin · swe-1-6-slow" : 1
     "opencode · big-pickle" : 582
     "opencode · qwen2.5-7b-instruct" : 3
 ```
 
 ```mermaid
 pie title AI lines by tool
-    "devin" : 1
     "opencode" : 585
 ```
 
@@ -47,13 +44,38 @@ pie title AI lines by tool
 pie title AI lines by model
     "big-pickle" : 582
     "qwen2.5-7b-instruct" : 3
-    "swe-1-6-slow" : 1
 ```
 
 ```mermaid
 pie title Human lines by contributor
     "CaliMark" : 1
 ```
+
+<details>
+<summary>Show strict AI/Human/Untracked chart (no direction credit)</summary>
+
+```mermaid
+pie title Lines by author (AI vs Human vs Untracked)
+    "AI" : 585
+    "Human" : 1
+    "Untracked" : 89
+```
+
+</details>
+
+<details>
+<summary>Show chart with bot commits included</summary>
+
+```mermaid
+pie title Co-contribution with bot (weighted, W=0.5)
+    "Human (direct)" : 1
+    "Human (direction)" : 293
+    "AI" : 292
+    "Bot" : 3625
+    "Untracked" : 89
+```
+
+</details>
 
 <details>
 <summary>Legend — Human, AI, direction credit, and table markers</summary>
@@ -96,6 +118,8 @@ pie title Human lines by contributor
 
 | Commit | Date | Message | Lines | AI | Human | Co | Idea | Agent(s) |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 444e7e0 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 49 | 0% | 0% |  |  | untracked |
+| 9d2d55e | 2026-08-17 | docs: regenerate AI authorship report | 102 | 0% | 0% |  |  | bot |
 | 16baa7b | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 2 | 0% | 0% |  |  | untracked |
 | 77e89f5 | 2026-08-17 | docs: regenerate AI authorship report | 88 | 0% | 0% |  |  | bot |
 | ed754b5 | 2026-08-17 | sync: update authorship report script + workflow from ai-authorship | 1 | 0% | 0% |  |  | untracked |
@@ -144,8 +168,6 @@ pie title Human lines by contributor
 | 293f451 | 2026-08-14 | docs: remove needpc.net line | 0 | 0% | 0% |  |  | none |
 | 8cba1ef | 2026-08-15 | docs: regenerate AI authorship report | 47 | 0% | 0% |  |  | bot |
 | b7e37f0 | 2026-08-14 | docs: manually shorten needpc.net line (human-attributed edit) | 1 | 0% | 100% |  |  | human |
-| 7195ad1 | 2026-08-15 | docs: regenerate AI authorship report | 52 | 0% | 0% |  |  | bot |
-| ca7ee4b | 2026-08-14 | docs: add TeamWork mention via Devin Desktop live test | 1 | 100% | 0% |  |  | devin · swe-1-6-slow |
 
 ## Raw git-ai log (last 25 commits)
 
@@ -153,7 +175,33 @@ pie title Human lines by contributor
 <summary>Show raw attribution detail</summary>
 
 ```text
-commit 16baa7b78496f71696ce3d1131207d688d3c1c79 (HEAD -> main, origin/main)
+commit 444e7e06145ba9529258706c6b9bde67ee7f330a (HEAD -> main, origin/main)
+Author: CaliMark <mreed@needpc.net>
+Date:   2026-08-17T19:08:27-07:00
+
+    sync: update authorship report script + workflow from ai-authorship
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 9d2d55ec92fb845d70e35bb2d1aa536834f78593
+Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+Date:   2026-08-17T21:42:23Z
+
+    docs: regenerate AI authorship report
+
+    Git AI stats:
+      you  ········································ ai
+           0%           untracked 100%            0%
+
+    Authorship note:
+      (none)
+
+commit 16baa7b78496f71696ce3d1131207d688d3c1c79
 Author: CaliMark <mreed@needpc.net>
 Date:   2026-08-17T14:41:55-07:00
 
@@ -607,50 +655,6 @@ Date:   2026-08-16T13:47:31-07:00
         "schema_version": "authorship/3.0.0",
         "git_ai_version": "1.6.22",
         "base_commit_sha": "4a2cd6e3fced29e1899d87761d445fd225308691",
-        "prompts": {},
-        "sessions": {
-          "s_988aa8c761b089": {
-            "agent_id": {
-              "tool": "opencode",
-              "id": "ses_00bd75ff9ffesJ1tSH9l7XQdiY",
-              "model": "big-pickle"
-            },
-            "human_author": "CaliMark <mreed@needpc.net>"
-          }
-        }
-      }
-
-commit cdfa377c800722f79e18b8e21560eb5e5195e407
-Author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
-Date:   2026-08-16T20:00:15Z
-
-    docs: regenerate AI authorship report
-
-    Git AI stats:
-      you  ········································ ai
-           0%           untracked 100%            0%
-
-    Authorship note:
-      (none)
-
-commit d8fcf128f16ea9cb5778792ca0a8ae9f0801f452
-Author: CaliMark <mreed@needpc.net>
-Date:   2026-08-16T12:59:46-07:00
-
-    sync: fix copy-in workflow to commit AI-AUTHORSHIP.json alongside the .md
-
-    Git AI stats:
-      you  ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░ ai
-           0%                                  100%
-
-    Authorship note:
-      .github/workflows/authorship-report.yml
-        s_988aa8c761b089::t_1863205ea494a2 60,69-70,72,77
-      ---
-      {
-        "schema_version": "authorship/3.0.0",
-        "git_ai_version": "1.6.22",
-        "base_commit_sha": "d8fcf128f16ea9cb5778792ca0a8ae9f0801f452",
         "prompts": {},
         "sessions": {
           "s_988aa8c761b089": {
